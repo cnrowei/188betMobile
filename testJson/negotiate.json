@@ -1,0 +1,12 @@
+{
+    "Url": "/signalr",
+    "ConnectionToken": "vvCkpPZ/GO8PIinqUxzsRnIWenbgziU3+Ci57wQDRxdhhOR/QqYTxAz1GdiZUeU+2/jmTdBJIkLjbJzb9zdZixvE2Ix1VZL69C4ua5CEaXer4Xb17pxDltxe0qFmqKXx",
+    "ConnectionId": "65428237-542d-49d4-b72c-6fb69558cf4e",
+    "KeepAliveTimeout": 20.0,
+    "DisconnectTimeout": 30.0,
+    "ConnectionTimeout": 110.0,
+    "TryWebSockets": false,
+    "ProtocolVersion": "1.5",
+    "TransportConnectTimeout": 5.0,
+    "LongPollDelay": 0.0
+}

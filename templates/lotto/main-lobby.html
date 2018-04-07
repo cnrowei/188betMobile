@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <link href="/Content/MobileThemes/BaseLayout/3/bundle-css.css" rel="stylesheet" />
+    <script type="text/javascript">
+        var gv = {
+            mobile: true,
+            memberId: 268042,
+            distributionChannel: 3,
+            lang: "zh-cn",
+            buCode: "188Bet",
+            ln: "conku188",
+            balanceMode: "SingleWallet",
+            lpb: "{[{.lpb}]}",
+            sit: 30,
+            ita: 0,
+            srhb: 30,
+            wagerLimitInOneBet: 100,
+            productList:[],
+            counterListDic:{},
+            activeKeno:true,
+            activeLotto:true,
+            memberLobbyUrl:"",
+            counterID:"",
+            parentDomain: "",
+            isShowAlert:true,
+            isHideNewBetType:false,
+        };
+        gv.productList.push({ "value": "keno", "name": "快乐彩" });
+        gv.productList.push({ "value": "lotto", "name": "时时彩" });
+        gv.counterListDic["keno"] = [];
+        gv.counterListDic["lotto"] = [];
+        gv.lobbyUrl = {
+            "keno": "/zh-cn/keno/main-lobby",
+            "lotto": "/zh-cn/lotto/main-lobby",
+        };
+
+            gv.counterListDic["keno"].push({ "value": 1, "name":"Beijing" });
+            gv.counterListDic["keno"].push({ "value": 3, "name":"Australia" });
+            gv.counterListDic["keno"].push({ "value": 5, "name":"Canada" });
+            gv.counterListDic["keno"].push({ "value": 2, "name":"Slovakia" });
+            gv.counterListDic["keno"].push({ "value": 6, "name":"Malta" });
+            gv.counterListDic["keno"].push({ "value": 4, "name":"West Canada" });
+
+            gv.counterListDic["lotto"].push({ "value": 310, "name":"ShangHai" });
+            gv.counterListDic["lotto"].push({ "value": 350, "name":"ChinaSwl3D" });
+            gv.counterListDic["lotto"].push({ "value": 320, "name":"Chongqing" });
+            gv.counterListDic["lotto"].push({ "value": 330, "name":"JiangXi" });
+            gv.counterListDic["lotto"].push({ "value": 340, "name":"TianJing" });
+            gv.counterListDic["lotto"].push({ "value": 360, "name":"XinJiang" });
+    </script>
+</head>
+<body class="">
+    <div ng-app="app" ng-controller="mobileCtrl" ng-init="init()">
+        <div id="header" ng-controller="headerCtrl" style="display:none;" ng-style="{display:''}">
+            <nav class="sideNavTop">
+                <div class="nav-wrapper">
+                    <div class="brandIcon"></div>
+                    <div class="left brandLogo" ng-class="{'open':isShowProductList,'close':!isShowProductList}">
+                        <span class="brand-logo" style="z-index:10" ng-click="toggleProductList()">
+                            <span ng-show="product=='lotto'">时时彩</span>
+                            <span ng-show="product=='keno'">快乐彩</span>
+                            <i class="mdi mdi-chevron-down right" ng-show="true&&true"></i>
+                        </span>
+                        <span class="svtime" style="display:none" ng-style="{display:''}"
+                              ng-controller="timerCtrl"
+                              ng-init="init('2018-04-06T21:53:17+08:00')">
+                            {{countDownTimer}}  (GMT+08:00)
+                        </span>
+                    </div>
+                    <div class="switchGame cursor-pointer" ng-show="isShowProductList && true&&true" ng-click="switchProduct()">
+                        <span class="triangle"></span>
+                        <span ng-show="product=='lotto'">快乐彩</span>
+                        <span ng-show="product=='keno'">时时彩</span>
+                    </div>
+                    <div class="right">
+                        <a href="#" data-activates="mobile-demo" class="mw button-collapse" data-sidenav="right"><i class="mdi mdi-menu"></i></a>
+                        <ul class="right hide-on-med-and-down">
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/Report/OpenBets#/'+product)"><a>下注状况</a></li>
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/statement#/'+product)"><a>帐户历史</a></li>
+
+                            <li style="cursor:pointer" ng-click="gotoResult('/zh-cn/report/results#/'+product)"><a>开奖结果</a></li>
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/announcements#/'+product)"><a>公告栏</a></li>
+
+                            <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/rules#/'+product)"><a>规则说明</a></li>
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/home/settings#/'+product)"><a>设定</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <ul class="mb side-nav right-aligned" id="mobile-demo">
+                <li class="side-back" ng-controller="balanceCtrl" ng-init="init(453.2319)">
+                    <i ng-click="hideSideNav()" class="mdi mdi-chevron-right backbtn right"></i>
+
+                            <div class="member-info">
+                                <span class="member">conku188</span>
+                                <span class="memberBalance">RMB {{balance|addComma:2}} </span>
+                            </div>
+                            <i ng-click="refresh()" id="refreshBalanceBtn" class="mdi mdi-refresh refreshbtn"></i>
+                            <span id="refreshBalanceImg" class="refreshanimate refreshbtn"><img src="/Content/MobileThemes/BaseLayout/reload2.svg" /> </span>
+
+
+                </li>
+                        <li class="openBets" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/Report/OpenBets#/'+product, '下注状况')"><a><i class="mdi mdi-square-inc-cash"></i>下注状况</a></li>
+                        <li class="statement" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/Report/Statement#/'+product, '帐户历史')"><a><i class="mdi mdi-history"></i>帐户历史</a></li>
+
+                <li class="results" style="cursor:pointer" ng-click="gotoResult('/zh-cn/report/results#/'+product, '开奖结果')"><a><i class="mdi mdi-file-chart"></i>开奖结果</a></li>
+                <li class="announcements" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/announcements#/'+product, '公告栏')"><a><i class="mdi mdi-bell"><i class="mdi mdi-checkbox-blank-circle badge" ng-show="isShowAlert"></i></i>公告栏</a></li>
+                <li class="rules" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/rules#/'+product,'规则说明')"><a><i class="mdi mdi-information-variant"></i>规则说明</a></li>
+                        <li class="setting" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/home/settings#/'+product,'设定')"><a><i class="mdi mdi-account-settings-variant"></i>设定</a></li>
+                        <li class="deposit" style="cursor:pointer" ng-click="clickMainLobbyInFooter('https://m.oneeightyeightbet.com/zh-cn/my-account/banking/deposit')"><a><i class="mdi mdi-wallet"></i>存款</a></li>
+                        <li class="backtoLobby" style="cursor:pointer" ng-click="clickMainLobbyInFooter('https://m.oneeightyeightbet.com/zh-cn/lotto')"><a><i class="mdi mdi-castle"></i>返回大厅</a></li>
+                        <li class="logout" style="cursor:pointer" ng-click="logout('https://m.oneeightyeightbet.com/zh-cn/my-account/banking/deposit')"><a><i class="mdi mdi-backburger"></i>登出</a></li>
+
+            </ul>
+            <div ng-controller="dialogCtrl" ng-show="isShowDialog">
+                <div class="greyOut"></div>
+                <div class="modal messagebox">
+                    <div class="modal-content">
+                        <h4 class="m-title" ng-bind="title"></h4>
+                        <p ng-bind-html="message"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="modal-action modal-close waves-effect waves-red btn-flat "
+                           ng-repeat="btn in buttons track by $index" ng-click="btn.Callback()" ng-bind="btn.Text">close</a>
+                    </div>
+                </div>
+            </div>
+            <div class="greyOut filled" ng-show="isShowGreyOut" ng-click="hideGreyOut()"></div>
+
+            
+
+
+<div class="lobby lotto" ng-controller="counterCtrl" ng-init="init('','','',false);isMobile=true;setGoBackTarget()">
+    <div class="row">
+        <div class="col s12 lobbylist {{'cu'+($index+1)}}"
+             ng-show="counterList" ng-repeat="counter in counterList track by $index" ng-class="isShowMobileGrayout?'hasGreyout':'nonGreyout'">
+            <a id="counter{{item.id}}" class="counter-c {{item.LogoCss}}" href="/zh-cn/lotto/counter?id={{counter.id}}&counterType={{$index+1}}" ng-class="{close: getStatus()=='close'}">
+                <div class="greyout">
+                    <span ng-switch on="getStatus()">
+    <span ng-switch-when="skip">
+        下一期即将开放投注。。。
+    </span>
+    <span ng-switch-when="close">
+        盘口已关闭
+    </span>
+</span>
+                </div>
+                <div class="row">
+                    <div class="col s8 m9">
+                        <div class="countryName" ng-bind="counter.id|counterName"></div>
+                        <div class="status" ng-if="counter.draw&&getStatus()!='close'"> 受注期号 <span ng-bind="counter.draw.drawNo" style="margin-left:2px"></span></div>
+                        <div class="status" ng-hide="getStatus()=='open'">
+                            <span ng-switch on="getStatus()">
+    <span ng-switch-when="skip">
+        下一期即将开放投注。。。
+    </span>
+    <span ng-switch-when="close">
+        盘口已关闭
+    </span>
+</span>
+                        </div>
+                    </div>
+                    <div class="col s4 m3">
+                        <div class="countdown-text"
+                             ng-if="getStatus()!='close'" ng-bind="counter.timer=(serverTime|countdown:counter.draw.endTime)"
+                             ng-class="{lasttime:(isLessThanBetClosedTime()||!counter.draw||getStatus()=='close')}"></div>
+                    </div>
+                    <div class="countdown-chart col s12" ng-controller="progressBarCtrl" ng-init="init(serverTime, counter);">
+                        <span class="chart" ng-style="{width: percent + '%'}"></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+            <div ng-controller="popupDialogCtrl" class="popupbox" ng-show="isShowPopup">
+                <div class="sub-pa suOpen">
+                    <nav class="top-nav-info otnav">
+                        <div class="nav-wrapper top-nav-info-container">
+                            <div class="brand-name left" ng-if="wagerCount">
+                                {{title}}
+                                <span class="badge">{{wagerCount}}</span>
+                            </div>
+
+                            <div class="brand-name left" ng-if="!wagerCount && !statementDate">
+                                {{title}}
+                            </div>
+                            <a class="iconbtn-next" ng-if="!wagerCount && statementDate"><i ng-click="goBackStatement()" class="mdi mdi-chevron-left right"></i></a>
+                            <div class="brand-name stmd" ng-if="!wagerCount && statementDate">
+                                {{title}} <br><span class="stdate">({{statementDate | date}})</span>
+                            </div>
+                        </div>
+                        <div class="closeBtn-right col s1">
+                            <a href="javascript:void(0);"><i class="mdi mdi-close " ng-click="close()"></i></a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </nav>
+                    <div ng-include="contentUrl"></div>
+                </div>
+            </div>
+        </div>
+        <div class="greyOut filled forVertical displayblock ng-hide" style="" ng-show="isLandScape"><img src="/Content/MobileThemes/BaseLayout/smartphone.svg"></div>
+    </div>
+    
+    <script type="text/javascript">
+        gv.product = "lotto";
+    </script>
+    <script src="/bundles/jquery.js"></script>
+    <script src="/bundles/lottoCounterApp.zh-cn.js"></script>
+
+
+    <script src="/signalrnet/hubs.js" type="text/javascript"></script>
+    <script>
+        angular.module("app").requires.push("layoutApp"); //append layoutApp to app after renderbody.
+        $(document).ready(function () {
+            $("ul.tabs").tabs();
+        });
+    </script>
+</body>
+</html>
