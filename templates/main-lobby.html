@@ -142,7 +142,7 @@
     <div class="row">
         <div class="col s12 lobbylist {{'cu'+($index+1)}}"
              ng-show="counterList" ng-repeat="counter in counterList track by $index" ng-class="isShowMobileGrayout?'hasGreyout':'nonGreyout'">
-            <a id="counter{{item.id}}" class="counter-c {{item.LogoCss}}" href="/zh-cn/lotto/counter?id={{counter.id}}&counterType={{$index+1}}" ng-class="{close: getStatus()=='close'}">
+            <a id="counter{{item.id}}" class="counter-c {{item.LogoCss}}" href="/zh-cn/lotto/counter/{{counter.id}}/{{$index+1}}" ng-class="{close: getStatus()=='close'}">
                 <div class="greyout">
                     <span ng-switch on="getStatus()">
     <span ng-switch-when="skip">
@@ -216,8 +216,6 @@
     <script src="/bundles/jquery.js"></script>
     <script src="/bundles/jqueryui.js"></script>
     <script src="/bundles/lottoCounterApp.zh-cn.js"></script>
-
-
     <script src="/signalrnet/hubs.js" type="text/javascript"></script>
     <script>
         angular.module("app").requires.push("layoutApp"); //append layoutApp to app after renderbody.

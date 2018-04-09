@@ -1,0 +1,119 @@
+<nav id="top-navbar" class="navbar navbar-default nav-down">
+    <div id="nav-wrapper" class="container">
+        <div class="navbar-collapse">
+            <div class="navbar-header">
+                <a id="logo-188bet" class="navbar-brand" ng-href="/{{global.lan}}" window-open="188main"></a>
+            </div>
+            <ul id="menu-products" class="nav navbar-nav menu-products">
+                <li ng-repeat="prod in menuProds" ng-class="{ active : indexMenu(prod.name) , maintenance : prod.isMaintenance == true, hidden: $index  > maxIndex}" ng-switch="prod.name">
+                    <a ng-switch-when="sports" ng-href="{{ getSportsView() }}" translate="{{prod.index | quicki18n : 'prodNames'}}" window-open="188main"></a>
+                    <a ng-switch-default ng-href="/{{global.lan}}/{{prod.name}}" translate="{{prod.index | quicki18n : 'prodNames'}}" window-open="188main"></a>
+                </li>
+                <li class="more-products" ng-style="{opacity : ((moreMenuProds.length>0) && '1') || '0'}">
+                    <button class="nav-menu-link" data-toggle="dropdown"><span translate="txtCommonMore"></span><span class="betfont icon-10px icon-caretdownthin icon-caretdownthin"></span> </button>
+                    <ul class="dropdown-menu dark-menu pull-right" role="menu">
+                        <li class="nav-item" ng-repeat="moreProd in moreMenuProds" ng-class="{ maintenance : moreProd.isMaintenance == true,  hidden: $index <= maxIndex}">
+                            <a ng-href="/{{global.lan}}/{{moreProd.name}}" translate="{{moreProd.index | quicki18n : 'prodNames'}}" window-open="188main"></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div announcement></div>
+            <ul id="hdr-panel" class="nav navbar-nav navbar-collapse collapse clearfix">
+                <li user-panel ng-init="onInit()" ng-if="!hiddenUserpanel" class="userpanel">
+                    <div class="progress-bar-188" ng-if="ajaxStackObj[loginform.guId] == true"><uib-progressbar class="progress-striped active" value="100" type="warning"></uib-progressbar>
+                    </div>
+                    <form ng-submit="submitLogin()" ng-if="!client.sessionD.login && (client.sessionD.allowAccess && global.pageStatus !=503)">
+                        <ul class="profile-tools list-unstyled" ng-hide="ajaxStackObj[loginform.guId] == true">
+                            <li class="profile-hdr-info">
+                                <div class="remind-credentials" translate="txtJoinUsWebsiteUserIdPassword" translate-compile></div>
+                                <span class="input-username">
+                                    <input type="text" class="form-control" ng-focus="loginform.isFoucs = true" placeholder="{{'txtJoinUsUserId' | translate }}" ng-model="loginform.username" name="username">
+                                </span>
+                            </li>
+                            <li>
+                                <span class="input-password">
+                                    <input type="password" class="form-control" ng-focus="loginform.isFoucs = true" placeholder="{{'txtJoinUsPassword' | translate }}" ng-model="loginform.password" name="password">
+                                </span>
+                            </li>
+                            <li>
+                                <button type="submit" class="btn bet-btn toggle-login-desktop btn-text" ng-class="{ 'btn-org-sm': loginform.isFoucs,'btn-grey-sm':!loginform.isFoucs }" translate="txtBtnLogin">Login</button>
+                            </li>
+                            <li><a ng-href="/{{global.lan}}/sign-up" class="btn bet-btn btn-text" ng-class="{ 'btn-org-sm': !loginform.isFoucs,'btn-grey-sm':loginform.isFoucs}" translate="txtJoinUsSignUp">Sign Up</a> </li>
+                        </ul>
+                    </form>
+                    <form name="sso_form" id="sso_form" action="" method="post">
+                        <input type="hidden" name="passport" value="" />
+                        <input type="hidden" name="postpage" value="" />
+                        <input type="hidden" name="timezone" value="" />
+                    </form>
+                    <ul class="profile-tools list-unstyled" ng-if="client.sessionD.login">
+                        <li class="profile-hdr-info clearfix">
+                            <button class="btn bet-btn btn-transparent btn-icons bal-refresh" ng-click="getBalance()" ng-if="client.pd.sb"><span class="betfont icon-refresh"></span></button>
+                            <div id="profile-hdr-info-details" ng-class="{'hide-bal': !client.pd.sb}" ng-switch="global.lan">
+                                <span class="username" ng-switch-when="ja-jp">{{client.sessionD.loginId}} 様</span>
+                                <span class="username" ng-switch-default>
+                                    {{client.sessionD.gender===2? 'txtCommonMr' : client.sessionD.gender===1? 'txtCommonMs':'' | translate }} {{client.sessionD.loginId}}
+                                </span>
+                                <span class="bal"> {{client.geod.cc}} {{ client.sessionD.balance | floorNumber:2 | currency :''| swapCurrencySymbol }}</span>
+                            </div>
+                            <button id="toggle-bal" class="btn bet-btn btn-transparent btn-icons" ng-click="toggleBalance()"><span class="betfont icon-13px" ng-class="{'icon-plus-o': !client.pd.sb,'icon-minus-o': client.pd.sb}"></span></button>
+                        </li>
+                        <li ng-class="{'maintenance': paymentMaintenance.pch == true && paymentMaintenance.transfer == true }">
+                            <button id="toggle-banking" class="btn bet-btn btn-grey-sm btn-icons" data-toggle="dropdown" title="{{'titBanking' | translate}}"> <span class="betfont icon-banking-{{client.geod.cc.toLowerCase()}}"></span> </button>
+                            <ul id="banking" class="dropdown-menu dark-menu pull-right" role="menu" aria-labelledby="change-banking">
+                                <li class="lnk-deposit" ng-class="{'maintenance': paymentMaintenance.pch == true}"><a window-open="188main" ng-href="{{paymentUrl.deposit}}" translate="navBankingDeposit">Deposit</a></li>
+                                <li class="lnk-withdrawal" ng-class="{'maintenance': paymentMaintenance.pch == true}"><a window-open="188main" ng-href="{{paymentUrl.withdrawal}}" translate="navBankingWithdrawal">Withdrawal</a></li>
+                                <li class="lnk-transfer" ng-class="{'maintenance': paymentMaintenance.transfer == true}"><a window-open="188main" ng-href="{{paymentUrl.transfer}}" translate="txtBankingTransfer">Transfer</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button id="toggle-messages" class="btn bet-btn btn-grey-sm btn-icons" data-toggle="dropdown" title="{{'titMessages' | translate}}">
+                                <span class="betfont icon-mail"></span>
+                                <span ng-if="msgCounter &&msgCounter.totalCount >0" class="notification">
+                                    {{msgCounter.totalCount > 999 ? "999+" :msgCounter.totalCount }}
+                                </span>
+                            </button>
+                            <ul id="messages" class="dropdown-menu dark-menu pull-right" role="menu" aria-labelledby="change-messages">
+                                <li class="lnk-inbox"><a window-open="188main" ng-href="/{{global.lan}}/inbox"><span class="pull-right">({{msgCounter.inbox}})</span> <span translate="navInbox">Inbox</span> </a></li>
+                                <li class="lnk-notification"><a window-open="188main" ng-href="/{{global.lan}}/notifications"> <span class="pull-right">({{msgCounter.notifi}})</span><span translate="navInboxNotifications">Notification</span></a></li>
+                                <li class="lnk-notification"><a window-open="188main" ng-href="/{{global.lan}}/announcement"> <span class="pull-right">({{msgCounter.announcement}})</span><span translate="txtComAnnouncement">Announcement</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button id="toggle-profile" class="btn bet-btn btn-grey-sm btn-icons" data-toggle="dropdown" title="{{'titMyAccount' | translate}}"> <span class="betfont icon-user"></span> </button>
+                            <ul id="profile" class="dropdown-menu dark-menu pull-right" role="menu" aria-labelledby="change-profile">
+                                <li class="lnk-statement"><a ng-click="closeDropDown()" window-open="Statement" window-style="width=1050px; height=700px" ng-href="{{::statementUrl}}" translate="txtStatementRoot">Statement</a></li>
+                                <li class="lnk-profile"><a window-open="188main" ng-href="/{{global.lan}}/my-account/account-settings/profile" translate="txtProfileRoot">Profile</a></li>
+                                <li class="lnk-kyc-verification"><a window-open="188main" ng-href="/{{global.lan}}/my-account/profile-verification" translate="navKycProfileVerification">KYC Verification</a></li>
+                                <li class="lnk-responsible-gaming"><a window-open="188main" ng-href="/{{global.lan}}/my-account/account-settings/responsible-gaming" translate="navCorAffairsResponsibleGaming">Responsible Gaming</a></li>
+                                <li class="lnk-logout"><a translate="txtBtnLogOut" ng-click="submitLogOut()">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="clear-b">
+                    <ul class="public-tools clearfix">
+                        <li><span format="'HH:mm:ss'" star-clock></span></li>
+                        <li class="language" ng-switch="global.pageStatus">
+                            <button id="toggle-change-lang" data-toggle="dropdown"> <strong>{{ global.language.display }}</strong> <span class="flag {{ global.lan }}"></span> <span ng-if="client.sessionD.lans.length > 1" class="betfont icon-10px icon-caretdownthin icon-caretdownthin"></span> </button>
+                            <ul ng-switch-when="503" id="change-lang" class="dropdown-menu dark-menu pull-right" role="menu" aria-labelledby="change-language">
+                                <li role="presentation" ng-repeat="lan in global.lans | filter : { value : '!' + global.lan }">
+                                    <a role="menuitem" tabindex="-1" ng-href="/{{lan.value}}">{{lan.display}}<span class="flag {{lan.value}}"></span></a>
+                                </li>
+                            </ul>
+                            <ul ng-switch-default="global.pageStatus" id="change-lang" ng-if="client.sessionD.lans.length > 1" class="dropdown-menu dark-menu pull-right" role="menu" aria-labelledby="change-language">
+                                <li role="presentation" ng-if="client.sessionD.lans.length > 1" ng-repeat="lan in client.sessionD.lans | filter : { value : '!' + global.lan }">
+                                    <a role="menuitem" tabindex="-1" ng-click="switchLang(lan.value)">{{lan.display}}<span class="flag {{lan.value}}"></span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+          </ul>
+        </div>
+    </div>
+    <div>
+    </div>
+    <div micro-interaction></div>
+</nav>

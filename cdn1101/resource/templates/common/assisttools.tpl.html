@@ -1,0 +1,20 @@
+﻿<div class="assist-tools hidden-xs">
+    <ul class="assist-tools-menu">
+        <li class="frm-support clearfix" ng-class="{'active': showhelpMenu}" ng-if="global.pageStatus != 503">
+            <div class="help-menu pull-left">
+                <ul class="help-sub-menu">
+                    <li class="help-item lnk-faq"><a ng-href="/{{::global.lan}}/faqs" translate="navFAQsRoot" window-open="188main">FAQ</a></li>
+                    <li class="help-item lnk-rules"><a ng-href="/{{::global.lan}}/rules/sports" translate="navRulesRoot" window-open="188main">RULES</a></li>
+                    <li class="help-item lnk-contact"><a ng-href="/{{::global.lan}}/corporate-affairs/contact-us" translate="navHelpContactUs" window-open="188main">CONTACT US</a></li>
+                </ul>
+            </div>
+            <button class="btn bet-btn btn-see-thru-white with-rotated-item faq-trigger pull-right" ng-click="toggleMenu()"><span class="rotated-text" translate="txtCommonHelp">Help</span><span class="betfont icon-help2"></span></button>
+        </li>
+        <li class="frm-chat clearfix">
+            <a window-open="LiveChat" class="btn bet-btn btn-see-thru-white with-rotated-item faq-trigger pull-right"><span class="rotated-text" translate="txtCommonChat">CHAT</span><span class="betfont icon-chat"></span></a>
+        </li>
+        <li class="frm-res-gaming clearfix" ng-if="client.sessionD.login">
+            <a window-open="resgame" ng-href="/{{::global.lan}}/my-account/account-settings/responsible-gaming" class="btn bet-btn btn-see-thru-white with-rotated-item faq-trigger pull-right"><span class="rotated-text" translate="navCorAffairsResponsibleGaming">RESPONSIBLE GAMING</span> <span class="betfont icon-18plus"></span></a>
+        </li>
+    </ul>
+</div>

@@ -10,7 +10,6 @@ import (
 )
 
 //"fmt"
-
 //"github.com/gin-gonic/gin/binding"
 
 func main() {
@@ -19,8 +18,10 @@ func main() {
 	router.Static("/Content", "./content")
 	router.Static("/bundles", "./bundles")
 	router.Static("/signalrnet", "./signalrnet")
+	router.Static("/cdn1101", "./cdn1101")
 	//router.LoadHTMLFiles("templates/*")
-	router.LoadHTMLGlob("templates/lotto/*")
+	router.LoadHTMLGlob("templates/*")
+	//router.LoadHTMLGlob("templates/myaccount/*")
 
 	router.GET("/zh-cn/lotto/main-lobby", func(c *gin.Context) {
 		formate := "2006-01-02 15:04:05"
@@ -30,17 +31,33 @@ func main() {
 		})
 	})
 
+	router.GET("/zh-cn/my-account/statement/transaction-history/summary", func(c *gin.Context) {
+		formate := "2006-01-02 15:04:05"
+		c.HTML(http.StatusOK, "summary.html", gin.H{
+			"title": "列表",
+			"lpb":   time.Now().Format(formate),
+		})
+	})
+
+	router.GET("/zh-cn/lotto/counter/:id/:counterType", func(c *gin.Context) {
+		formate := "2006-01-02 15:04:05"
+		c.HTML(http.StatusOK, "counter.html", gin.H{
+			"title": "列表",
+			"lpb":   time.Now().Format(formate),
+		})
+	})
+
 	//API
 	router.GET("/api/Sync", func(c *gin.Context) {
 
 		// formate := "2006-01-02T15:04:05+08:00"
-
 		// now := time.Now().Format(formate)
 
 		c.JSON(http.StatusOK, gin.H{
 			"isSuccess": true,
 			"data": gin.H{
-				"serverTime": "2018-04-07T01:48:23+08:00",
+				"serverTime": "2018-04-07T15:59:30+08:00",
+				//”serverTime":"2018-04-07T15:59:00+08:00",
 				//"invalid":    true,
 			},
 		})
@@ -78,6 +95,13 @@ func main() {
 		c.Writer.WriteString(xxxjson)
 	})
 
+	//开奖结果
+	router.GET("/api/lotto/Counter/:number/Trends", func(c *gin.Context) {
+		var xxxjson string
+		xxxjson = readFile1("testjson/Trends.json")
+		c.Writer.WriteString(xxxjson)
+	})
+
 	router.GET("/signalr/negotiate", func(c *gin.Context) {
 		// var xxxjson string
 		// xxxjson = readFile1("testjson/Mobile.json")
@@ -104,6 +128,16 @@ func main() {
 					"invalid":    true,
 				},
 			})*/
+	})
+
+	///service/healthapi/needrefresh
+
+	router.POST("/service/healthapi/needrefresh", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"kickoff":     false,
+			"needRefresh": false,
+			"token":       "laSWXHuuhMVOcLcXxlNrTA..",
+		})
 	})
 
 	router.Run(":8188")

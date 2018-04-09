@@ -18835,7 +18835,7 @@ a[href^="tel"] {
 
 .tabs.subtabs .tab {
     position: relative;
-    padding: 8px 13%;
+    padding: 8px 8%;
     line-height: inherit;
     height: inherit
 }

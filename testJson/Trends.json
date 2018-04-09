@@ -1,0 +1,410 @@
+{
+    "isSuccess": true,
+    "data": [{
+        "counterId": 0,
+        "drawNo": 1,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [5, 2, 2, 7, 1]
+    }, {
+        "counterId": 0,
+        "drawNo": 2,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [7, 0, 1, 4, 1]
+    }, {
+        "counterId": 0,
+        "drawNo": 3,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [1, 6, 9, 3, 1]
+    }, {
+        "counterId": 0,
+        "drawNo": 4,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [7, 2, 5, 2, 8]
+    }, {
+        "counterId": 0,
+        "drawNo": 5,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [7, 0, 1, 7, 1]
+    }, {
+        "counterId": 0,
+        "drawNo": 6,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [0, 0, 0, 9, 0]
+    }, {
+        "counterId": 0,
+        "drawNo": 7,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [7, 2, 8, 3, 6]
+    }, {
+        "counterId": 0,
+        "drawNo": 8,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [6, 5, 5, 5, 4]
+    }, {
+        "counterId": 0,
+        "drawNo": 9,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [6, 7, 8, 7, 7]
+    }, {
+        "counterId": 0,
+        "drawNo": 10,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [0, 3, 0, 5, 5]
+    }, {
+        "counterId": 0,
+        "drawNo": 11,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [5, 9, 5, 0, 6]
+    }, {
+        "counterId": 0,
+        "drawNo": 12,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [4, 3, 1, 8, 2]
+    }, {
+        "counterId": 0,
+        "drawNo": 13,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [7, 0, 3, 0, 1]
+    }, {
+        "counterId": 0,
+        "drawNo": 14,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [2, 9, 9, 4, 3]
+    }, {
+        "counterId": 0,
+        "drawNo": 15,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [1, 7, 3, 6, 4]
+    }, {
+        "counterId": 0,
+        "drawNo": 16,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [6, 2, 8, 1, 9]
+    }, {
+        "counterId": 0,
+        "drawNo": 17,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [4, 6, 6, 3, 4]
+    }, {
+        "counterId": 0,
+        "drawNo": 18,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [9, 8, 2, 7, 7]
+    }, {
+        "counterId": 0,
+        "drawNo": 19,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [5, 0, 3, 1, 2]
+    }, {
+        "counterId": 0,
+        "drawNo": 20,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [0, 5, 7, 6, 2]
+    }, {
+        "counterId": 0,
+        "drawNo": 21,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [5, 1, 8, 4, 6]
+    }, {
+        "counterId": 0,
+        "drawNo": 22,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [6, 1, 8, 3, 7]
+    }, {
+        "counterId": 0,
+        "drawNo": 23,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [8, 6, 3, 2, 1]
+    }, {
+        "counterId": 0,
+        "drawNo": 24,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [0, 8, 5, 2, 0]
+    }, {
+        "counterId": 0,
+        "drawNo": 25,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [5, 4, 2, 8, 5]
+    }, {
+        "counterId": 0,
+        "drawNo": 26,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [3, 9, 5, 6, 9]
+    }, {
+        "counterId": 0,
+        "drawNo": 27,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [6, 3, 1, 7, 4]
+    }, {
+        "counterId": 0,
+        "drawNo": 28,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [3, 6, 0, 9, 8]
+    }, {
+        "counterId": 0,
+        "drawNo": 29,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [8, 8, 5, 7, 0]
+    }, {
+        "counterId": 0,
+        "drawNo": 30,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [7, 3, 7, 0, 3]
+    }, {
+        "counterId": 0,
+        "drawNo": 31,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [7, 7, 3, 9, 8]
+    }, {
+        "counterId": 0,
+        "drawNo": 32,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [8, 5, 9, 3, 8]
+    }, {
+        "counterId": 0,
+        "drawNo": 33,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [6, 8, 9, 7, 0]
+    }, {
+        "counterId": 0,
+        "drawNo": 34,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [5, 6, 0, 4, 6]
+    }, {
+        "counterId": 0,
+        "drawNo": 35,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [4, 4, 0, 6, 7]
+    }, {
+        "counterId": 0,
+        "drawNo": 36,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [1, 0, 8, 0, 3]
+    }, {
+        "counterId": 0,
+        "drawNo": 37,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [4, 8, 9, 4, 2]
+    }, {
+        "counterId": 0,
+        "drawNo": 38,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [2, 2, 9, 0, 5]
+    }, {
+        "counterId": 0,
+        "drawNo": 39,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [2, 7, 6, 3, 9]
+    }, {
+        "counterId": 0,
+        "drawNo": 40,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [8, 7, 8, 9, 1]
+    }, {
+        "counterId": 0,
+        "drawNo": 41,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [9, 0, 8, 6, 5]
+    }, {
+        "counterId": 0,
+        "drawNo": 42,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [0, 4, 6, 7, 4]
+    }, {
+        "counterId": 0,
+        "drawNo": 43,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [1, 3, 5, 7, 7]
+    }, {
+        "counterId": 0,
+        "drawNo": 44,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [7, 9, 4, 5, 4]
+    }, {
+        "counterId": 0,
+        "drawNo": 45,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [9, 2, 9, 5, 5]
+    }, {
+        "counterId": 0,
+        "drawNo": 46,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [4, 0, 0, 8, 8]
+    }, {
+        "counterId": 0,
+        "drawNo": 47,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [4, 7, 9, 8, 0]
+    }, {
+        "counterId": 0,
+        "drawNo": 48,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [3, 5, 9, 7, 9]
+    }, {
+        "counterId": 0,
+        "drawNo": 49,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [5, 9, 1, 0, 2]
+    }, {
+        "counterId": 0,
+        "drawNo": 50,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [3, 2, 9, 5, 7]
+    }, {
+        "counterId": 0,
+        "drawNo": 51,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [7, 9, 5, 4, 7]
+    }, {
+        "counterId": 0,
+        "drawNo": 52,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [4, 9, 6, 0, 7]
+    }, {
+        "counterId": 0,
+        "drawNo": 53,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [0, 0, 1, 5, 1]
+    }, {
+        "counterId": 0,
+        "drawNo": 54,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [5, 0, 4, 1, 1]
+    }, {
+        "counterId": 0,
+        "drawNo": 55,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [6, 6, 0, 5, 5]
+    }, {
+        "counterId": 0,
+        "drawNo": 56,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [3, 6, 0, 1, 8]
+    }, {
+        "counterId": 0,
+        "drawNo": 57,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [3, 0, 0, 5, 9]
+    }, {
+        "counterId": 0,
+        "drawNo": 58,
+        "drawTime": "0001-01-01T00:00:00+08:00",
+        "drawStatus": 0,
+        "voidReason": 0,
+        "resultBalls": [6, 6, 8, 7, 0]
+    }]
+}

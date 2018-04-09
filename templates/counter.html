@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <link href="/Content/MobileThemes/BaseLayout/3/bundle-css.css" rel="stylesheet" />
+    <script type="text/javascript">
+        var gv = {
+            mobile: true,
+            memberId: 268042,
+            distributionChannel: 3,
+            lang: "zh-cn",
+            buCode: "188Bet",
+            ln: "conku188",
+            balanceMode: "SingleWallet",
+            lpb: "2018/04/07 15:21:57",
+            sit: 30,
+            ita: 0,
+            srhb: 30,
+            wagerLimitInOneBet: 100,
+            productList:[],
+            counterListDic:{},
+            activeKeno:true,
+            activeLotto:true,
+            memberLobbyUrl:"login",
+            counterID:"320",
+            parentDomain: "https://www.nber.one",
+            isShowAlert:false,
+            isHideNewBetType:false,
+        };
+        gv.productList.push({ "value": "keno", "name": "快乐彩" });
+        gv.productList.push({ "value": "lotto", "name": "时时彩" });
+        gv.counterListDic["keno"] = [];
+        gv.counterListDic["lotto"] = [];
+        gv.lobbyUrl = {
+            "keno": "/zh-cn/keno/main-lobby",
+            "lotto": "/zh-cn/lotto/main-lobby",
+        };
+
+            gv.counterListDic["keno"].push({ "value": 1, "name":"Beijing" });
+            gv.counterListDic["keno"].push({ "value": 3, "name":"Australia" });
+            gv.counterListDic["keno"].push({ "value": 5, "name":"Canada" });
+            gv.counterListDic["keno"].push({ "value": 2, "name":"Slovakia" });
+            gv.counterListDic["keno"].push({ "value": 6, "name":"Malta" });
+            gv.counterListDic["keno"].push({ "value": 4, "name":"West Canada" });
+
+            gv.counterListDic["lotto"].push({ "value": 310, "name":"ShangHai" });
+            gv.counterListDic["lotto"].push({ "value": 350, "name":"ChinaSwl3D" });
+            gv.counterListDic["lotto"].push({ "value": 320, "name":"Chongqing" });
+            gv.counterListDic["lotto"].push({ "value": 330, "name":"JiangXi" });
+            gv.counterListDic["lotto"].push({ "value": 340, "name":"TianJing" });
+            gv.counterListDic["lotto"].push({ "value": 360, "name":"XinJiang" });
+    </script>
+</head>
+<body class="">
+    <div ng-app="app" ng-controller="mobileCtrl" ng-init="init()">
+        <div id="header" ng-controller="headerCtrl" style="display:none;" ng-style="{display:''}">
+            <nav class="sideNavTop">
+                <div class="nav-wrapper">
+                    <div class="brandIcon"></div>
+                    <div class="left brandLogo" ng-class="{'open':isShowProductList,'close':!isShowProductList}">
+                        <span class="brand-logo" style="z-index:10" ng-click="toggleProductList()">
+                            <span ng-show="product=='lotto'">时时彩</span>
+                            <span ng-show="product=='keno'">快乐彩</span>
+                            <i class="mdi mdi-chevron-down right" ng-show="true&&true"></i>
+                        </span>
+                        <span class="svtime" style="display:none" ng-style="{display:''}"
+                              ng-controller="timerCtrl"
+                              ng-init="init('2018-04-07T15:30:03+08:00')">
+                            {{countDownTimer}}  (GMT+08:00)
+                        </span>
+                    </div>
+                    <div class="switchGame cursor-pointer" ng-show="isShowProductList && true&&true" ng-click="switchProduct()">
+                        <span class="triangle"></span>
+                        <span ng-show="product=='lotto'">快乐彩</span>
+                        <span ng-show="product=='keno'">时时彩</span>
+                    </div>
+                    <div class="right">
+                        <a href="#" data-activates="mobile-demo" class="mw button-collapse" data-sidenav="right"><i class="mdi mdi-menu"></i></a>
+                        <ul class="right hide-on-med-and-down">
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/Report/OpenBets#/'+product)"><a>下注状况</a></li>
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/statement#/'+product)"><a>帐户历史</a></li>
+
+                            <li style="cursor:pointer" ng-click="gotoResult('/zh-cn/report/results#/'+product)"><a>开奖结果</a></li>
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/announcements#/'+product)"><a>公告栏</a></li>
+
+                            <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/rules#/'+product)"><a>规则说明</a></li>
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/home/settings#/'+product)"><a>设定</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <ul class="mb side-nav right-aligned" id="mobile-demo">
+                <li class="side-back" ng-controller="balanceCtrl" ng-init="init(1263.2319)">
+                    <i ng-click="hideSideNav()" class="mdi mdi-chevron-right backbtn right"></i>
+
+                            <div class="member-info">
+                                <span class="member">conku188</span>
+                                <span class="memberBalance">RMB {{balance|addComma:2}} </span>
+                            </div>
+                            <i ng-click="refresh()" id="refreshBalanceBtn" class="mdi mdi-refresh refreshbtn"></i>
+                            <span id="refreshBalanceImg" class="refreshanimate refreshbtn"><img src="/Content/MobileThemes/BaseLayout/reload2.svg" /> </span>
+
+
+                </li>
+                        <li class="openBets" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/Report/OpenBets#/'+product, '下注状况')"><a><i class="mdi mdi-square-inc-cash"></i>下注状况</a></li>
+                        <li class="statement" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/Report/Statement#/'+product, '帐户历史')"><a><i class="mdi mdi-history"></i>帐户历史</a></li>
+
+                <li class="results" style="cursor:pointer" ng-click="gotoResult('/zh-cn/report/results#/'+product, '开奖结果')"><a><i class="mdi mdi-file-chart"></i>开奖结果</a></li>
+                <li class="announcements" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/announcements#/'+product, '公告栏')"><a><i class="mdi mdi-bell"><i class="mdi mdi-checkbox-blank-circle badge" ng-show="isShowAlert"></i></i>公告栏</a></li>
+                <li class="rules" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/rules#/'+product,'规则说明')"><a><i class="mdi mdi-information-variant"></i>规则说明</a></li>
+                        <li class="setting" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/home/settings#/'+product,'设定')"><a><i class="mdi mdi-account-settings-variant"></i>设定</a></li>
+                        <li class="deposit" style="cursor:pointer" ng-click="clickMainLobbyInFooter('https://m.oneeightyeightbet.com/zh-cn/my-account/banking/deposit')"><a><i class="mdi mdi-wallet"></i>存款</a></li>
+                        <li class="backtoLobby" style="cursor:pointer" ng-click="clickMainLobbyInFooter('https://m.oneeightyeightbet.com/zh-cn/lotto')"><a><i class="mdi mdi-castle"></i>返回大厅</a></li>
+                        <li class="logout" style="cursor:pointer" ng-click="logout('https://m.oneeightyeightbet.com/zh-cn/my-account/banking/deposit')"><a><i class="mdi mdi-backburger"></i>登出</a></li>
+
+            </ul>
+            <div ng-controller="dialogCtrl" ng-show="isShowDialog">
+                <div class="greyOut"></div>
+                <div class="modal messagebox">
+                    <div class="modal-content">
+                        <h4 class="m-title" ng-bind="title"></h4>
+                        <p ng-bind-html="message"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="modal-action modal-close waves-effect waves-red btn-flat "
+                           ng-repeat="btn in buttons track by $index" ng-click="btn.Callback()" ng-bind="btn.Text">close</a>
+                    </div>
+                </div>
+            </div>
+            <div class="greyOut filled" ng-show="isShowGreyOut" ng-click="hideGreyOut()"></div>
+
+            
+
+
+<div ng-controller="counterCtrl" ng-init="init(320,3,'',false); isMobile=true;setGoBackTar" ng-model="counter">
+    <div ng-if="counter" class="lobby lotto">
+        <nav class="top-nav-info lobbylist cu{{counterType}}" ng-if="!showBetSlip" ng-click="toggleCounterList()" ng-class="{toggleCounter:!isShowCounterList}">
+    <div class="nav-wrapper top-nav-info-container">
+        <div class="brand-name left">
+            <!-- Dropdown Trigger -->
+            <a class="dropdown-button cursor-pointer" >{{counter.id|counterName}}</a>
+            <!-- Dropdown Structure -->
+            <div class="dropdown-content counter" ng-class="{active:isShowCounterList}">
+                <div class="lobby top">
+                    <div class="row">
+                        <div class="col s12 lobbylist {{'cu'+($index+1)}}" ng-class="isShowMobileGrayout?'hasGreyout':'nonGreyout'" ng-repeat="counter in counterList track by $index">
+                            <a id="counter{{item.id}}" class="counter-c {{item.LogoCss}}" href="/zh-cn/lotto/counter?id={{counter.id}}&counterType={{$index+1}}" ng-class="{close: getStatus()=='close'}">
+                                <div class="greyout">
+                                    <span ng-switch on="getStatus()">
+    <span ng-switch-when="skip">
+        下一期即将开放投注。。。
+    </span>
+    <span ng-switch-when="close">
+        盘口已关闭
+    </span>
+</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col s8 m9">
+                                        <div class="countryName" ng-bind="counter.id|counterName"></div>
+                                        <div class="status" ng-if="counter.draw&&getStatus()!='close'"> 受注期号 <span ng-bind="counter.draw.drawNo" style="margin-left:2px"></span></div>
+                                        <div class="status" ng-hide="getStatus()=='open'">
+                                            <span ng-switch on="getStatus()">
+    <span ng-switch-when="skip">
+        下一期即将开放投注。。。
+    </span>
+    <span ng-switch-when="close">
+        盘口已关闭
+    </span>
+</span>
+                                        </div>
+                                    </div>
+                                    <div class="col s4 m3">
+                                        <div class="countdown-text"
+                                             ng-if="getStatus()!='close'" ng-bind="counter.timer=(serverTime|countdown:counter.draw.endTime)"
+                                             ng-class="{lasttime:(isLessThanBetClosedTime()||!counter.draw||getStatus()=='close')}"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-info-iconG right">
+           <i class="mdi mdi-chevron-down"></i>
+         </div>
+    </div>
+</nav>
+<div class="nav-info-action" ng-show="!showBetSlip" fix-top-class-mobile>
+    <div class="row">
+        <div class="col s6 left-align">
+            <span class="info-action-title">受注期号</span>
+            <span class="info-action-number" ng-if="!counter.draw">N/A</span>
+            <span class="info-action-number" ng-if="counter.draw">{{counter.draw.drawNo|drawNoFormat}}</span>
+        </div>
+        <div class="col s6 right-align">
+            <span class="info-action-title">下一期</span>
+            <span class="info-action-time lastTime" ng-if="getStatus()=='close'">00:00</span>
+            <span class="info-action-time" ng-class="getStatus()=='open'?'drawtime':'lastTime'" ng-if="getStatus()!='close'">{{counter.timer=(serverTime|countdown:counter.draw.endTime)}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="popupbox">
+    <div class="betSlipPanel" ng-class="{'betslipOpen': showBetSlip , 'betslipClose': !showBetSlip}">
+        <div class="betSlipPanel-bg">
+            <div class="betslip" ng-click="toggleBetSlip()" ng-class="{'hasBetslip':getWagerList().length > 0 || showBetSlip}">
+                <span class="caption" style="text-transform:uppercase">注单</span>
+                <span class="badge" ng-show="getWagerList().length > 0">{{getWagerList().length}}</span>
+            </div>
+        </div>
+        
+
+<div class="betsliplistBox" ng-show="showBetSlip" ng-controller="betSlipCtrl" ng-init="init();">
+    <div class="betslip hasBetslip">
+        <div class="betslip-ddallBtn col s1">
+            <a href="#"><i class="mdi mdi-delete" data-name="mdi-delete" ng-click="deleteAllWager()"></i></a>
+            <div class="clearfix"></div>
+        </div>
+
+        <span class="caption" style="text-transform:uppercase">注单</span>
+        <span class="badge" id="badgeID">{{getWagerList().length}}</span>
+        <div class="betslip-closeBtn col s1">
+            <a href="#" ng-click="toggleBetSlip()"><i class="mdi mdi-close "></i></a>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="betslipContainter">
+        <div class="betsliplist">
+            <div class="noRecord row" ng-if="(!wagerList||wagerList.length==0)&&!isBetSlipInTransition">
+                <div class="col s12 list">
+                    没有记录
+                </div>
+            </div>
+            <div class="betsliplist betslip-animation"
+                 ng-repeat="wager in wagerList"
+                 ng-class="{'': invalid=(wager.showValid&&(wagerForm.Stake.$invalid||wager.error)&&!!wager.error)}"
+                 ng-init="wager.isShowChipBox=false">
+                <ng-form name="wagerForm">
+                    <div class="betsliphead row">
+                        <div class="col s11 betsliphead-title ">
+                            {{wager.counterId|counterName}}({{wager.drawNo}})
+                        </div>
+                        <div class="closeBtn col s1">
+                            <a href="#" ng-click="deleteWager($index, $event)"><i class="mdi mdi-delete"></i></a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div ng-if="wager.wagerNo&&!wager.error&&!invalid" class="iessage success row">
+                        <span class="col s12">下注成功。</span>
+                    </div>
+                    <div ng-if="invalid" class="iessage error row">
+                        <span class="col s1">
+                            <i class="mdi mdi-alert-circle"></i>
+                        </span>
+                        <span class="col s11">{{wager.error?wager.error:getErrorMsg(wagerForm.Stake.$error)}}</span>
+                    </div>
+                    <div class="betslipcontent">
+                        <p ng-if="wager.isPearlBallWager">
+                            {{wager.mobileBetText.pearlballInfo}}
+                            <br />
+                            {{wager.mobileBetText.numbers}}
+                            <br />
+                            <span ng-repeat="hitOdds in wager.mobileBetText.hitOddsArr">
+                                中 {{hitOdds.num}} @<span class="odds">{{hitOdds.odds}}</span>
+                                <span ng-if="!$last">, </span>
+                            </span>
+                        </p>
+                        <p ng-if="!wager.isPearlBallWager">
+                            {{wager.mobileBetText.betType}}<span class="colon">:</span>{{wager.mobileBetText.selection}} <span class="colon">@</span><span class="odds">{{wager.selections[0].odds}}</span>
+                        </p>
+                        <p>
+                            投注额
+                            <input type="text" pattern="[0-9]*" id="stake_{{$index}}" name="Stake"
+                                   class="{{wager.uivalid=wagerForm.Stake.$valid}} ng-hide"
+                                   
+                                   integer limit-to="10" required auto-focus
+                                   ng-model="wager.stake"
+                                   ng-init="wager.stake=wager.stake||$parent.totalStake;"
+                                    />
+                            <span class="label-input" ng-class="{'active':wager.isShowChipBox,'group':wager.stake}"
+                                   ng-click="toggleChipBox(wager.isShowChipBox?'blur':'focus',wager,'#stake_'+$index)">
+                                {{(wager.stake||wager.isShowChipBox)?(wager.stake|addComma):((wager.selections[0].minBet|addComma)+'-'+(wager.selections[0].maxBet|addComma))}}
+                            </span>
+                            <span>
+                                可赢额<span class="colon">:</span>
+                                {{wager.estWinning=getEstWinAmount()|addComma:2}}
+                            </span>
+                        </p>
+                        <div ng-if="wager.isShowChipBox" ng-controller="chipboxCtrl" ng-init="stakeInput='#stake_'+$index;showChip()">
+                            <div class="chipbox open" ng-if="chips&&chips.length>0">
+                                <table>
+                                    <tr>
+                                        <td ng-repeat="chip in chips" class="number active" ng-click="addMobileChip(chip.value, wager)">
+                                            <span class="number active waves-effect waves-light">+{{chip.text}}</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="keyboard">
+                                <table>
+                                    <tr>
+                                        <td ng-repeat="num in range(0,4)" ng-click="appendNumber(num, wager)" ><span class="number waves-effect waves-light">{{num}}</span></td>
+                                        <td rowspan="2" ng-click="backspace()" ><span class="backButton waves-effect waves-light"><i class="mdi mdi-backspace"></i></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td ng-repeat="num in range(5,9)" ng-click="appendNumber(num, wager)" ><span class="number waves-effect waves-light">{{num}}</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </ng-form>
+            </div>
+        </div>
+        <div id="betSlipFooter" class="footer-modal betslip-ft" ng-class="showBetSlip?'betslip-ft':'cv-ft'">
+            <div class="row">
+                <div class="controlPanel singles">
+                    <div class="rowlist row">
+                        <div class="left col s6">单式<span class="colon">:</span></div>
+                        <div class="right col s6 right-align f-ac-je">
+                            X{{wagerList.length}}
+                            <input type="text" pattern="[0-9]*" id="stake_total"
+                                   class="ng-hide"
+                                   integer limit-to="10"
+                                   ng-model="totalStake"
+                                   
+                                   ng-change="updateSinglesBetStake()" />
+                            <div class="label-input" ng-class="{'active':isShowChipBox}"
+                                 ng-click="toggleChipBox(isShowChipBox?'blur':'focus',null,'#stake_total')">
+                                {{totalStake|addComma}}
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+                <div ng-if="isShowChipBox" ng-controller="chipboxCtrl" ng-init="stakeInput='#stake_total';showChip()">
+                    <div class="chipbox open" ng-if="chips&&chips.length>0">
+                        <table>
+                            <tr>
+                                <td ng-repeat="chip in chips" class="number active" ng-click="addMobileChip(chip.value)">
+                                    <span class="number active waves-effect waves-light">+{{chip.text}}</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="keyboard" ng-if="isShowChipBox">
+                        <table>
+                            <tr>
+                                <td ng-repeat="num in range(0,4)" ng-click="appendNumber(num)"><span class="number waves-effect waves-light">{{num}}</span></td>
+                                <td rowspan="2" ng-click="backspace()"><span class="backButton waves-effect waves-light"><i class="mdi mdi-backspace"></i></span></td>
+                            </tr>
+                            <tr>
+                                <td ng-repeat="num in range(5,9)" ng-click="appendNumber(num)"><span class="number waves-effect waves-light">{{num}}</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="controlPanel total">
+                    <div class="rowlist row">
+                        <div class="left col s8">总计 {{wagerList|countList:'Stake'}} 下注:</div>
+                        <div class="right col s4 right-align">{{wagerList|sumList:'Stake'|addComma:2}} RMB</div>
+                        <div class="left col s8">总计可赢额:</div>
+                        <div class="right col s4 right-align">{{wagerList|sumList:'EstWinAmount'|addComma:2}} RMB</div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="btnpanel row">
+                    <a class="waves-effect waves-light btn col s12" ng-click="placeBetSuccess?cleanSuccessBetMobile():placeBet()">{{placeBetSuccess?'确定':'下注'}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<div id="tempHeight" style="height:40px;display:none;"></div>
+        <div class="row bet-article" ng-show="!showBetSlip">
+            <div class="col s12">
+                <ul tabs ng-if="!isHideNewBetType">
+                    <li class="tab"><a href="#bettype_1">一定位</a></li>
+                    <li class="tab"><a class="active" href="#bettype_2">二定位</a></li>
+                    <li class="tab"><a href="#bettype_3">三定位</a></li>
+                    <li class="tab"><a href="#bettype_L">百十个</a></li>
+                </ul>
+                <ul tabs ng-if="isHideNewBetType">
+                    <li class="tab"><a class="active" href="#bettype_1">一定位</a></li>
+                    <li class="tab"><a href="#bettype_L">百十个</a></li>
+                </ul>
+            </div>
+            <div id="bettype_1" class="col s12">
+                <div class="row-box" ng-init="setBallNum(counter.ballCount)">
+                    <ul tabs class="subtabs">
+                        <li class="tab" ng-if="counter.ballCount==5" ng-click="setBallNum(5)"><a href="#">万</a></li>
+                        <li class="tab" ng-if="counter.ballCount==5" ng-click="setBallNum(4)"><a href="#">千</a></li>
+                        <li class="tab" ng-click="setBallNum(3)"><a href="#">百</a></li>
+                        <li class="tab" ng-click="setBallNum(2)"><a href="#">十</a></li>
+                        <li class="tab" ng-click="setBallNum(1)"><a href="#">个</a></li>
+                    </ul>
+                    <div class="col s12 content-bt">
+                        <div class="greyout" ng-if="getStatus()=='skip'">下一期即将开放投注。。。</div>
+<div class="greyout" ng-if="getStatus()=='close'">盘口已关闭</div>
+<div class="greyout" ng-if="getStatus()=='wait'">等待开奖。。。</div>
+<div class="greyout" ng-if="getStatus()=='stop'">停止下注</div>
+                        <div class="digitkeyboard row">
+                            <span class="td-5" ng-repeat="num in range(0,4)" ng-click="addWager({betType:'num',selection:num})" ng-class="{active:isAlreadyInBetSlip({betType:'num',selection:num})}">{{num}}</span>
+                        </div>
+                        <div class="digitkeyboard row">
+                            <span class="td-5" ng-repeat="num in range(5,9)" ng-click="addWager({betType:'num',selection:num})" ng-class="{active:isAlreadyInBetSlip({betType:'num',selection:num})}">{{num}}</span>
+                        </div>
+                        <div class="digitkeyboard row">
+                            <div class="optionsTitle">和尾</div>
+                            <span class="td-4" ng-click="addWager({betType:'bs',selection:'Big'})" ng-class="{active:isAlreadyInBetSlip({betType:'bs',selection:'Big'})}">大<br>{{counter.selections['Ball_'+ballNum+'_Big'].odds}}</span>
+                            <span class="td-4" ng-click="addWager({betType:'bs',selection:'Small'})" ng-class="{active:isAlreadyInBetSlip({betType:'bs',selection:'Small'})}">小<br>{{counter.selections['Ball_'+ballNum+'_Small'].odds}}</span>
+                            <span class="td-4" ng-click="addWager({betType:'oe',selection:'Odd'})" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Odd'})}">单<br>{{counter.selections['Ball_'+ballNum+'_Odd'].odds}}</span>
+                            <span class="td-4" ng-click="addWager({betType:'oe',selection:'Even'})" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Even'})}">双<br>{{counter.selections['Ball_'+ballNum+'_Even'].odds}}</span>
+                        </div>
+                        <div class="digitkeyboard row">
+                                <div class="optionsTitle">龙虎</div>
+                                <span class="td-3" ng-click="addWager({betType:'bs',selection:'Dragon'})" ng-class="{active:isAlreadyInBetSlip({betType:'bs',selection:'Dragon'})}">龙<br>{{counter.selections['Ball_'+ballNum+'_Dragon'].odds}}</span>
+                                <span class="td-3" ng-click="addWager({betType:'bs',selection:'Tiger'})" ng-class="{active:isAlreadyInBetSlip({betType:'bs',selection:'Tiger'})}">虎<br>{{counter.selections['Ball_'+ballNum+'_Tiger'].odds}}</span>
+                                <span class="td-3" ng-click="addWager({betType:'oe',selection:'Equally'})" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Equally'})}">和<br>{{counter.selections['Ball_'+ballNum+'_Equally'].odds}}</span>
+                            </div>
+                    </div>
+                </div>
+                <div class="footer-empty"></div>
+            </div>
+            <div id="bettype_2" class="col s12" ng-show="!isHideNewBetType">
+                <div class="row-box" ng-controller="twoFixedCtrl" ng-init="setBallNum(counter.ballCount,counter.ballCount-1)">
+                    <ul tabs class="subtabs">
+                        <li class="tab" ng-if="counter.ballCount==5" ng-click="setBallNum(5,4)"><a href="#"><span class="mbt th5-t">万</span><span class="mbt th4-t">千</span></a></li>
+                        <li class="tab" ng-if="counter.ballCount==5" ng-click="setBallNum(5,3)"><a href="#"><span class="mbt th5-t">万</span><span class="mbt rd3-t">百</span></a></li>
+                        <li class="tab" ng-if="counter.ballCount==5" ng-click="setBallNum(5,2)"><a href="#"><span class="mbt th5-t">万</span><span class="mbt nd2-t">十</span></a></li>
+                        <li class="tab" ng-if="counter.ballCount==5" ng-click="setBallNum(5,1)"><a href="#"><span class="mbt th5-t">万</span><span class="mbt st1-t">个</span></a></li>
+                        <li class="tab" ng-if="counter.ballCount==5" ng-click="setBallNum(4,3)"><a href="#"><span class="mbt th4-t">千</span><span class="mbt rd3-t">百</span></a></li>
+                        <li class="tab" ng-if="counter.ballCount==5" ng-click="setBallNum(4,2)"><a href="#"><span class="mbt th4-t">千</span><span class="mbt nd2-t">十</span></a></li>
+                        <li class="tab" ng-if="counter.ballCount==5" ng-click="setBallNum(4,1)"><a href="#"><span class="mbt th4-t">千</span><span class="mbt st1-t">个</span></a></li>
+                        <li class="tab" ng-click="setBallNum(3,2)"><a href="#"><span class="mbt rd3-t">百</span><span class="mbt nd2-t">十</span></a></li>
+                        <li class="tab" ng-click="setBallNum(3,1)"><a href="#"><span class="mbt rd3-t">百</span><span class="mbt st1-t">个</span></a></li>
+                        <li class="tab" ng-click="setBallNum(2,1)"><a href="#"><span class="mbt nd2-t">十</span><span class="mbt st1-t">个</span></a></li>
+                    </ul>
+                    <div class="col s12 content-bt fixed-2">
+                        <div class="greyout" ng-if="getStatus()=='skip'">下一期即将开放投注。。。</div>
+<div class="greyout" ng-if="getStatus()=='close'">盘口已关闭</div>
+<div class="greyout" ng-if="getStatus()=='wait'">等待开奖。。。</div>
+<div class="greyout" ng-if="getStatus()=='stop'">停止下注</div>
+                        <div class="betkeyboardALL">
+                            <div class="betkeyboardTxt" ng-class="ballNum[0]|ballNumberStyle">{{ballNum[0]|positionText}}</div>
+                            <div class="betkeyboard">
+                                <div class="digitkeyboard row">
+                                    <span class="td-5" ng-repeat="num in range(0,4)" ng-click="pick(0,num)" ng-class="{active:isPick(0,num)}">{{num}}</span>
+                                </div>
+                                <div class="digitkeyboard row">
+                                    <span class="td-5" ng-repeat="num in range(5,9)" ng-click="pick(0,num)" ng-class="{active:isPick(0,num)}">{{num}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="betkeyboardALL">
+                            <div class="betkeyboardTxt" ng-class="ballNum[1]|ballNumberStyle">{{ballNum[1]|positionText}}</div>
+                            <div class="betkeyboard">
+                                <div class="digitkeyboard row">
+                                    <span class="td-5" ng-repeat="num in range(0,4)" ng-click="pick(1,num)" ng-class="{active:isPick(1,num)}">{{num}}</span>
+                                </div>
+                                <div class="digitkeyboard row">
+                                    <span class="td-5" ng-repeat="num in range(5,9)" ng-click="pick(1,num)" ng-class="{active:isPick(1,num)}">{{num}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infoaction">
+                            <span class="right  col s6">注单总数 = {{availableWagers[ballNumStr]}}</span>
+                            <a href="#" class="btn addbtn right col s2" ng-click="clearPick()">清除</a>
+                            <a href="#" class="btn addbtn right col s2" ng-disabled="!availableWagers[ballNumStr]" ng-click="addAvailableWagers()">加入</a>
+                        </div>
+                        <div class="digitkeyboard row">
+                            <div class="optionsTitle">和尾</div>
+                            <span class="td-4" ng-click="addWager({betType:'bs',selection:'Big'},ballNumStr)" ng-class="{active:isAlreadyInBetSlip({betType:'bs',selection:'Big'},ballNumStr)}">大<br>{{counter.selections['Ball_'+ballNum+'_Big'].odds}}</span>
+                            <span class="td-4" ng-click="addWager({betType:'bs',selection:'Small'},ballNumStr)" ng-class="{active:isAlreadyInBetSlip({betType:'bs',selection:'Small'},ballNumStr)}">小<br>{{counter.selections['Ball_'+ballNum+'_Small'].odds}}</span>
+                            <span class="td-4" ng-click="addWager({betType:'oe',selection:'Odd'},ballNumStr)" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Odd'},ballNumStr)}">单<br>{{counter.selections['Ball_'+ballNum+'_Odd'].odds}}</span>
+                            <span class="td-4" ng-click="addWager({betType:'oe',selection:'Even'},ballNumStr)" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Even'},ballNumStr)}">双<br>{{counter.selections['Ball_'+ballNum+'_Even'].odds}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-empty"></div>
+            </div>
+            <div id="bettype_3" class="col s12" ng-show="!isHideNewBetType">
+                <div class="row-box" ng-controller="threeFixedCtrl" ng-init="setBallNum(counter.ballCount,counter.ballCount-1,counter.ballCount-2)">
+                    <ul tabs class="subtabs">
+                        <li class="tab" ng-if="counter.ballCount==5" ng-click="setBallNum(5,4,3)"><a href="#"><span class="mbt th5-t">万</span><span class="mbt th4-t">千</span><span class="mbt rd3-t">百</span></a></li>
+                        <li class="tab" ng-if="counter.ballCount==5" ng-click="setBallNum(4,3,2)"><a href="#"><span class="mbt th4-t">千</span><span class="mbt rd3-t">百</span><span class="mbt nd2-t">十</span></a></li>
+                        <li class="tab" ng-click="setBallNum(3,2,1)"><a href="#"><span class="mbt rd3-t">百</span><span class="mbt nd2-t">十</span><span class="mbt st1-t">个</span></a></li>
+                    </ul>
+                    <div class="col s12 content-bt fixed-2">
+                        <div class="greyout" ng-if="getStatus()=='skip'">下一期即将开放投注。。。</div>
+<div class="greyout" ng-if="getStatus()=='close'">盘口已关闭</div>
+<div class="greyout" ng-if="getStatus()=='wait'">等待开奖。。。</div>
+<div class="greyout" ng-if="getStatus()=='stop'">停止下注</div>
+                        <div class="betkeyboardALL">
+                            <div class="betkeyboardTxt" ng-class="ballNum[0]|ballNumberStyle">{{ballNum[0]|positionText}}</div>
+                            <div class="betkeyboard">
+                                <div class="digitkeyboard row">
+                                    <span class="td-5" ng-repeat="num in range(0,4)" ng-click="pick(0,num)" ng-class="{active:isPick(0,num)}">{{num}}</span>
+                                </div>
+                                <div class="digitkeyboard row">
+                                    <span class="td-5" ng-repeat="num in range(5,9)" ng-click="pick(0,num)" ng-class="{active:isPick(0,num)}">{{num}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="betkeyboardALL">
+                            <div class="betkeyboardTxt" ng-class="ballNum[1]|ballNumberStyle">{{ballNum[1]|positionText}}</div>
+                            <div class="betkeyboard">
+                                <div class="digitkeyboard row">
+                                    <span class="td-5" ng-repeat="num in range(0,4)" ng-click="pick(1,num)" ng-class="{active:isPick(1,num)}">{{num}}</span>
+                                </div>
+                                <div class="digitkeyboard row">
+                                    <span class="td-5" ng-repeat="num in range(5,9)" ng-click="pick(1,num)" ng-class="{active:isPick(1,num)}">{{num}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="betkeyboardALL">
+                            <div class="betkeyboardTxt" ng-class="ballNum[2]|ballNumberStyle">{{ballNum[2]|positionText}}</div>
+                            <div class="betkeyboard">
+                                <div class="digitkeyboard row">
+                                    <span class="td-5" ng-repeat="num in range(0,4)" ng-click="pick(2,num)" ng-class="{active:isPick(2,num)}">{{num}}</span>
+                                </div>
+                                <div class="digitkeyboard row">
+                                    <span class="td-5" ng-repeat="num in range(5,9)" ng-click="pick(2,num)" ng-class="{active:isPick(2,num)}">{{num}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infoaction">
+                            <span class="right  col s6">注单总数 = {{availableWagers[ballNumStr]}}</span>
+                            <a href="#" class="btn addbtn right col s2" ng-click="clearPick()">清除</a>
+                            <a href="#" class="btn addbtn right col s2" ng-disabled="!availableWagers[ballNumStr]" ng-click="addAvailableWagers()">加入</a>
+                        </div>
+                        <div class="digitkeyboard row">
+                            <div class="optionsTitle">和尾</div>
+                            <span class="td-4" ng-click="addWager({betType:'bs',selection:'Big'},ballNumStr)" ng-class="{active:isAlreadyInBetSlip({betType:'bs',selection:'Big'},ballNumStr)}">大<br>{{counter.selections['Ball_'+ballNum+'_Big'].odds}}</span>
+                            <span class="td-4" ng-click="addWager({betType:'bs',selection:'Small'},ballNumStr)" ng-class="{active:isAlreadyInBetSlip({betType:'bs',selection:'Small'},ballNumStr)}">小<br>{{counter.selections['Ball_'+ballNum+'_Small'].odds}}</span>
+                            <span class="td-4" ng-click="addWager({betType:'oe',selection:'Odd'},ballNumStr)" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Odd'},ballNumStr)}">单<br>{{counter.selections['Ball_'+ballNum+'_Odd'].odds}}</span>
+                            <span class="td-4" ng-click="addWager({betType:'oe',selection:'Even'},ballNumStr)" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Even'},ballNumStr)}">双<br>{{counter.selections['Ball_'+ballNum+'_Even'].odds}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-empty"></div>
+            </div>
+            <div id="bettype_L" class="col s12">
+                <div class="row-box">
+                    <ul tabs class="subtabs">
+                        <li class="tab"><a class="active" href="#testLast">和尾</a></li>
+                        <li class="tab"><a href="#testSum">和值</a></li>
+                        <li class="tab"><a href="#testSpan">跨度</a></li>
+                        <li class="tab"><a href="#test1d">一字</a></li>
+                        <li class="tab"><a href="#test2d">二字</a></li>
+                        <li class="tab"><a href="#test3d">三字</a></li>
+                    </ul>
+                    <div id="testLast" class="col s12 content-bt">
+                        <div class="greyout" ng-if="getStatus()=='skip'">下一期即将开放投注。。。</div>
+<div class="greyout" ng-if="getStatus()=='close'">盘口已关闭</div>
+<div class="greyout" ng-if="getStatus()=='wait'">等待开奖。。。</div>
+<div class="greyout" ng-if="getStatus()=='stop'">停止下注</div>
+                        <div class="digitkeyboard row">
+                            <span class="td-2" ng-click="addWager({betType:'bs', selection:'Big'}, '321')" ng-class="{active:isAlreadyInBetSlip({betType:'ltbs',selection:'Big'},0)}">大<br>{{counter.selections['Big'].odds}}</span>
+                            <span class="td-2" ng-click="addWager({betType:'bs', selection:'Small'}, '321')" ng-class="{active:isAlreadyInBetSlip({betType:'ltbs',selection:'Small'},0)}">小<br>{{counter.selections['Small'].odds}}</span>
+                        </div>
+                        <div class="digitkeyboard row">
+                            <span class="td-2" ng-click="addWager({betType:'oe', selection:'Odd'}, '321')" ng-class="{active:isAlreadyInBetSlip({betType:'ltoe',selection:'Odd'},0)}">单<br>{{counter.selections['Odd'].odds}}</span>
+                            <span class="td-2" ng-click="addWager({betType:'oe', selection:'Even'}, '321')" ng-class="{active:isAlreadyInBetSlip({betType:'ltoe',selection:'Even'},0)}">双<br>{{counter.selections['Even'].odds}}</span>
+                        </div>
+                        <div class="footer-empty"></div>
+                    </div>
+                    <div id="testSum" class="col s12 content-bt" ng-init="sumRows=[range(0,3),range(7,4),range(8,11),range(15,12)]">
+                        <div class="greyout" ng-if="getStatus()=='skip'">下一期即将开放投注。。。</div>
+<div class="greyout" ng-if="getStatus()=='close'">盘口已关闭</div>
+<div class="greyout" ng-if="getStatus()=='wait'">等待开奖。。。</div>
+<div class="greyout" ng-if="getStatus()=='stop'">停止下注</div>
+                        <div class="digitkeyboard row" ng-repeat="row in sumRows">
+                            <span class="td-4" ng-repeat="idx in row" ng-click="addWager({betType:'sum',selection:idx},0)" ng-class="{active:isAlreadyInBetSlip({betType:'sum',selection:idx},0)}">
+                                {{idx==0?'0-6':idx==15?'21-27':idx+6}}
+                                <br />
+                                {{counter.selections['Sum_'+idx].odds}}
+                            </span>
+                        </div>
+                        <div class="footer-empty"></div>
+                    </div>
+                    <div id="testSpan" class="col s12 content-bt" ng-init="spanRows=[range(0,4),range(9,5)]">
+                        <div class="greyout" ng-if="getStatus()=='skip'">下一期即将开放投注。。。</div>
+<div class="greyout" ng-if="getStatus()=='close'">盘口已关闭</div>
+<div class="greyout" ng-if="getStatus()=='wait'">等待开奖。。。</div>
+<div class="greyout" ng-if="getStatus()=='stop'">停止下注</div>
+                        <div class="digitkeyboard row" ng-repeat="row in spanRows">
+                            <span class="td-5" ng-repeat="num in row track by $index" ng-click="addWager({betType:'span',selection:num},0)" ng-class="{active:isAlreadyInBetSlip({betType:'span',selection:num},0)}">
+                                {{num}}
+                                <br />
+                                {{counter.selections['Span_'+num].odds}}
+                            </span>
+                        </div>
+                        <div class="footer-empty"></div>
+                    </div>
+                    <div id="test1d" class="col s12 content-bt" ng-init="rows_pick=[range(0,4),range(5,9)]">
+                        <div class="greyout" ng-if="getStatus()=='skip'">下一期即将开放投注。。。</div>
+<div class="greyout" ng-if="getStatus()=='close'">盘口已关闭</div>
+<div class="greyout" ng-if="getStatus()=='wait'">等待开奖。。。</div>
+<div class="greyout" ng-if="getStatus()=='stop'">停止下注</div>
+                        <div class="oddlist">一字 @<span class="odd-color">{{counter.selections['OneDigit'].odds}}</span></div>
+                        <div class="digitkeyboard row" ng-repeat="row in rows_pick">
+                            <span class="td-5" ng-repeat="num in row track by $index" ng-click="addWager({betType:'pick1',selection:num},0)">
+                                {{num}}
+                            </span>
+                        </div>
+                        <div class="footer-empty"></div>
+                    </div>
+                    <div id="test2d" class="col s12 content-bt" ng-controller="pickCtrl" ng-init="init(2)">
+                        <div class="greyout" ng-if="getStatus()=='skip'">下一期即将开放投注。。。</div>
+<div class="greyout" ng-if="getStatus()=='close'">盘口已关闭</div>
+<div class="greyout" ng-if="getStatus()=='wait'">等待开奖。。。</div>
+<div class="greyout" ng-if="getStatus()=='stop'">停止下注</div>
+                        <div class="oddlist">二字 @<span class="odd-color">{{counter.selections['TwoDigits'].odds}}</span> </div>
+                        <div class="oddlist">双重 @<span class="odd-color">{{counter.selections['TwoDigits_Double'].odds}}</span> </div>
+                        <div class="selectinfo row">
+                            <span class="td-2" ng-repeat="num in range(2)" ng-click="$parent.selectRowType=num" ng-class="{'active':$parent.selectRowType==num}">
+                                {{showClickNum(allPickNum[num])}}
+                            </span>
+                        </div>
+                        <div class="selectbox">
+                            <div class="digitkeyboard row" ng-repeat="row in rows_pick">
+                                <span class="td-5" ng-repeat="num in row track by $index" ng-click="clickNum(num)" ng-class="{active:getClickNumCSS(num)}">
+                                    {{num}}
+                                </span>
+                            </div>
+                        </div>
+                        <!-- footer information -->
+                        <div class="infoaction">
+                            <span class="right  col s6">注单总数 = {{availableWagers.length}}</span>
+                            <a href="#" class="btn addbtn right col s2" ng-click="clearSelectRow()">清除</a>
+                            <a href="#" class="btn addbtn right col s2" ng-disabled="!(allPickNum[0].length >0 && allPickNum[1].length >0)" ng-click="addAvailableWagers()">加入</a>
+                        </div>
+                        <!-- footer information -->
+                        <div class="footer-empty"></div>
+                    </div>
+                    <div id="test3d" class="col s12 content-bt" ng-controller="pickCtrl" ng-init="init(3)">
+                        <div class="greyout" ng-if="getStatus()=='skip'">下一期即将开放投注。。。</div>
+<div class="greyout" ng-if="getStatus()=='close'">盘口已关闭</div>
+<div class="greyout" ng-if="getStatus()=='wait'">等待开奖。。。</div>
+<div class="greyout" ng-if="getStatus()=='stop'">停止下注</div>
+                        <div class="oddlist">组六 @<span class="odd-color">{{counter.selections['ThreeDigits'].odds}}</span></div>
+                        <div class="oddlist">组三 @<span class="odd-color">{{counter.selections['ThreeDigits_Double'].odds}}</span></div>
+                        <div class="oddlist">豹子 @<span class="odd-color">{{counter.selections['ThreeDigits_Triple'].odds}}</span></div>
+                        <div class="selectinfo row">
+                            <span class="td-3" ng-repeat="num in range(3)" ng-click="$parent.selectRowType=num" ng-class="{'active':$parent.selectRowType==num}">
+                                {{showClickNum(allPickNum[num])}}
+                            </span>
+                        </div>
+                        <div class="selectbox">
+                            <div class="digitkeyboard row" ng-repeat="row in rows_pick">
+                                <span class="td-5" ng-repeat="num in row track by $index" ng-click="clickNum(num)" ng-class="{active:getClickNumCSS(num)}">
+                                    {{num}}
+                                </span>
+                            </div>
+                        </div>
+                        <!-- footer information -->
+                        <div class="infoaction">
+                            <span class="right  col s6">注单总数 = {{availableWagers.length}}</span>
+                            <a href="#" class="btn addbtn right col s2" ng-click="clearSelectRow()">清除</a>
+                            <a href="#" class="btn addbtn right col s2" ng-disabled="!(allPickNum[0].length >0 && allPickNum[1].length >0 && allPickNum[2].length >0)" ng-click="addAvailableWagers()">加入</a>
+                        </div>
+                        <!-- footer information -->
+                        <div class="footer-empty"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-controller="trendCtrl" ng-show="!showBetSlip">
+            <div class="footer-modal closed" id="footerTrend" ng-class="showBetSlip?'betslip-ft':'cv-ft'">
+                <div class="nav-info-iconG">
+                    <a class="btn-square" ng-click="refreshTrend()">
+                        <i id="trendRefreshBtn" class="mdi mdi-cached"></i>
+                        <span id="trendRefreshImg" class="refreshanimate refreshbtn"><img src="/Content/MobileThemes/BaseLayout/reload.svg" /></span>
+                    </a>
+                    <a class="btn-square" ng-click="toggleFooterType()">
+                        <i class="mdi" ng-class="trendView=='big' ?'mdi-chart-bar':'mdi-chart-bubble'"></i>
+                    </a>
+                    <a class="btn-square" ng-click="toggleFooter()">
+                        <i class="mdi" ng-class="isShowFooter ? 'mdi-chevron-down' : 'mdi-chevron-up'"></i>
+                    </a>
+                </div>
+                <div class="modal-content" style="height:290px;" ng-init="init({counterId:320,rowsCount:6,colCount:22, unbound:true})">
+                    <ul tabs ng-show="trendView!='statistics'">
+                        <li class="tab col s3"><a ng-class="{active:trendType=='bs'}" ng-click="toggleTrendType('bs')">大小</a></li>
+                        <li class="tab col s3"><a ng-class="{active:trendType=='oe'}" ng-click="toggleTrendType('oe')">单双</a></li>
+                        <li class="tab col s3"><a ng-class="{active:trendType=='ball'}" ng-click="toggleTrendType('ball')">和值</a></li>
+                    </ul>
+                    <div class="col s12" ng-init="trendBall=$parent.counter.ballCount">
+                        <ul class="foottab" tabs>
+                            <li class="tab" ng-if="$parent.counter.ballCount==5" ng-class="{act:trendBall==5}" ng-click="toggleTrendBall(5)"><a href="#">万</a></li>
+                            <li class="tab" ng-if="$parent.counter.ballCount==5" ng-class="{act:trendBall==4}" ng-click="toggleTrendBall(4)"><a href="#">千</a></li>
+                            <li class="tab" ng-class="{act:trendBall==3}" ng-click="toggleTrendBall(3)"><a href="#">百</a></li>
+                            <li class="tab" ng-class="{act:trendBall==2}" ng-click="toggleTrendBall(2)"><a href="#">十</a></li>
+                            <li class="tab" ng-class="{act:trendBall==1}" ng-click="toggleTrendBall(1)"><a href="#">个</a></li>
+                            <li class="tab" ng-class="{act:trendBall==-1}" ng-click="toggleTrendBall(-1)"><a href="#">百十个</a></li>
+                        </ul>
+                        <div class="col s12">
+                            <div class="trendviewbox" ng-show="trendView=='big'">
+                                <div class="trendview">
+                                    <div class="tablerow" ng-repeat="rows in trendTable">
+                                        <div class="tablecell">
+                                            <div class="ballbox" ng-repeat="trend in rows">
+                                                <div ng-if="!trend.type"></div>
+                                                <div ng-if="trend.type && trendType!='ball'" class="{{trend.type}}ba ball">{{trend.type|trendText}}</div>
+                                                <span ng-if="trend.type && trendType=='ball'" class="{{trend.type}}b pbtext" ng-bind="trend.sum"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footeraction lottoPanel" ng-show="trendView=='statistics'">
+                                <div class="barchart row " style="width: 100%">
+                                    <p class="title col s3">大小(%)</p>
+                                    <div class="col s9">
+                                        <div class="chart" ng-show="bigRate==null">0%</div>
+                                        <div class="chart bba left" style="width:{{bigRate}}%" ng-show="bigRate!=null&&bigRate>0" ng-bind="bigRate"></div>
+                                        <div class="chart sba right" style="width:{{100-bigRate}}%" ng-show="bigRate!=null&&bigRate!=100" ng-bind="(100-bigRate)"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+
+                                <div class="barchart row " style="width: 100%">
+                                    <p class="title col s3">单双(%)</p>
+                                    <div class="col s9">
+                                        <div class="chart" ng-show="oddRate==null">0%</div>
+                                        <div class="chart oba left" style="width:{{oddRate}}%" ng-show="oddRate!=null&&oddRate>0" ng-bind="oddRate"></div>
+                                        <div class="chart eba right" style="width:{{100-oddRate}}%" ng-show="oddRate!=null&&oddRate!=100" ng-bind="(100-oddRate)"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+
+                                <div class="roundchart row" ng-show="trendBall!=-1">
+                                    <p class="title col s3">热门</p>
+                                    <div class="col s9" ng-if="numCountArr==null">
+                                        <div class="">N/A</div>
+                                    </div>
+                                    <div class="col s9" ng-if="numCountArr!=null">
+                                        <div class="ball bba" ng-repeat="ball in numCountArr|orderBy:'-'|limitTo:3" ng-bind="ball.num"></div>
+                                    </div>
+                                </div>
+
+                                <div class="roundchart row" ng-show="trendBall!=-1">
+                                    <p class="title col s3">冷门</p>
+                                    <div class="col s9" ng-if="numCountArr==null">
+                                        <div>N/A</div>
+                                    </div>
+                                    <div class="col s9" ng-if="numCountArr!=null">
+                                        <div class="ball sba" ng-repeat="ball in numCountArr|limitTo:3" ng-bind="ball.num"></div>
+                                    </div>
+                                </div>
+
+                                <div class="roundchart row" ng-show="trendBall==-1">
+                                    <p class="title col s3">跨度</p>
+                                    <div class="col s9" ng-if="numCountArr==null">
+                                        <div>N/A</div>
+                                    </div>
+                                    <div class="col s9" ng-if="numCountArr!=null">
+                                        <div class="ball bba" ng-repeat="ball in spanArr|orderBy:'-'|limitTo:5" ng-bind="ball.num"></div>
+                                    </div>
+                                </div>
+
+                                <div class="roundchart row" ng-show="trendBall==-1">
+                                    <p class="title col s3">和值</p>
+                                    <div class="col s9" ng-if="numCountArr==null">
+                                        <span>N/A</span>
+                                    </div>
+                                    <div class="col s9" ng-if="numCountArr!=null">
+                                        <div class="ball sba" ng-repeat="ball in numCountArr|orderBy:'-'|limitTo:5" ng-bind="ball.num"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <div ng-controller="popupDialogCtrl" class="popupbox" ng-show="isShowPopup">
+                <div class="sub-pa suOpen">
+                    <nav class="top-nav-info otnav">
+                        <div class="nav-wrapper top-nav-info-container">
+                            <div class="brand-name left" ng-if="wagerCount">
+                                {{title}}
+                                <span class="badge">{{wagerCount}}</span>
+                            </div>
+
+                            <div class="brand-name left" ng-if="!wagerCount && !statementDate">
+                                {{title}}
+                            </div>
+                            <a class="iconbtn-next" ng-if="!wagerCount && statementDate"><i ng-click="goBackStatement()" class="mdi mdi-chevron-left right"></i></a>
+                            <div class="brand-name stmd" ng-if="!wagerCount && statementDate">
+                                {{title}} <br><span class="stdate">({{statementDate | date}})</span>
+                            </div>
+                        </div>
+                        <div class="closeBtn-right col s1">
+                            <a href="javascript:void(0);"><i class="mdi mdi-close " ng-click="close()"></i></a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </nav>
+                    <div ng-include="contentUrl"></div>
+                </div>
+            </div>
+        </div>
+        <div class="greyOut filled forVertical displayblock ng-hide" style="" ng-show="isLandScape"><img src="/Content/MobileThemes/BaseLayout/smartphone.svg"></div>
+    </div>
+    
+    <script type="text/javascript">
+        gv.product = "lotto";
+    </script>
+    <script src="/bundles/jquery.js"></script>
+    <script src="/bundles/jqueryui.js"></script>
+    <script src="/bundles/lottoCounterApp.zh-cn.js"></script>
+    <script src="/signalrnet/hubs.js" type="text/javascript"></script>
+    <script>
+        angular.module("app").requires.push("layoutApp"); //append layoutApp to app after renderbody.
+        $(document).ready(function () {
+            $("ul.tabs").tabs();
+        });
+    </script>
+</body>
+</html>
