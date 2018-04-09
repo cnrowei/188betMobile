@@ -4,7 +4,7 @@
             <div class="navbar-header">
                 <a id="logo-188bet" class="navbar-brand" ng-href="/{{global.lan}}" window-open="188main"></a>
             </div>
-            <ul id="menu-products" class="nav navbar-nav menu-products">
+            <!-- <ul id="menu-products" class="nav navbar-nav menu-products">
                 <li ng-repeat="prod in menuProds" ng-class="{ active : indexMenu(prod.name) , maintenance : prod.isMaintenance == true, hidden: $index  > maxIndex}" ng-switch="prod.name">
                     <a ng-switch-when="sports" ng-href="{{ getSportsView() }}" translate="{{prod.index | quicki18n : 'prodNames'}}" window-open="188main"></a>
                     <a ng-switch-default ng-href="/{{global.lan}}/{{prod.name}}" translate="{{prod.index | quicki18n : 'prodNames'}}" window-open="188main"></a>
@@ -17,7 +17,7 @@
                         </li>
                     </ul>
                 </li>
-            </ul>
+            </ul> -->
             <div announcement></div>
             <ul id="hdr-panel" class="nav navbar-nav navbar-collapse collapse clearfix">
                 <li user-panel ng-init="onInit()" ng-if="!hiddenUserpanel" class="userpanel">
@@ -95,7 +95,8 @@
                 <li class="clear-b">
                     <ul class="public-tools clearfix">
                         <li><span format="'HH:mm:ss'" star-clock></span></li>
-                        <li class="language" ng-switch="global.pageStatus">
+
+                        <!-- <li class="language" ng-switch="global.pageStatus">
                             <button id="toggle-change-lang" data-toggle="dropdown"> <strong>{{ global.language.display }}</strong> <span class="flag {{ global.lan }}"></span> <span ng-if="client.sessionD.lans.length > 1" class="betfont icon-10px icon-caretdownthin icon-caretdownthin"></span> </button>
                             <ul ng-switch-when="503" id="change-lang" class="dropdown-menu dark-menu pull-right" role="menu" aria-labelledby="change-language">
                                 <li role="presentation" ng-repeat="lan in global.lans | filter : { value : '!' + global.lan }">
@@ -107,7 +108,8 @@
                                     <a role="menuitem" tabindex="-1" ng-click="switchLang(lan.value)">{{lan.display}}<span class="flag {{lan.value}}"></span></a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
+
                     </ul>
                 </li>
           </ul>

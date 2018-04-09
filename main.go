@@ -23,17 +23,39 @@ func main() {
 	router.LoadHTMLGlob("templates/*")
 	//router.LoadHTMLGlob("templates/myaccount/*")
 
-	router.GET("/zh-cn/lotto/main-lobby", func(c *gin.Context) {
-		formate := "2006-01-02 15:04:05"
-		c.HTML(http.StatusOK, "main-lobby.html", gin.H{
-			"title": "列表",
-			"lpb":   time.Now().Format(formate),
+	router.GET("/zh-cn/my-account/statement/transaction-history/summary", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "summary.tpl.html", gin.H{
+			"title": "摘要",
 		})
 	})
 
-	router.GET("/zh-cn/my-account/statement/transaction-history/summary", func(c *gin.Context) {
+	router.GET("/zh-cn/my-account/statement/betting-history/lotto/settled-bets", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "settled-bets.tpl.html", gin.H{
+			"title": "彩票已结算投注",
+		})
+	})
+
+	router.GET("/zh-cn/my-account/statement/betting-history/lotto/unsettled-bets", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "settled-bets.tpl.html", gin.H{
+			"title": "彩票未结算投注",
+		})
+	})
+
+	router.GET("/zh-cn/my-account/statement/member-manage/agent", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "member-agent.tpl.html", gin.H{
+			"title": "彩票未结算投注",
+		})
+	})
+
+	router.GET("/zh-cn/my-account/statement/member-manage/member", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "member-agent.tpl.html", gin.H{
+			"title": "用户管理",
+		})
+	})
+
+	router.GET("/zh-cn/lotto/main-lobby", func(c *gin.Context) {
 		formate := "2006-01-02 15:04:05"
-		c.HTML(http.StatusOK, "summary.html", gin.H{
+		c.HTML(http.StatusOK, "main-lobby.tpl.html", gin.H{
 			"title": "列表",
 			"lpb":   time.Now().Format(formate),
 		})
@@ -41,7 +63,7 @@ func main() {
 
 	router.GET("/zh-cn/lotto/counter/:id/:counterType", func(c *gin.Context) {
 		formate := "2006-01-02 15:04:05"
-		c.HTML(http.StatusOK, "counter.html", gin.H{
+		c.HTML(http.StatusOK, "counter.tpl.html", gin.H{
 			"title": "列表",
 			"lpb":   time.Now().Format(formate),
 		})
