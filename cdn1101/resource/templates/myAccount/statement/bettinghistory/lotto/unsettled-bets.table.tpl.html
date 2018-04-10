@@ -1,0 +1,57 @@
+
+<table class="table dark-head-foot table-bordered">
+    <colgroup>
+        <col class="tbl-col-num">
+            <col class="tbl-col-detail-m">
+                <col>
+                    <col>
+                        <col>
+                            <col>
+                                <col class="tbl-col-status-s">
+    </colgroup>
+    <thead>
+        <tr>
+            <th class="text-center" translate="txtComStNum">No.</th>
+            <th class="text-center" translate="txtStatementBetDetails">Bet Details</th>
+            <th class="text-center" translate="txtStatementBetType">Bet Type</th>
+            <th class="text-center" translate="txtStatementSelection">Selection</th>
+            <th class="text-center" translate="txtStatementStake">Stake</th>
+            <th class="text-center">
+                <span translate="txtStatementWin">win</span>/<span translate="txtStatementLose">Loss</span>
+            </th>
+            <th class="text-center" translate="txtComStatus">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-if="betHisCtrl.settlebetModel.length==0">
+            <td class="text-center" colspan="8" translate="msgComNoRecordFound"></td>
+        </tr>
+        <tr ng-repeat="sb in betHisCtrl.settlebetModel | orderBy: '-betTime'">
+            <td>{{$index +1}}</td>
+            <td>{{sb.betTime | date:'dd/MM/yyyy, HH:mm:ss':client.geod.timezone}}
+                <br>
+                <a window-style="width=1200px; height=244px" window-open="statementDetail" ng-href="{{sb.extend.wagerUrl}}" target="_blank"  ">
+                    {{sb.betId}}
+                </a>  
+            </td>
+            <td>{{sb.partnerName}}<br>{{sb.betType}}</td>
+            <td>
+                {{sb.extend.location}} {{sb.extend.drawNo}}
+                <span ng-if="sb.betType.toLowerCase() !== 'pearlball' && sb.partnerId != 18 " ng-repeat="sel in sb.selections">, {{sel.selName}}@{{sel.odds}}</span>
+                <span ng-if="sb.betType.toLowerCase() !== 'pearlball' && sb.partnerId == 18 " ng-repeat="sel in sb.selections">, @{{sel.odds}}</span>
+                <br/>
+                <span ng-if="sb.extend.ballNum" translate="txtCommonSelections">selections</span> {{sb.extend.ballNum}}
+            </td>
+            <td class="text-right">{{sb.stake | number:2 | swapCurrencySymbol}}</td>
+            <td class="text-right">-</td>
+            <td class="text-center" translate="txtStatementDangerConfirmed"></td>            
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr ng-if="betHisCtrl.settlebetModel.length!=0">
+            <td colspan="4" class="text-right" translate="txtComTotal">Total</td>
+            <td class="text-right">{{betHisCtrl.settlebetModel | sum:'stake' | number:2 | swapCurrencySymbol}}</td>
+            <td colspan="2"></td>
+        </tr>
+    </tfoot>
+</table>

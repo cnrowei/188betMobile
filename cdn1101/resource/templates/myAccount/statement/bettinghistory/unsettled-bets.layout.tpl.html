@@ -1,0 +1,16 @@
+
+<div class="main-content col-xs-10" ng-class="{ 'load-spinner' : ajaxStackObj[betHisCtrl.guId] == true }">
+    <h2 class="static-title"><span translate="{{::betHisCtrl.prodKey}}"></span> : <span translate="{{::betHisCtrl.title}}"></span></h2>
+    <div class="statement-top-controls">
+        <print-button class="btn bet-btn btn-darkergrey-sm pull-right" translate="txtBtnPrint">PRINT</print-button>
+        <div class="statement-filters">
+            <form class="form-inline" role="search">
+                <span class="control-label font-13" translate="msgCommonStatementUnsettledDesc">All unsettled bets are displayed below</span>
+            </form>
+        </div>
+    </div>
+    <div class="static-content" >
+        <div class="tab-content" ng-include="betHisCtrl.getProdTable()">
+        </div>
+    </div>
+</div>

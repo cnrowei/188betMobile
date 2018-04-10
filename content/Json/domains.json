@@ -1,0 +1,17 @@
+{
+    "star": "https://www.oneeightyeightbet.com",
+    "uk": "https://www.188bet.co.uk",
+    "cdn": "http://127.0.0.1:8188",
+    "content": "https://doc-cdn.nsuh328kdkdklsd.com/contents",
+    "oldContents": "https://doc.188contents.com/contents",
+    "mobile": "https://m.oneeightyeightbet.com",
+    "sbkfeed": "https://sb.oneeightyeightbet.com/",
+    "piper": "https://piper.188contents.com/api/service/GetContent?brandId=1001",
+    "aps": "https://aps-service.188contents.com:8443/ServiceSpi/",
+    "livechat": "https://www.oneeightyeightbet.com",
+    "gApi": "https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&key=AIzaSyDOHjidFKS1h8q9jfNjXtypstAiU23EJBA&id=",
+    "rtmsul": "https://rtms-ul.one-spi.com",
+    "rtms": "https://rtms-wss.one-spi.com",
+    "iOSAppAsiaUrl": "https://doc-cdn.nsuh328kdkdklsd.com/artifact/ios-188bet",
+    "iOSAppUKUrl": "https://itunes.apple.com/gb/app/188bet-uk/id1154399865?mt=8"
+}

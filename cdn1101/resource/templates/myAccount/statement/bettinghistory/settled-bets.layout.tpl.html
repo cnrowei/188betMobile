@@ -1,0 +1,22 @@
+<div class="main-content col-xs-10" ng-class="{ 'load-spinner' : ajaxStackObj[betHisCtrl.guId] == true }">
+    <h2 class="static-title">
+        <span translate="{{::betHisCtrl.prodKey}}"></span>
+        <span ng-if="betHisCtrl.prod!=='casino' && betHisCtrl.prod!=='mahjong'"> : <span translate="{{::betHisCtrl.title}}"></span></span>
+    </h2>
+    <div class="statement-top-controls">
+        <print-button class="btn bet-btn btn-darkergrey-sm pull-right" translate="txtBtnPrint">PRINT</print-button>
+        <date-range-filter max-date-range="dateMaxRange" search-fn="betHisCtrl.serachByRange(data)" date-range="dateRange" class="statement-filters"></date-range-filter>
+        <h4 ng-if="betHisCtrl.prod !=='virtual'" >
+            <strong> Event Date: </strong>
+            {{dateRange.dateFrom | date:'dd MMM yyyy'}} - {{dateRange.dateTo | date:'dd MMM yyyy'}}
+            <strong> (GMT{{::client.geod.timezone}}) </strong>
+        </h4>
+    </div>
+    <div class="static-content">
+        <div class="quick-tabs clearfix">
+            <days-filter max-date-range="dateMaxRange" class="quick-tabs" date-range="dateRange" search-fn="betHisCtrl.serachByRange(data)"></days-filter>
+            <statement-select ng-if="betHisCtrl.prod==='casino'" current-value="betHisCtrl.winlossFilter" source="selectProcesssList"> </statement-select>
+        </div>
+        <div class="tab-content" ng-include="betHisCtrl.getProdTable()"></div>
+    </div>
+</div>

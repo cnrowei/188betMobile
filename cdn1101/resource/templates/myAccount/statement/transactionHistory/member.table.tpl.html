@@ -1,0 +1,55 @@
+<table class="table dark-head-foot table-bordered">
+    <colgroup>
+    <col class="tbl-col-xxs">
+    <col class="tbl-col-lg">
+    <col class="tbl-col-md">
+    <col class="tbl-col-md">
+    <col class="tbl-col-xs">
+    <col class="tbl-col-xs">
+    </colgroup>
+    <thead>
+        <tr>
+            <th class="text-center" translate="txtStatementPromoCode">Promo Code</th>
+            <th class="text-center" translate="txtStatementDescription">Description</th>
+            <th class="text-center"><span translate="txtComDateSubmitted">Date Submitted</span></th>
+            <th class="text-center"> <span translate="txtStatementPromoPeriod">Promo Period</span><br /> (GMT -4)</th>
+            <th class="text-center" translate="txtStatementBonusRewarded">Bonus Rewarded</th>
+            <th class="text-center" translate="txtStatementStatus">Status</th>
+            <th class="text-center" translate="txtStatementRemark">Remark</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-if="filteredModel.length==0">
+            <td class="text-center" colspan="8" translate="msgComNoRecordFound"></td>
+        </tr>
+        <tr ng-repeat="rowdata in filteredModel=(tranHisCtrl.transModel) | orderBy : '-signupDate'">
+            <td class="text-center">{{ ::rowdata.promoCode }}</td>
+            <td class="text-center">{{ ::rowdata.promoName | getLocalizations : 'text' }}</td>
+            <td class="text-center">{{ ::rowdata.signupDate | date : 'dd/MM/yyyy HH:mm': client.geod.timezone }}</td>
+            <td class="text-center">{{ ::rowdata.periodFrom | date : 'dd/MM/yyyy': '-4:00'}} ~ {{ ::rowdata.periodTo | date : 'dd/MM/yyyy' : '-4:00'}}</td>
+            <td class="text-right">
+                <span ng-show="rowdata.bonusStatusId=='0'||rowdata.bonusStatusId=='4'">-</span>
+                <span ng-show="rowdata.bonusStatusId!='0' && rowdata.bonusStatusId !='4'">{{ rowdata.bonus | number:2 | swapCurrencySymbol}}</span>
+            </td>
+            <td class="text-center" ng-switch="rowdata.bonusStatusId">
+                <span ng-switch-when="0" translate="txtStatementApproved"></span>
+                <span ng-switch-when="1" translate="txtStatementBonusRewarded"></span>
+                <span ng-switch-when="2" translate="txtStatementCancel"></span>
+                <span ng-switch-when="3" translate="txtStatementCancel"></span>
+                <span ng-switch-when="4" translate="txtStatementApproved"></span>
+                <span ng-switch-when="5" translate="txtStatementRejected"></span>
+                <span ng-switch-when="7" translate="txtStatementAwaiting"></span>
+                <span ng-switch-when="8" translate="txtStatementAwaiting"></span>
+                <span ng-switch-when="9" translate="txtStatementUnqualified"></span>
+            </td>
+            <td class="text-center">{{(rowdata.bonusStatusId === 8 || rowdata.bonusStatusId === 9) ? '' : rowdata.remark }}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+    <tr ng-if="filteredModel.length>0">
+        <td colspan="4" class="text-right"><span translate="txtStatementTotalApproved"></span> : </td>
+        <td class="text-right">{{ filteredModel | sum:'bonus' | number:2 | swapCurrencySymbol}}</td>
+        <td colspan="2"></td>
+    </tr>
+    </tfoot>
+</table>

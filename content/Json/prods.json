@@ -1,0 +1,154 @@
+[{
+    "allows": "*",
+    "isNews": false,
+    "hashTag": null,
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": null,
+    "name": "home",
+    "index": 101
+}, {
+    "allows": "*",
+    "isNews": false,
+    "hashTag": null,
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": null,
+    "name": "2016-euro",
+    "index": 1103
+}, {
+    "allows": "*",
+    "isNews": true,
+    "hashTag": "sports",
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": "asia|multiprogramme|programme|sports",
+    "name": "sports",
+    "index": 1100
+}, {
+    "allows": "*",
+    "isNews": true,
+    "hashTag": "esports",
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": "esports",
+    "name": "esports",
+    "index": 3100
+}, {
+    "allows": "*",
+    "isNews": false,
+    "hashTag": "casino",
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": "casino",
+    "name": "casino",
+    "index": 4100
+}, {
+    "allows": "Brazil,Cambodia,China,Indonesia,Japan,Korea,Malaysia,Thailand,Vietnam,ROA,ROW,ROE,UK",
+    "isNews": false,
+    "hashTag": "live casino",
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": "live",
+    "name": "live",
+    "index": 5100
+}, {
+    "allows": "-",
+    "isNews": true,
+    "hashTag": "virtual",
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": "virtual",
+    "name": "virtual",
+    "index": 12100
+}, {
+    "allows": "Brazil,Cambodia,China,Indonesia,Japan,Korea,Malaysia,Thailand,Vietnam,ROA,ROW",
+    "isNews": false,
+    "hashTag": "lotto",
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": "lotto",
+    "name": "lotto",
+    "index": 8100
+}, {
+    "allows": "*",
+    "isNews": true,
+    "hashTag": "poker",
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": "poker",
+    "name": "poker",
+    "index": 6100
+}, {
+    "allows": "Japan",
+    "isNews": false,
+    "hashTag": "mahjong",
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": "mahjong$",
+    "name": "mahjong",
+    "index": 11100
+}, {
+    "allows": "-",
+    "isNews": false,
+    "hashTag": "financials",
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": "financials",
+    "name": "financials",
+    "index": 7100
+}, {
+    "allows": "ROE,China,Brazil",
+    "isNews": false,
+    "hashTag": "bingo",
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": "bingo",
+    "name": "bingo",
+    "index": 9100
+}, {
+    "allows": "*",
+    "isNews": false,
+    "hashTag": null,
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": "",
+    "name": "promotions",
+    "index": 10100
+}, {
+    "allows": "*",
+    "isNews": false,
+    "hashTag": null,
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": null,
+    "name": "news",
+    "index": 10101
+}, {
+    "allows": "*",
+    "isNews": false,
+    "hashTag": null,
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": null,
+    "name": "sign-up-success",
+    "index": 10102
+}, {
+    "allows": "*",
+    "isNews": false,
+    "hashTag": null,
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": null,
+    "name": "sign-up",
+    "index": 10103
+}, {
+    "allows": "Cambodia,China,Indonesia,Japan,Korea,Malaysia,Thailand,Vietnam,ROA,Brazil",
+    "isNews": false,
+    "hashTag": null,
+    "forbiddens": "",
+    "isMaintenance": false,
+    "regexPath": "",
+    "name": "mobile",
+    "index": 10104
+}]

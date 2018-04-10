@@ -1,0 +1,276 @@
+<div class="profile-info form-box">
+    <form name="profileForm" class="form-horizontal form-su-label" novalidate novalidate-when-disable>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtProfileSalutation">Salutation</label>
+                <div class="col-lg-4">
+                    <select name="salutation" class="form-control" ng-model="profileVm.salutation" to-num>
+                        <option value="2" translate="txtCommonMr">Mr. </option>
+                        <option value="1" translate="txtCommonMs">Ms. </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsFirstName" ng-if="!requireFullName">First Name</label>
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsFullName" ng-if="requireFullName">Full Name</label>
+                <div class="col-lg-4">
+                    <input name="firstName" type="text" class="form-control" ng-model="profileVm.firstName" required ng-disabled="disableProp" ng-pattern="pattern.nospecChar">
+                </div>
+                <div class="col-lg-6" ng-if="profileForm.firstName.$invalid">
+                    <label class="x-valid"><i class="betfont icon-close"></i><span class="x-valid-txt"></span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row" ng-if="requireMiddleName">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsMiddleName">Middle Name</label>
+                <div class="col-lg-4">
+                    <input name="middleName" type="text" class="form-control" ng-model="profileVm.middleName" ng-required="!disableProp" ng-disabled="disableProp" ng-pattern="pattern.nospecChar">
+                </div>
+                <div class="col-lg-6" ng-if="profileForm.middleName.$invalid">
+                    <label class="x-valid"><i class="betfont icon-close"></i><span class="x-valid-txt"></span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row" ng-if="!requireFullName">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsLastName">Last Name</label>
+                <div class="col-lg-4">
+                    <input name="lastName" type="text" class="form-control" ng-model="profileVm.lastName" required ng-disabled="disableProp" ng-pattern="pattern.nospecChar">
+                </div>
+                <div class="col-lg-6" ng-if="profileForm.lastName.$invalid">
+                    <label class="x-valid"><i class="betfont icon-close"></i><span class="x-valid-txt"></span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsUserId">Username</label>
+                <div class="col-lg-4">
+                    <input name="username" type="text" class="form-control" ng-model="client.sessionD.loginId" ng-disabled="true">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsPassword">Password</label>
+                <div class="col-lg-4">
+                    <input name="password" type="text" class="form-control" ng-disabled="true" value="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+                </div>
+                <div class="col-lg-6"> <a class="grey-u-anchor" href ng-click="changePassword()" translate="txtProfileChangePassword">Change Password</a></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtProfileEmail">Email Address:</label>
+                <div class="col-lg-4">
+                    <input type="email" class="form-control" name="email" ng-model="profileVm.email" required>
+                </div>
+                <div class="col-lg-6" ng-if="profileForm.email.$invalid">
+                    <label class="x-valid"><i class="betfont icon-close"></i><span class="x-valid-txt"></span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtProfileMobileNumber">Mobile Number:</label>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <select class="custom-select form-control" ng-options="item.Id as item.Name + ' +' +item.Id for item in options.phoneExt track by item.Id" ng-model="profileVm.mobileExt" country-flag="options.phoneExt">
+                            <option data-icon="" value="" Name="" selected disabled>-- {{'txtComSelectOne' | translate}} --</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-7">
+                            <input class="form-control" type="text" name="mobileNumber" ng-model="profileVm.mobileNumber" ng-pattern="pattern.phoneNo" ng-required="!profileVm.homeNumber">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" ng-if="profileForm.mobileNumber.$invalid">
+                    <label class="x-valid"><i class="betfont icon-close"></i><span class="x-valid-txt"></span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsHomeNo">Home Number:</label>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-xs-5">                            
+                            <select class="custom-select form-control" ng-options="item.Id as item.Name + ' +' +item.Id for item in options.phoneExt track by item.Id" ng-model="profileVm.homeExt" country-flag="options.phoneExt">
+                            <option data-icon="" value="" Name="" selected disabled>-- {{'txtComSelectOne' | translate}} --</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-7">
+                            <input class="form-control" type="text" name="homeNumber" ng-model="profileVm.homeNumber" ng-pattern="pattern.phoneNo" ng-required="!profileVm.mobileNumber">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" ng-if="profileForm.homeNumber.$invalid">
+                    <label class="x-valid"><i class="betfont icon-close"></i><span class="x-valid-txt"></span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtProfileBirthdate">Date of Birth:</label>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <select class="custom-select form-control" name="dayOfBirth" ng-model="profileVm.dayOfBirth" to-num ng-disabled="disableProp" ng-change="validate(profileForm, 'dayOfBirth')">
+                                <option ng-repeat="date in dateoptions.date | forloopRange">{{date}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="custom-select form-control" name="monthOfBirth"  ng-model="profileVm.monthOfBirth" to-num ng-disabled="disableProp" ng-change="validate(profileForm, 'dayOfBirth')">
+                                <option ng-repeat="month in dateoptions.month | forloopRange">{{month}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="custom-select form-control" name="yearOfBirth" ng-model="profileVm.yearOfBirth" to-num ng-disabled="disableProp" ng-change="validate(profileForm, 'dayOfBirth')">
+                                <option ng-repeat="year in dateoptions.year | forloopRange">{{year}}</option>
+                            </select>
+                        </div>
+                        <label class="error form-error" ng-if="profileForm.dayOfBirth.$invalid || profileForm.monthOfBirth.$invalid || profileForm.yearOfBirth.$invalid " translate="msgJoinUsBirthDateInvaild"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsNationality">Nationality:</label>
+                <div class="col-lg-4">
+                    <input class="form-control" type="text" name="nationalityId" ng-model="profileVm.nationalityId" uib-typeahead="country.Id as country.Name for country in options.nationalities | filter:$viewValue" typeahead-input-formatter="formatNameObj($model,options.nationalities)" required typeahead-on-select="profileForm.nationalityId.$setValidity('nationalityId',true)" ng-change="validate(profileForm, 'nationalityId')" ng-disabled="profileVm.nationalityId == 0 ? false : disableProp ">
+                </div>
+                <div class="col-lg-6" ng-if="profileForm.nationalityId.$invalid">
+                    <label class="x-valid"><i class="betfont icon-close"></i><span class="x-valid-txt"></span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsPlaceOfBirth">Place of Birth:</label>
+                <div class="col-lg-4">
+                    <input class="form-control" type="text" name="placeOfBirthId" ng-model="profileVm.placeOfBirthId" uib-typeahead="country.Id as country.Name for country in options.nationalities | filter:$viewValue" typeahead-input-formatter="formatNameObj($model,options.nationalities)" required typeahead-on-select="profileForm.placeOfBirthId.$setValidity('placeOfBirthId',true)" ng-change="validate(profileForm, 'placeOfBirthId')" ng-disabled="profileVm.placeOfBirthId == 0 ? false : disableProp">
+                </div>
+                <div class="col-lg-6" ng-if="profileForm.placeOfBirthId.$invalid">
+                    <label class="x-valid"><i class="betfont icon-close"></i><span class="x-valid-txt"></span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsAddress">Address:</label>
+                <div class="col-lg-4">
+                    <textarea class="form-control address-text" name="a" ng-model="profileVm.address" required ng-disabled="disableProp"></textarea>
+                </div>
+                <div class="col-lg-6" ng-if="profileForm.a.$invalid">
+                    <label class="x-valid"><i class="betfont icon-close"></i><span class="x-valid-txt"></span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsCityProvince">City:</label>
+                <div class="col-lg-4">
+                    <input class="form-control" type="text" name="cityProvince" ng-model="profileVm.cityProvince" ng-pattern="pattern.nospecCharDigit" required ng-disabled="disableProp">
+                </div>
+                <div class="col-lg-6" ng-if="profileForm.cityProvince.$invalid">
+                    <label class="x-valid"><i class="betfont icon-close"></i><span class="x-valid-txt"></span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtProfileCountry">Country:</label>
+                <div class="col-lg-4">
+                    <input class="form-control" value="{{getCountryName(profileVm.countryId)}}" ng-disabled="true">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsPostalCode">Postal Code / Zip:</label>
+                <div class="col-lg-4">
+                    <input class="form-control" type="text" name="postalCode" ng-model="profileVm.postalCode" ng-pattern="pattern.postCode" ng-disabled="disableProp" required>
+                </div>
+                <div class="col-lg-6" ng-if="profileForm.postalCode.$invalid">
+                    <label class="x-valid"><i class="betfont icon-close"></i><span class="x-valid-txt"></span></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsPreferredCurrency">Currency:</label>
+                <div class="col-lg-4">
+                    <input class="form-control" ng-model="client.geod.cc" ng-disabled="true">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsTimeZone">Timezone:</label>
+                <div class="col-lg-4">
+                    <select class="form-control" ng-model="profileVm.timeZone">
+                        <option ng-repeat="item in timezoneOptions" value="{{item}}">GMT {{item}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-2 label-left-sm" translate="txtJoinUsPreferredLanguage">Language:</label>
+                <div class="col-lg-4">
+                    <select name="preferLanguage" class="form-control" ng-model="profileVm.preferLanguage">
+                        <option ng-repeat="item in options.languages" value="{{item.Code}}">{{item.Name}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                <label class="col-lg-4 label-left-sm" translate="helpJoinUsHowLearn">How did you learn about 188BET?</label>
+                <div class="col-lg-4">
+                    <select name="howDoYouLearnAnswer" class="form-control" ng-model="profileVm.howDoYouLearn" ng-change="updateHowDoYouLearnAnswer()">
+                        <option value="" ng-if="!profileVm.howDoYouLearnAnswer">-- {{'txtComSelectOne' | translate}} --</option>
+                        <option value="SportsWebsite" translate="txtProfileSportsWebsite"></option>
+                        <option value="OtherWebsites" translate="txtProfileOtherWebsites"></option>
+                        <option value="MenMagazine" translate="txtProfileMenMagazine"></option>
+                        <option value="OtherMagazine" translate="txtProfileOtherMagazine"></option>
+                        <option value="Friends" translate="txtProfileFriends"></option>
+                        <option value="Outlets" translate="txtProfileOutlets"></option>
+                        <option value="TV" translate="txtProfileTV"></option>
+                        <option value="Events" translate="txtProfileEvents"></option>
+                        <option value="Others," translate="txtProfileOthers"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-row" ng-if="profileVm.howDoYouLearn==='Others,'">
+            <div class="form-group ">
+                <label class="col-lg-4 label-left-sm" translate="txtProfileOtherSpecify">For 'Others', please specify</label>
+                <div class="col-lg-4">
+                    <input class="form-control" type="text" name="howDoYouLearnOther" ng-model="profileVm.howDoYouLearnOther" required ng-change="updateHowDoYouLearnAnswer()">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group ">
+                
+                <label class="chkbx-sm" ng-if="client.sessionD.excluded ==false" for="sendUpdates" ng-class="{checked:profileVm.isSendUpdateEmail }" ng-click="profileVm.isSendUpdateEmail=!profileVm.isSendUpdateEmail;profileForm.$setDirty()">
+                    <input name="isSendUpdateEmail" type="checkbox" ng-checked="profileVm.isSendUpdateEmail">
+                </label>
+                <label class="chkbx-sm disabled" ng-if="client.sessionD.excluded" for="sendUpdates" ng-class="{checked:profileVm.isSendUpdateEmail }">
+                    <input name="isSendUpdateEmail" type="checkbox" ng-checked="profileVm.isSendUpdateEmail">
+                </label>
+                <span translate="msgProfileSendUpdates"></span>
+                <div class="mario-qblock" uib-popover="{{ 'helpJoinUsEmailUpdate' | translate }}" popover-placement="right">?</div>
+            </div>
+        </div>
+        <div class="form-group form-action">
+            <button ng-disabled="profileForm.$invalid || profileForm.$pristine || !isProfileChanged()" translate="txtComUpdate" type="submit" class="btn bet-btn btn-darkergrey-sm" ng-click="goNextStep();">UPDATE</button>
+        </div>
+    </form>
+</div>

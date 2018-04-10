@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="starApp">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="fragment" content="!">
+    <title></title>
+    {[{template "header"}]}
+</head>
+
+<body class="{{global.lan}} has-header" ng-cloak check-service-directive>
+
+
+    <header class="header" ms-header></header>
+    <div class="container-fluid float-controls" assist-tools></div>
+    <div class="content">
+        <div class="container statement">
+            <div class="row">
+                <my-account-sidebar></my-account-sidebar>
+
+
+                <div class="main-content col-xs-10" ng-controller="transHistoryCtrl" ng-class="{ 'load-spinner' : ajaxStackObj[tranHisCtrl.guId] == true }">
+                    <h2 class="static-title">
+                        <span translate="{{tranHisCtrl.pageKey}}"></span>
+                    </h2>
+                    <div class="statement-top-controls">
+                        <print-button class="btn bet-btn btn-darkergrey-sm pull-right" translate="txtBtnPrint">PRINT</print-button>
+                        <date-range-filter max-date-range="dateMaxRange" date-range="dateRange" search-fn="tranHisCtrl.serachByRange(data)" class="statement-filters"></date-range-filter>
+                    </div>
+                    <div class="static-content">
+                        <div class="quick-tabs clearfix">
+                            <days-filter max-date-range="dateMaxRange" date-range="dateRange" search-fn="tranHisCtrl.serachByRange(data)"></days-filter>
+                            <statement-select current-value="tranHisCtrl.statusFilter" source="tranHisCtrl.selectFilterList"> </statement-select>
+                        </div>
+                        <div class="tab-content" ng-include="tranHisCtrl.getTable"></div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    {[{template "footer"}]}
+
+</body>
+
+</html>

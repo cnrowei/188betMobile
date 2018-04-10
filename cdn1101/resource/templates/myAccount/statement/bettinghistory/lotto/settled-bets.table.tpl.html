@@ -1,0 +1,88 @@
+<table class="table dark-head-foot table-bordered lotto">
+    <colgroup>
+        <col class="tbl-col-num">
+        <col class="tbl-col-detail-m">
+        <col>
+        <col>
+        <col>
+        <col>
+        <col class="tbl-col-status-s">
+        <col class="tbl-col-remark-l">
+    </colgroup>
+    <thead>
+        <tr>
+            <th class="text-center" translate="txtComStNum">No.</th>
+            <th class="text-center" translate="txtStatementBetDetails">Bet Details</th>
+            <th class="text-center" translate="txtStatementBetType">Bet Type</th>
+            <th class="text-center" translate="txtStatementSelection">Selection</th>
+            <th class="text-center" translate="txtStatementStake">Stake</th>
+            <th class="text-center">
+                <span translate="txtStatementWin">win</span>/
+                <span translate="txtStatementLose">Loss</span>
+            </th>
+            <th class="text-center" translate="txtComStatus">Status</th>
+            <th class="text-center" translate="txtStatementRemark">Remark</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-if="betHisCtrl.settlebetModel.length==0">
+            <td class="text-center" colspan="8" translate="msgComNoRecordFound"></td>
+        </tr>
+        <tr ng-repeat="sb in betHisCtrl.settlebetModel | orderBy: '-betTime'">
+            <td>{{$index +1}}</td>
+            <td>{{sb.betTime | date:'dd/MM/yyyy, HH:mm:ss':client.geod.timezone}}
+                <br>
+                <a window-style="width=1200px; height=244px" window-open="statementDetail" ng-href="{{sb.extend.wagerUrl}}" target="_blank" ">
+                    {{sb.betId}}
+                </a>                    
+            </td>
+            <td>{{sb.partnerName}}<br>{{sb.betType}}</td>
+            <td>
+                {{sb.extend.location}} {{sb.extend.drawNo}}
+                <span ng-if="sb.betType.toLowerCase() !=='pearlball' && sb.partnerId !=1 8 " ng-repeat="sel in sb.selections ">, {{sel.selName}}@{{sel.odds}}</span>
+                <span ng-if="sb.betType.toLowerCase() !=='pearlball' && sb.partnerId==1 8 " ng-repeat="sel in sb.selections ">, @{{sel.odds}}</span>
+                <br/>
+                <span ng-if="sb.extend.ballNum " translate="txtCommonSelections ">selections</span> {{sb.extend.ballNum}}
+            </td>
+            <td class="text-right ">{{sb.stake | number:2 | swapCurrencySymbol}}</td>
+            <td class="text-right ">{{sb.return == 0 ? "- " : (sb.return | number:2 | swapCurrencySymbol)}}</td>
+            <td class="text-center " ng-if-start="sb.status==1 ">
+                <span translate="txtStatementDraw " ng-if="sb.return==0 ">draw</span>
+                <span translate="txtStatementWin " ng-if="sb.return>0">win</span>
+                    <span translate="txtStatementLose" ng-if="sb.return<0">loss</span>
+            </td>
+            <td class="text-center" ng-if-end ng-init="sb.resultArr=sb.extend.gameResult.split(',');sb.isOpen=$index;">
+
+                <div class="brand-orange linkstyle" ng-click="betHisCtrl.currentKenoIndex=$index" popover-is-open="sb.isOpen==betHisCtrl.currentKenoIndex"
+                    popover-placement="auto bottom-right" uib-popover-template="'drawResult11.html'">
+                    <span translate="txtCommonResults"></span>:
+
+                    <span ng-if="sb.partnerId != 18"> {{sb.resultArr | sum}}
+                        <br/> {{sb.resultArr.join(' ')}}
+                    </span>
+                    <span ng-if="sb.partnerId == 18">
+                        {{sb.resultArr.join(' ')}}
+                    </span>
+
+                </div>
+            </td>
+            <script type="text/ng-template" id="drawResult11.html">
+
+                <iframe style="display:block;width:347px;height:211px;border:0;overflow:hidden;" ng-src="{{sb.extend.drawUrl | trustUrl}}"></iframe>
+                <div align="center">
+                    <button class="btn btn-grey text-white" ng-click="betHisCtrl.currentKenoIndex = -1">Close</button>
+                </div>
+            </script>
+            <td class="text-center" ng-if-start="sb.status==2" translate="txtStatementCancel">Cancel</td>
+            <td class="text-center" ng-if-end>-</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr ng-if="betHisCtrl.settlebetModel.length!=0">
+            <td colspan="4" class="text-right" translate="txtComTotal">Total</td>
+            <td class="text-right">{{betHisCtrl.settlebetModel | sum:'stake' | number:2 | swapCurrencySymbol}}</td>
+            <td class="text-right">{{betHisCtrl.settlebetModel | sum:'return' | number:2 | swapCurrencySymbol}}</td>
+            <td colspan="2"></td>
+        </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,131 @@
+[{
+    "code": "ROW",
+    "display": "International",
+    "delan": "en-gb",
+    "lans": "en-gb,zh-cn",
+    "Sbkview": "Int",
+    "fsdomain": null,
+    "igrdomain": null,
+    "affiliate": "affiliates",
+    "hasDefCountry": false
+}, {
+    "code": "Brazil",
+    "display": "Brazil",
+    "delan": "pt-br",
+    "lans": "pt-br,en-gb",
+    "Sbkview": "Int",
+    "fsdomain": null,
+    "igrdomain": null,
+    "affiliate": "inComeAccess",
+    "hasDefCountry": true
+}, {
+    "code": "China",
+    "display": "中国",
+    "delan": "zh-cn",
+    "lans": "zh-cn,en-gb",
+    "Sbkview": "Int",
+    "fsdomain": null,
+    "igrdomain": null,
+    "affiliate": "affiliates",
+    "hasDefCountry": true
+}, {
+    "code": "Cambodia",
+    "display": "ប្រទេសកម្ពុជា",
+    "delan": "km-kh",
+    "lans": "km-kh,en-gb",
+    "Sbkview": "Int",
+    "fsdomain": null,
+    "igrdomain": null,
+    "affiliate": "affiliates",
+    "hasDefCountry": true
+}, {
+    "code": "Indonesia",
+    "display": "Indonesia",
+    "delan": "id-id",
+    "lans": "id-id,en-gb",
+    "Sbkview": "Asia",
+    "fsdomain": null,
+    "igrdomain": null,
+    "affiliate": "affiliates",
+    "hasDefCountry": true
+}, {
+    "code": "Japan",
+    "display": "日本",
+    "delan": "ja-jp",
+    "lans": "ja-jp,en-gb",
+    "Sbkview": "Int",
+    "fsdomain": null,
+    "igrdomain": null,
+    "affiliate": "affiliates",
+    "hasDefCountry": true
+}, {
+    "code": "Korea",
+    "display": "한국",
+    "delan": "ko-kr",
+    "lans": "ko-kr,en-gb",
+    "Sbkview": "Asia",
+    "fsdomain": null,
+    "igrdomain": null,
+    "affiliate": "affiliates",
+    "hasDefCountry": true
+}, {
+    "code": "Malaysia",
+    "display": "Malaysia",
+    "delan": "en-gb",
+    "lans": "en-gb,zh-cn",
+    "Sbkview": "Int",
+    "fsdomain": null,
+    "igrdomain": null,
+    "affiliate": "affiliates",
+    "hasDefCountry": false
+}, {
+    "code": "Thailand",
+    "display": "ประเทศไทย",
+    "delan": "th-th",
+    "lans": "th-th,en-gb",
+    "Sbkview": "Asia",
+    "fsdomain": null,
+    "igrdomain": null,
+    "affiliate": "affiliates",
+    "hasDefCountry": true
+}, {
+    "code": "UK",
+    "display": "UK",
+    "delan": "en-gb",
+    "lans": "en-gb",
+    "Sbkview": "Int",
+    "fsdomain": "www.188bet.co.uk",
+    "igrdomain": null,
+    "affiliate": "inComeAccess",
+    "hasDefCountry": true
+}, {
+    "code": "Vietnam",
+    "display": "Việt Nam",
+    "delan": "vi-vn",
+    "lans": "vi-vn,en-gb",
+    "Sbkview": "Asia",
+    "fsdomain": null,
+    "igrdomain": null,
+    "affiliate": "affiliates",
+    "hasDefCountry": true
+}, {
+    "code": "ROA",
+    "display": "Asia",
+    "delan": "en-gb",
+    "lans": "en-gb,zh-cn",
+    "Sbkview": "Int",
+    "fsdomain": null,
+    "igrdomain": null,
+    "affiliate": "affiliates",
+    "hasDefCountry": false
+}, {
+    "code": "ROE",
+    "display": "Europe",
+    "delan": "en-gb",
+    "lans": "en-gb",
+    "Sbkview": "Int",
+    "fsdomain": null,
+    "igrdomain": null,
+    "affiliate": "inComeAccess",
+    "hasDefCountry": false
+}]

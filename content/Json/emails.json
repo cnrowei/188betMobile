@@ -1,0 +1,71 @@
+[{
+    "accountCategory": "CS",
+    "subscriber": "Member site,IOWB",
+    "group": [{
+        "account": "support-vn@188service.com",
+        "recipient": false,
+        "sender": true,
+        "supportLans": ["vi-vn"],
+        "supportRegs": ["Cambodia", "Brazil", "China", "Indonesia", "Japan", "Korea", "Malaysia", "Thailand", "Vietnam", "ROA", "ROE", "ROW"]
+    }, {
+        "account": "support-cn@188service.com",
+        "recipient": false,
+        "sender": true,
+        "supportLans": ["zh-cn"],
+        "supportRegs": ["Cambodia", "Brazil", "China", "Indonesia", "Japan", "Korea", "Malaysia", "Thailand", "Vietnam", "ROA", "ROE", "ROW"]
+    }, {
+        "account": "support-en@188service.com",
+        "recipient": false,
+        "sender": true,
+        "supportLans": ["en-gb"],
+        "supportRegs": ["Cambodia", "Brazil", "China", "Indonesia", "Japan", "Korea", "Malaysia", "Thailand", "Vietnam", "ROA", "ROE", "ROW"]
+    }, {
+        "account": "support-id@188service.com",
+        "recipient": false,
+        "sender": true,
+        "supportLans": ["id-id"],
+        "supportRegs": ["Cambodia", "Brazil", "China", "Indonesia", "Japan", "Korea", "Malaysia", "Thailand", "Vietnam", "ROA", "ROE", "ROW"]
+    }, {
+        "account": "support-th@188service.com",
+        "recipient": false,
+        "sender": true,
+        "supportLans": ["th-th"],
+        "supportRegs": ["Cambodia", "Brazil", "China", "Indonesia", "Japan", "Korea", "Malaysia", "Thailand", "Vietnam", "ROA", "ROE", "ROW"]
+    }, {
+        "account": "support-jp@188service.com",
+        "recipient": false,
+        "sender": true,
+        "supportLans": ["ja-jp"],
+        "supportRegs": ["Cambodia", "Brazil", "China", "Indonesia", "Japan", "Korea", "Malaysia", "Thailand", "Vietnam", "ROA", "ROE", "ROW"]
+    }, {
+        "account": "support-kh@188service.com",
+        "recipient": false,
+        "sender": true,
+        "supportLans": ["km-kh"],
+        "supportRegs": ["Cambodia", "Brazil", "China", "Indonesia", "Japan", "Korea", "Malaysia", "Thailand", "Vietnam", "ROA", "ROE", "ROW"]
+    }, {
+        "account": "support-ko@188service.com",
+        "recipient": false,
+        "sender": true,
+        "supportLans": ["ko-kr"],
+        "supportRegs": ["Cambodia", "Brazil", "China", "Indonesia", "Japan", "Korea", "Malaysia", "Thailand", "Vietnam", "ROA", "ROE", "ROW"]
+    }, {
+        "account": "support-br@188service.com",
+        "recipient": false,
+        "sender": true,
+        "supportLans": ["pt-br"],
+        "supportRegs": ["Cambodia", "Brazil", "China", "Indonesia", "Japan", "Korea", "Malaysia", "Thailand", "Vietnam", "ROA", "ROE", "ROW"]
+    }, {
+        "account": "support-cn@188bet.co.uk",
+        "recipient": false,
+        "sender": true,
+        "supportLans": ["zh-cn"],
+        "supportRegs": ["UK"]
+    }, {
+        "account": "support-en@188bet.co.uk",
+        "recipient": false,
+        "sender": true,
+        "supportLans": ["en-gb"],
+        "supportRegs": ["UK"]
+    }]
+}]
