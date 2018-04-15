@@ -1,283 +1,253 @@
-{
-    "isSuccess": true,
-    "data": {
-        "id": 320,
-        "name": "Chongqing",
-        "official": "http://www.cqcp.net/game/ssc/",
-        "status": 2,
-        "draw": {
-            "drawNo": 57,
-            "drawStatus": 4,
-            "startTime": "2018-04-07T15:19:00+08:00",
-            "endTime": "2018-04-07T15:29:00+08:00",
-            "betClosedMMSS": "00:00",
-            "isCloseManually": false
-        },
-        "selections": {
-            "OneDigit": {
-                "id": 1807,
-                "odds": 3.0,
-                "minBet": 2.0,
-                "maxBet": 15000.0
-            },
-            "TwoDigits": {
-                "id": 1847,
-                "odds": 14.0,
-                "minBet": 2.0,
-                "maxBet": 3000.0
-            },
-            "TwoDigits_Double": {
-                "id": 1892,
-                "odds": 28.0,
-                "minBet": 2.0,
-                "maxBet": 1500.0
-            },
-            "ThreeDigits": {
-                "id": 2012,
-                "odds": 140.0,
-                "minBet": 2.0,
-                "maxBet": 300.0
-            },
-            "ThreeDigits_Double": {
-                "id": 2141,
-                "odds": 280.0,
-                "minBet": 2.0,
-                "maxBet": 150.0
-            },
-            "ThreeDigits_Triple": {
-                "id": 2222,
-                "odds": 750.0,
-                "minBet": 2.0,
-                "maxBet": 50.0
-            },
-            "Sum_0": {
-                "id": 7030,
-                "odds": 9.0,
-                "minBet": 2.0,
-                "maxBet": 4750.0
-            },
-            "Span_0": {
-                "id": 6890,
-                "odds": 71.0,
-                "minBet": 2.0,
-                "maxBet": 500.0
-            },
-            "Sum_1": {
-                "id": 7032,
-                "odds": 20.0,
-                "minBet": 2.0,
-                "maxBet": 2000.0
-            },
-            "Span_1": {
-                "id": 6891,
-                "odds": 14.0,
-                "minBet": 2.0,
-                "maxBet": 3000.0
-            },
-            "Sum_2": {
-                "id": 7034,
-                "odds": 16.0,
-                "minBet": 2.0,
-                "maxBet": 2750.0
-            },
-            "Span_2": {
-                "id": 6893,
-                "odds": 8.0,
-                "minBet": 2.0,
-                "maxBet": 4000.0
-            },
-            "Sum_3": {
-                "id": 7036,
-                "odds": 14.0,
-                "minBet": 2.0,
-                "maxBet": 3000.0
-            },
-            "Span_3": {
-                "id": 6895,
-                "odds": 6.0,
-                "minBet": 2.0,
-                "maxBet": 5000.0
-            },
-            "Sum_4": {
-                "id": 7038,
-                "odds": 12.0,
-                "minBet": 2.0,
-                "maxBet": 3500.0
-            },
-            "Span_4": {
-                "id": 6897,
-                "odds": 5.5,
-                "minBet": 2.0,
-                "maxBet": 5500.0
-            },
-            "Sum_5": {
-                "id": 7040,
-                "odds": 11.0,
-                "minBet": 2.0,
-                "maxBet": 4000.0
-            },
-            "Span_5": {
-                "id": 6899,
-                "odds": 5.0,
-                "minBet": 2.0,
-                "maxBet": 5500.0
-            },
-            "Sum_6": {
-                "id": 7042,
-                "odds": 10.0,
-                "minBet": 2.0,
-                "maxBet": 4500.0
-            },
-            "Span_6": {
-                "id": 6898,
-                "odds": 5.5,
-                "minBet": 2.0,
-                "maxBet": 5500.0
-            },
-            "Sum_7": {
-                "id": 7044,
-                "odds": 10.0,
-                "minBet": 2.0,
-                "maxBet": 4500.0
-            },
-            "Span_7": {
-                "id": 6896,
-                "odds": 6.0,
-                "minBet": 2.0,
-                "maxBet": 5000.0
-            },
-            "Sum_8": {
-                "id": 7045,
-                "odds": 10.0,
-                "minBet": 2.0,
-                "maxBet": 4500.0
-            },
-            "Span_8": {
-                "id": 6894,
-                "odds": 8.0,
-                "minBet": 2.0,
-                "maxBet": 4000.0
-            },
-            "Sum_9": {
-                "id": 7043,
-                "odds": 10.0,
-                "minBet": 2.0,
-                "maxBet": 4500.0
-            },
-            "Span_9": {
-                "id": 6892,
-                "odds": 14.0,
-                "minBet": 2.0,
-                "maxBet": 3000.0
-            },
-            "Sum_10": {
-                "id": 7041,
-                "odds": 11.0,
-                "minBet": 2.0,
-                "maxBet": 4000.0
-            },
-            "Sum_11": {
-                "id": 7039,
-                "odds": 12.0,
-                "minBet": 2.0,
-                "maxBet": 3500.0
-            },
-            "Sum_12": {
-                "id": 7037,
-                "odds": 14.0,
-                "minBet": 2.0,
-                "maxBet": 3000.0
-            },
-            "Sum_13": {
-                "id": 7035,
-                "odds": 16.0,
-                "minBet": 2.0,
-                "maxBet": 2750.0
-            },
-            "Sum_14": {
-                "id": 7033,
-                "odds": 20.0,
-                "minBet": 2.0,
-                "maxBet": 2000.0
-            },
-            "Sum_15": {
-                "id": 7031,
-                "odds": 9.0,
-                "minBet": 2.0,
-                "maxBet": 4750.0
-            },
-            "OneFixedDigit": {
-                "id": 2672,
-                "odds": 9.5,
-                "minBet": 2.0,
-                "maxBet": 5000.0
-            },
-            "TwoFixedDigits": {
-                "id": 2722,
-                "odds": 95.0,
-                "minBet": 2.0,
-                "maxBet": 500.0
-            },
-            "ThreeFixedDigits": {
-                "id": 3722,
-                "odds": 920.0,
-                "minBet": 2.0,
-                "maxBet": 50.0
-            },
-            "Big": {
-                "id": 6758,
-                "odds": 1.95,
-                "minBet": 2.0,
-                "maxBet": 30000.0
-            },
-            "Small": {
-                "id": 6759,
-                "odds": 1.95,
-                "minBet": 2.0,
-                "maxBet": 30000.0
-            },
-            "Odd": {
-                "id": 6722,
-                "odds": 1.95,
-                "minBet": 2.0,
-                "maxBet": 30000.0
-            },
-            "Even": {
-                "id": 6723,
-                "odds": 1.95,
-                "minBet": 2.0,
-                "maxBet": 30000.0
-            },
-            "Dragon": {
-                "id": 6724,
-                "odds": 1.95,
-                "minBet": 2.0,
-                "maxBet": 30000.0
-            },
-            "Tiger": {
-                "id": 6724,
-                "odds": 1.95,
-                "minBet": 2.0,
-                "maxBet": 30000.0
-            },
-            "Equally": {
-                "id": 6724,
-                "odds": 1.95,
-                "minBet": 2.0,
-                "maxBet": 30000.0
-            }
-        },
-        "gameResult": {
-            "counterId": 320,
-            "drawNo": 56,
-            "drawTime": "2018-04-07T15:19:00+08:00",
-            "drawStatus": 4,
-            "voidReason": 0,
-            "resultBalls": []
-        },
-        "seq": 2,
-        "ballCount": 5,
-        "resultOpenIntervalSecond": 0,
-        "resultWaitingIntervalSecond": 0
-    }
-}
+[{
+    "name": "OneDigit",
+    "id": 1807,
+    "odds": 3.0,
+    "minBet": 2.0,
+    "maxBet": 15000.0
+}, {
+    "name": "TwoDigits",
+    "id": 1847,
+    "odds": 14.0,
+    "minBet": 2.0,
+    "maxBet": 3000.0
+}, {
+    "name": "TwoDigits_Double",
+    "id": 1892,
+    "odds": 28.0,
+    "minBet": 2.0,
+    "maxBet": 1500.0
+}, {
+    "name": "ThreeDigits",
+    "id": 2012,
+    "odds": 140.0,
+    "minBet": 2.0,
+    "maxBet": 300.0
+}, {
+    "name": "ThreeDigits_Double",
+    "id": 2141,
+    "odds": 280.0,
+    "minBet": 2.0,
+    "maxBet": 150.0
+}, {
+    "name": "ThreeDigits_Triple",
+    "id": 2222,
+    "odds": 750.0,
+    "minBet": 2.0,
+    "maxBet": 50.0
+}, {
+    "name": "Sum_0",
+    "id": 7030,
+    "odds": 9.0,
+    "minBet": 2.0,
+    "maxBet": 4750.0
+}, {
+    "name": "Span_0",
+    "id": 6890,
+    "odds": 71.0,
+    "minBet": 2.0,
+    "maxBet": 500.0
+}, {
+    "name": "Sum_1",
+    "id": 7032,
+    "odds": 20.0,
+    "minBet": 2.0,
+    "maxBet": 2000.0
+}, {
+    "name": "Span_1",
+    "id": 6891,
+    "odds": 14.0,
+    "minBet": 2.0,
+    "maxBet": 3000.0
+}, {
+    "name": "Sum_2",
+    "id": 7034,
+    "odds": 16.0,
+    "minBet": 2.0,
+    "maxBet": 2750.0
+}, {
+    "name": "Span_2",
+    "id": 6893,
+    "odds": 8.0,
+    "minBet": 2.0,
+    "maxBet": 4000.0
+}, {
+    "name": "Sum_3",
+    "id": 7036,
+    "odds": 14.0,
+    "minBet": 2.0,
+    "maxBet": 3000.0
+}, {
+    "name": "Span_3",
+    "id": 6895,
+    "odds": 6.0,
+    "minBet": 2.0,
+    "maxBet": 5000.0
+}, {
+    "name": "Sum_4",
+    "id": 7038,
+    "odds": 12.0,
+    "minBet": 2.0,
+    "maxBet": 3500.0
+}, {
+    "name": "Span_4",
+    "id": 6897,
+    "odds": 5.5,
+    "minBet": 2.0,
+    "maxBet": 5500.0
+}, {
+    "name": "Sum_5",
+    "id": 7040,
+    "odds": 11.0,
+    "minBet": 2.0,
+    "maxBet": 4000.0
+}, {
+    "name": "Span_5",
+    "id": 6899,
+    "odds": 5.0,
+    "minBet": 2.0,
+    "maxBet": 5500.0
+}, {
+    "name": "Sum_6",
+    "id": 7042,
+    "odds": 10.0,
+    "minBet": 2.0,
+    "maxBet": 4500.0
+}, {
+    "name": "Span_6",
+    "id": 6898,
+    "odds": 5.5,
+    "minBet": 2.0,
+    "maxBet": 5500.0
+}, {
+    "name": "Sum_7",
+    "id": 7044,
+    "odds": 10.0,
+    "minBet": 2.0,
+    "maxBet": 4500.0
+}, {
+    "name": "Span_7",
+    "id": 6896,
+    "odds": 6.0,
+    "minBet": 2.0,
+    "maxBet": 5000.0
+}, {
+    "name": "Sum_8",
+    "id": 7045,
+    "odds": 10.0,
+    "minBet": 2.0,
+    "maxBet": 4500.0
+}, {
+    "name": "Span_8",
+    "id": 6894,
+    "odds": 8.0,
+    "minBet": 2.0,
+    "maxBet": 4000.0
+}, {
+    "name": "Sum_9",
+    "id": 7043,
+    "odds": 10.0,
+    "minBet": 2.0,
+    "maxBet": 4500.0
+}, {
+    "name": "Span_9",
+    "id": 6892,
+    "odds": 14.0,
+    "minBet": 2.0,
+    "maxBet": 3000.0
+}, {
+    "name": "Sum_10",
+    "id": 7041,
+    "odds": 11.0,
+    "minBet": 2.0,
+    "maxBet": 4000.0
+}, {
+    "name": "Sum_11",
+    "id": 7039,
+    "odds": 12.0,
+    "minBet": 2.0,
+    "maxBet": 3500.0
+}, {
+    "name": "Sum_12",
+    "id": 7037,
+    "odds": 14.0,
+    "minBet": 2.0,
+    "maxBet": 3000.0
+}, {
+    "name": "Sum_13",
+    "id": 7035,
+    "odds": 16.0,
+    "minBet": 2.0,
+    "maxBet": 2750.0
+}, {
+    "name": "Sum_14",
+    "id": 7033,
+    "odds": 20.0,
+    "minBet": 2.0,
+    "maxBet": 2000.0
+}, {
+    "name": "Sum_15",
+    "id": 7031,
+    "odds": 9.0,
+    "minBet": 2.0,
+    "maxBet": 4750.0
+}, {
+    "name": "OneFixedDigit",
+    "id": 2672,
+    "odds": 9.5,
+    "minBet": 2.0,
+    "maxBet": 5000.0
+}, {
+    "name": "TwoFixedDigits",
+    "id": 2722,
+    "odds": 95.0,
+    "minBet": 2.0,
+    "maxBet": 500.0
+}, {
+    "name": "ThreeFixedDigits",
+    "id": 3722,
+    "odds": 920.0,
+    "minBet": 2.0,
+    "maxBet": 50.0
+}, {
+    "name": "Big",
+    "id": 6758,
+    "odds": 1.95,
+    "minBet": 2.0,
+    "maxBet": 30000.0
+}, {
+    "name": "Small",
+    "id": 6759,
+    "odds": 1.95,
+    "minBet": 2.0,
+    "maxBet": 30000.0
+}, {
+    "name": "Odd",
+    "id": 6722,
+    "odds": 1.95,
+    "minBet": 2.0,
+    "maxBet": 30000.0
+}, {
+    "name": "Even",
+    "id": 6723,
+    "odds": 1.95,
+    "minBet": 2.0,
+    "maxBet": 30000.0
+}, {
+    "name": "Dragon",
+    "id": 6724,
+    "odds": 1.95,
+    "minBet": 2.0,
+    "maxBet": 30000.0
+}, {
+    "name": "Tiger",
+    "id": 6724,
+    "odds": 1.95,
+    "minBet": 2.0,
+    "maxBet": 30000.0
+}, {
+    "name": "Equally",
+    "id": 6724,
+    "odds": 1.95,
+    "minBet": 2.0,
+    "maxBet": 30000.0
+}]

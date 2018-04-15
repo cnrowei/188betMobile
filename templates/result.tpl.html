@@ -1,0 +1,136 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link href="/Content/Themes/BaseLayout/Keno/Css/main-resultDetail.css?v=04100330" rel="stylesheet" type="text/css" />
+
+    <link href="/Content/Themes/3/Keno/Css/themes-resultDetail.css?v=04100330" rel="stylesheet" type="text/css" />
+
+
+    <script src="/bundles/js-zh-cn.js"></script>
+
+        <script src="/bundles/angular-js.js"></script>
+
+    <script src="/bundles/App/integrateApp.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+    var gv = {
+        "lang": "zh-cn"
+    }
+    </script>
+</head>
+<body ng-app="app">
+
+    <div id="expage" class="country">
+
+        <div class="counterInfo"
+             ng-controller="resultCtrl"
+             ng-init="init({product: 'lotto', counterId: '320', drawNo: '69', date: '2018-04-07'})"
+             ng-style="{left:position.X, top:position.Y}">
+            <div ng-if="product=='lotto'">
+                <link href="/Content/Themes/BaseLayout/Lotto/Css/main-resultDetail.css?v=04100330" rel="stylesheet" type="text/css" />
+
+                <link href="/Content/Themes/3/Lotto/Css/themes-resultDetail.css?v=04100330" rel="stylesheet" type="text/css" />
+
+            </div>
+            <div class="country pull-left">
+                <b ng-bind="result.counterId|counterName"></b>
+                <span class="country-icon-{{result.counterId|counterBackground}}"></span>
+            </div>
+            <div class="drawResult pull-right">
+                <div class="drawInfo">
+                    <span class="drawNo">
+                        <p class="dNo">受注期号</p>
+                        <p class="number" ng-bind="result.drawNo"></p>
+                    </span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="resultBallPanel pull-left">
+                <ul ng-if="product=='keno'">
+                    <li ng-repeat="ball in result.resultBalls">
+                        <span class="result-ball" ng-class="ball>40?'bb':'sb'" ng-bind="ball|padNum"></span>
+                    </li>
+                </ul>
+                <ul ng-if="product=='lotto'">
+                    <li ng-repeat="i in [5,4,3,2,1]" ng-if="this['ball_'+i]!=null" class="num-{{i}}">
+                        <span class="result-ball" ng-bind="this['ball_'+i]"></span>
+                        <span class="bs-type">
+                            <span ng-if="(this['ball_'+i]!=null && this['ball_'+i]>4)">大</span>
+                            <span ng-if="(this['ball_'+i]!=null && this['ball_'+i]<=4)">小</span>
+                        </span>
+                        <span class="eo-type">
+                            <span ng-if="(this['ball_'+i]!=null && this['ball_'+i]%2)">单</span>
+                            <span ng-if="(this['ball_'+i]!=null && !(this['ball_'+i]%2))">双</span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="tableResult pull-right">
+                <div ng-if="product=='keno'">
+                    <div class="tab-title">总计 <br /><span ng-bind="detail.total"></span></div>
+                    <div class="rowbox">
+                        <div class="row1">
+                            <span class="tb" ng-if="detail.bs=='t'">和值 810</span>
+                            <span class="bb" ng-if="detail.bs=='b'">大</span>
+                            <span class="sb" ng-if="detail.bs=='s'">小</span>
+
+                            <span class="ob" ng-if="detail.oe=='o'">单</span>
+                            <span class="eb" ng-if="detail.oe=='e'">双</span>
+                        </div>
+                        <div class="row2">
+                            <span class="tb" ng-if="detail.ud=='t'">和</span>
+                            <span class="ub" ng-if="detail.ud=='u'">上</span>
+                            <span class="db" ng-if="detail.ud=='d'">下</span>
+
+                            <span class="tb" ng-if="detail.oses=='t'">和</span>
+                            <span class="osb" ng-if="detail.oses=='os'">奇</span>
+                            <span class="esb" ng-if="detail.oses=='es'">偶</span>
+
+                            <span class="gb" ng-if="detail.ele=='g'">金</span>
+                            <span class="wob" ng-if="detail.ele=='wo'">木</span>
+                            <span class="wab" ng-if="detail.ele=='wa'">水</span>
+                            <span class="fb" ng-if="detail.ele=='f'">火</span>
+                            <span class="eab" ng-if="detail.ele=='ea'">土</span>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="product=='lotto'">
+                    <table width="100%" border="0" class="tableResult-popup">
+                        <tr>
+                            <td>百十个彩球</td>
+                            <td><span class="BO-color">大</span> / <span class="SE-color">小</span></td>
+                            <td><span class="BO-color">单</span> / <span class="SE-color">双</span></td>
+                            <td>和值</td>
+                            <td>跨度</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span ng-repeat="i in [3,2,1]" class="ball" ng-bind="this['ball_'+i]"></span>
+                            </td>
+                            <td>
+                                <span ng-if="sum+''==''"></span>
+                                <span ng-if="sum+''!=''&&(sum%10>4)" class="bs-type BO-color">大</span>
+                                <span ng-if="sum+''!=''&&!(sum%10>4)" class="bs-type SE-color">小</span>
+                            </td>
+                            <td>
+                                <span ng-if="sum+''==''"></span>
+                                <span ng-if="sum+''!=''&&(sum%2)" class="eo-type BO-color">单</span>
+                                <span ng-if="sum+''!=''&&!(sum%2)" class="eo-type SE-color">双</span>
+                            </td>
+                            <td ng-bind="sum"></td>
+                            <td ng-bind="span"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

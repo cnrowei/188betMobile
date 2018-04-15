@@ -1,0 +1,15 @@
+{
+    "isSuccess": true, 
+    "data": {
+        "totalCount": 1,
+        "gameResults": [{
+            "counterId": 320,
+            "drawNo": 69,
+            "drawTime": "2018-04-07T17:29:00+08:00",
+            "drawStatus": 6,
+            "voidReason": 0,
+            "resultBalls": [3, 7, 6, 1, 3]
+        }]
+    }
+
+}

@@ -1,0 +1,301 @@
+/* line 7, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+body {
+  font-family: Arial,Tahoma,Verdana,'Microsoft JhengHei', 'Microsoft YaHei', 'Microsoft JhengHei','Helvetica Neue', Helvetica,tahoma, sans-serif;
+}
+
+/* line 10, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+body.zh-tw {
+  font-family: "Microsoft JhengHei";
+}
+
+/* line 11, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+body.zh-cn {
+  font-family: 'Microsoft YaHei';
+}
+
+/* line 12, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 31, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.bb {
+  color: #cb3035;
+}
+
+/* line 32, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.sb {
+  color: #1870c2;
+}
+
+/* line 33, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.ob {
+  color: #cb3035;
+}
+
+/* line 34, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.eb {
+  color: #1870c2;
+}
+
+/* line 35, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.osb {
+  color: #cb3035;
+}
+
+/* line 36, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.esb {
+  color: #1870c2;
+}
+
+/* line 37, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.ub {
+  color: #1870c2;
+}
+
+/* line 38, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.db {
+  color: #cb3035;
+}
+
+/* line 39, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.tb {
+  color: #007236;
+}
+
+/* line 40, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.gb {
+  color: #c27e12;
+}
+
+/* line 41, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.wob {
+  color: #007236;
+}
+
+/* line 42, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.wab {
+  color: #03669a;
+}
+
+/* line 43, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.fb {
+  color: #e43127;
+}
+
+/* line 44, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.eab {
+  color: #555555;
+}
+
+/* line 45, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.bba {
+  background-color: #cb3035;
+}
+
+/* line 46, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.sba {
+  background-color: #1870c2;
+}
+
+/* line 47, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.oba {
+  background-color: #cb3035;
+}
+
+/* line 48, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.eba {
+  background-color: #1870c2;
+}
+
+/* line 49, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.osba {
+  background-color: #cb3035;
+}
+
+/* line 50, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.esba {
+  background-color: #1870c2;
+}
+
+/* line 51, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.uba {
+  background-color: #1870c2;
+}
+
+/* line 52, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.dba {
+  background-color: #cb3035;
+}
+
+/* line 53, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.hotba {
+  background-color: #cb3035;
+}
+
+/* line 54, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.coldba {
+  background-color: #1870c2;
+}
+/* line 55, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.gba {
+  background-color: #c27e12;
+}
+/* line 56, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.woba {
+  background-color: #007236;
+}
+/* line 57, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.waba {
+  background-color: #03669a;
+}
+/* line 58, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.fba {
+  background-color: #e43127;
+}
+/* line 59, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+.eaba {
+  background-color: #555555;
+}
+
+/* line 8, ../../../../Source/sass/common-theme/_color.scss */
+.BO-color {
+  color: #e43127;
+}
+
+/* line 9, ../../../../Source/sass/common-theme/_color.scss */
+.SE-color {
+  color: #146dd0;
+}
+
+/* line 85, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .counter {
+  background: #ffffff;
+  border-bottom: #b4b4b4 solid 2px;
+  border-right: #b4b4b4 solid 2px;
+}
+/* line 104, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .country {
+  background: #333333;
+}
+/* line 108, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .country b {
+  color: #c1c1c1;
+}
+
+/* line 148, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .drawResult .drawInfo {
+  color: #ffffff;
+}
+/* line 150, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .drawResult .drawInfo .drawNo {
+  background: #7f7f7f;
+}
+/* line 155, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .drawResult .drawInfo .nextDraw {
+  background: #007236;
+}
+/* line 159, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .drawResult .drawInfo .nextDraw.stop {
+  background: #e13122;
+}
+/* line 488, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .resultBallPanel ul li {
+  text-align: center;
+}
+/* line 491, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .resultBallPanel ul li .result-ball {
+  background-image: url(../images/ball.png);
+  background-size: 97%;
+  background-position: 0px center;
+}
+
+/* line 530, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .tableResult table td {
+  background: #ffffff;
+  border: 1px solid #ccc;
+}
+/* line 533, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .tableResult table td .ball {
+  color: #4b4b4b;
+  background-image: url(../images/ball-20.png);
+}
+/* line 537, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .tableResult table td.tab-title {
+  background: #5a5a5a;
+  color: #fff;
+}
+
+/* line 815, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .tableResult .rowbox .row1 {
+  color: #ccc;
+  border: 1px solid #cccccc;
+  border-bottom: none;
+  border-left: none;
+  background: #fff;
+}
+/* line 817, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .tableResult .rowbox .row1 span {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+/* line 828, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .tableResult .rowbox .row2 {
+  color: #ccc;
+  border: 1px solid #cccccc;
+  border-top: none;
+  border-left: none;
+  background: #fff;
+}
+/* line 829, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .tableResult .rowbox .row2 span {
+  border-right: 1px solid #ccc;
+}
+/* line 841, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .tableResult .tab-title {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+/* line 845, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .tableResult .tab-title span {
+  color: #e33127;
+}
+
+/* line 858, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .country .country-icon-1 {
+  background: url("../images/country.png") 0px -21px no-repeat;
+  background-size: 98%;
+}
+/* line 862, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .country .country-icon-2 {
+  background: url("../images/country.png") 0px -114px no-repeat;
+  background-size: 98%;
+}
+/* line 866, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .country .country-icon-3 {
+  background: url("../images/country.png") 0px -198px no-repeat;
+  background-size: 98%;
+}
+/* line 870, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .country .country-icon-4 {
+  background: url("../images/country.png") 0px -273px no-repeat;
+  background-size: 98%;
+}
+/* line 874, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .country .country-icon-5 {
+  background: url("../images/country.png") 0px -347px no-repeat;
+  background-size: 98%;
+}
+/* line 878, ../../../../Source/sass/common-Keno/theme/_counter.scss */
+#expage .country .country-icon-6 {
+  background: url("../images/country.png") 0px -434px no-repeat;
+  background-size: 98%;
+}
+
+/* line 7, ../../../../Source/sass/common-theme/_info.scss */
+#expage .counterInfo {
+  background-color: #fff;
+  -moz-box-shadow: 0px 0px 5px 1px #8a8a8a;
+  -webkit-box-shadow: 0px 0px 5px 1px #8a8a8a;
+  box-shadow: 0px 0px 5px 1px #8a8a8a;
+}

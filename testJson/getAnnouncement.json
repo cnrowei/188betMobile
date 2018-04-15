@@ -1,0 +1,19 @@
+{
+    "PageIndex": 1,
+    "PageSize": 1000,
+    "TotalCount": 9,
+    "TotalPages": 1,
+    "Items": [{
+        "id": "6354e000-8735-072d-0000-000000000000",
+        "refId": null,
+        "catId": "743c2c1f-9625-4ec1-a8bf-d95656107670",
+        "channelType": 3,
+        "sender": "mailto:help@188service.com?pos=member",
+        "contentType": "text/plain",
+        "subject": "棒球赛事",
+        "status": 0,
+        "date": 1523314427276.0,
+        "body": ["棒球赛事:04月09日 美国职业棒球 (芝加哥小熊队 VS 匹兹堡海盗队) 赛事已延赛至04月10日开赛, 所有的注单本公司依然视为有效."],
+        "recipient": "http://china@188bet.rgn/"
+    }]
+}

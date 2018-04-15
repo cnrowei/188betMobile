@@ -1,0 +1,401 @@
+
+/* line 5, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 4, ../../../../Source/sass/common/_default.scss */
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 12, ../../../../Source/sass/common/_default.scss */
+.pull-left {
+  float: left;
+}
+
+/* line 13, ../../../../Source/sass/common/_default.scss */
+.pull-right {
+  float: right;
+}
+
+/* line 14, ../../../../Source/sass/common/_default.scss */
+.text-c {
+  text-align: center;
+}
+
+/* line 15, ../../../../Source/sass/common/_default.scss */
+.clearfix {
+  clear: both;
+}
+
+/* line 47, ../../../../Source/sass/common/_default.scss */
+.row {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 12, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/susy-2.2.5/sass/susy/output/support/_clearfix.scss */
+.row:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+
+/* line 63, ../../../../Source/sass/common/_default.scss */
+a {
+  color: #49809d;
+}
+
+/* line 1, ../../../../Source/sass/common/_reset.scss */
+html {
+  font-size: 62.5%;
+}
+
+/* line 5, ../../../../Source/sass/common/_reset.scss */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  line-height: 1.3;
+}
+
+/* line 11, ../../../../Source/sass/common/_reset.scss */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  font-size: 12px;
+  outline: none;
+}
+
+/* line 16, ../../../../Source/sass/common/_reset.scss */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 22, ../../../../Source/sass/common/_reset.scss */
+ul li {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 27, ../../../../Source/sass/common/_reset.scss */
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 31, ../../../../Source/sass/common/_reset.scss */
+p {
+  padding: 0;
+}
+
+/* line 35, ../../../../Source/sass/common/_reset.scss */
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  font-weight: normal;
+}
+
+/* line 42, ../../../../Source/sass/common/_reset.scss */
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 48, ../../../../Source/sass/common/_reset.scss */
+button {
+  cursor: pointer;
+}
+
+/* line 55, ../../../../Source/sass/common/_reset.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 58, ../../../../Source/sass/common/_reset.scss */
+.bold {
+  font-weight: bold;
+}
+
+/* line 61, ../../../../Source/sass/common/_reset.scss */
+.dlp-blk {
+  display: block;
+}
+
+
+
+
+/* line 976, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .counterInfo {
+  width: 347px;
+  padding: 5px;
+  overflow: hidden;
+  z-index: 999;
+  position: absolute;
+}
+/* line 994, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .country {
+  width: 49%;
+  height: 50px;
+  margin-bottom: 5px;
+  position: relative;
+}
+/* line 999, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .country b {
+    display: inline-block;
+    float: left;
+    padding: 5px;
+    line-height: 25px;
+    font-size: 20px;
+    z-index: 9;
+    position: absolute;
+}
+/* line 1008, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .country .country-icon-1 {
+  height: 46px;
+  display: block;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  opacity: 0.1;
+  position: relative;
+  right: 0px;
+  bottom: -3px;
+  background-position: -6px -11px;
+}
+/* line 1008, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .country .country-icon-2 {
+  height: 46px;
+  display: block;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  opacity: 0.1;
+  position: relative;
+  right: 0px;
+  bottom: -3px;
+  background-position: -6px -11px;
+}
+/* line 1008, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .country .country-icon-3 {
+  height: 46px;
+  display: block;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  opacity: 0.1;
+  position: relative;
+  right: 0px;
+  bottom: -3px;
+  background-position: -6px -11px;
+}
+/* line 1008, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .country .country-icon-4 {
+  height: 46px;
+  display: block;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  opacity: 0.1;
+  position: relative;
+  right: 0px;
+  bottom: -3px;
+  background-position: -6px -11px;
+}
+/* line 1008, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .country .country-icon-5 {
+  height: 46px;
+  display: block;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  opacity: 0.1;
+  position: relative;
+  right: 0px;
+  bottom: -3px;
+  background-position: -6px -11px;
+}
+/* line 1008, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .country .country-icon-6 {
+  height: 46px;
+  display: block;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+  opacity: 0.1;
+  position: relative;
+  right: 0px;
+  bottom: -3px;
+  background-position: -6px -11px;
+}
+/* line 1020, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .country .icon-btn {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+/* line 1024, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .country .icon-btn a {
+  margin-right: 5px;
+  width: 23px;
+  height: 23px;
+  display: inline-block;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+/* line 1030, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .country .icon-btn a:before {
+  font-size: 23px;
+}
+/* line 1038, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .drawResult {
+  width: 50%;
+  margin-bottom: 5px;
+}
+/* line 1043, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .drawResult .drawInfo .drawNo {
+  width: 100%;
+  height: 50px;
+  display: block;
+  float: left;
+  vertical-align: middle;
+  padding: 3px;
+}
+/* line 1050, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .drawResult .drawInfo .drawNo .dNo {
+  text-align: left;
+  font-size: 12px;
+}
+/* line 1054, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .drawResult .drawInfo .drawNo .number {
+  font-size: 22px;
+  text-align: center;
+}
+/* line 1065, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .resultBallPanel {
+  width: 100%;
+  display: inline-block;
+  clear: left;
+}
+/* line 1070, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .resultBallPanel ul li {
+  height: 81px;
+  width: 62px;
+  float: left;
+  margin-right: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+/* line 1077, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .resultBallPanel ul li:last-child {
+  margin-right: 0px;
+}
+/* line 1080, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .resultBallPanel ul li .result-ball {
+  width: 30px;
+  height: 30px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  text-align: center;
+  display: inline-block;
+  line-height: 30px;
+  margin-top: 7px;
+  font-size: 18px;
+  font-weight: bolder;
+}
+/* line 1092, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .resultBallPanel ul li .bs-type {
+  text-align: center;
+  margin: 4px 0px 0px;
+  display: block;
+}
+/* line 1098, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .resultBallPanel ul li .eo-type {
+  text-align: center;
+  display: block;
+}
+/* line 1107, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .tableResult {
+  width: 100%;
+  display: inline-block;
+  margin-top: 5px;
+}
+/* line 1112, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .tableResult table td {
+  padding: 2px 5px;
+  text-align: center;
+  font-size: 15px;
+}
+/* line 1116, ../../../../Source/sass/common-Lotto/modules/_mainLobby.scss */
+#expage .tableResult table td .ball {
+  width: 26px;
+  height: 26px;
+  -moz-border-radius: 13px;
+  -webkit-border-radius: 13px;
+  border-radius: 13px;
+  margin: 2px 5px;
+  display: inline-block;
+  line-height: 26px;
+  font-size: 16px;
+  font-weight: bolder;
+  text-align: center;
+}
+
