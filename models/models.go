@@ -20,12 +20,12 @@ func init() {
 	} else {
 
 		// 创建数据库
-		db.AutoMigrate(&Users{})
+		db.AutoMigrate(&Users{}, &Wagers{})
 		db.Debug()
 		db.LogMode(true)
 	}
 
-	initData()
+	//initData()
 }
 
 func initData() {

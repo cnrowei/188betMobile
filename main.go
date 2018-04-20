@@ -167,7 +167,6 @@ func main() {
 	})
 
 	router.GET("/api/Sync", func(c *gin.Context) {
-
 		formate := "2006-01-02T15:04:05+08:00"
 		now := time.Now().Format(formate)
 
@@ -176,7 +175,7 @@ func main() {
 			"data": gin.H{
 				"serverTime": now,
 				//”serverTime":"2018-04-20T01:49:00+08:00",
-				"invalid": true,
+				//"invalid": true,
 			},
 		})
 	})

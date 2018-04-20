@@ -83,11 +83,11 @@ type Wagers struct {
 	CounterID    int64        `gorm:"index" json:"counterId"`
 	DrawNo       int64        `gorm:"index" json:"drawNo"`
 	Selections   []Selections `json:"selections"`
-	Stake        float64      `gorm:"PRECISION" json:"stake"`
+	Stake        float64      `gorm:"type:numeric(18,4)" json:"stake"`
 	EstWinning   float64      `json:"estWinning"`
 	IsSystemPick bool         `json:"isSystemPick"`
-	BetType      string       `json:"betType"`
-	Selection    string       `json:"selection"`
+	BetType      string       `gorm:"type:varchar(50)" json:"betType"`
+	Selection    string       `gorm:"type:varchar(50)" json:"selection"`
 	ReturnAmount float64      `json:"returnAmount"`
 	CreateTime   time.Time    `json:"createTime"`
 }
@@ -95,10 +95,10 @@ type Wagers struct {
 //类型
 type Bets struct {
 	Bets      int64   `gorm:"AUTO_INCREMENT" json:"Bets"`
-	CounterID int64   `json:"counterId"`
-	DrawNo    string  `json:"drawNo"`
-	BetType   string  `json:"betType"`
-	Selection string  `json:"selection"`
+	CounterID int64   `gorm:"index" json:"counterId"`
+	DrawNo    string  `gorm:"varchar(50) json:"drawNo"`
+	BetType   string  `gorm:"varchar(50) json:"betType"`
+	Selection string  `gorm:"varchar(50) json:"selection"`
 	Odds      float64 `json:"odds"`
 }
 
