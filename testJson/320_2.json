@@ -6,10 +6,10 @@
         "official": "http://www.cqcp.net/game/ssc/",
         "status": 2,
         "draw": {
-            "drawNo": 18,
+            "drawNo": 19,
             "drawStatus": 4,
-            "startTime": "2018-04-19T01:24:00+08:00",
-            "endTime": "2018-04-19T01:29:00+08:00",
+            "startTime": "2018-04-19T01:29:00+08:00",
+            "endTime": "2018-04-19T01:34:00+08:00",
             "betClosedMMSS": "00:00",
             "isCloseManually": false
         },
@@ -251,9 +251,9 @@
         },
         "gameResult": {
             "counterId": 320,
-            "drawNo": 17,
-            "drawTime": "2018-04-19T01:24:00+08:00",
-            "drawStatus": 4,
+            "drawNo": 18,
+            "drawTime": "2018-04-19T01:29:00+08:00",
+            "drawStatus": 1,
             "voidReason": 0,
             "resultBalls": []
         },

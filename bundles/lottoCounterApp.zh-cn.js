@@ -5259,11 +5259,16 @@ angular.module("counterModule", ["componentsModule"])
         $scope.interval = null;
 
         $scope.init = function (serverTime, counter) {
+            console.log(serverTime)
+            console.log(counter.draw)
+
             if (serverTime && counter.draw && counter.draw.startTime && counter.draw.endTime) {
                 startDateTime = new Date(counter.draw.startTime);
                 endDateTime = new Date(counter.draw.endTime);
+
                 var total = (endDateTime - startDateTime);
                 var left = (endDateTime - serverTime);
+                console.log(left)
                 $scope.percent = (left / total) * 100;
 
                 if ($scope.interval === null) {

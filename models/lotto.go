@@ -6,7 +6,7 @@ import (
 
 //彩票列表
 type Counters struct {
-	Id                          int64  `json:"id"`
+	Id                          int64  `gorm:"AUTO_INCREMENT" json:"id"`
 	Name                        string `json:"name"`     //名称
 	Official                    string `json:"official"` //盘口浏览地址
 	Status                      int    `json:"status"`   //状态
@@ -18,8 +18,8 @@ type Counters struct {
 
 //期数
 type Draws struct {
-	Id              int64     `json:"id"`
-	Counterid       int64     `xorm:"index" json:"counterId"`
+	Id              int64     `gorm:"AUTO_INCREMENT" json:"id"`
+	Counterid       int64     `gorm:"index" json:"counterId"`
 	Drawno          int64     `json:"drawNo"`
 	Drawtime        time.Time `json:"drawTime"`
 	Drawstatus      int       `json:"drawStatus"` //开奖的状态
@@ -28,48 +28,118 @@ type Draws struct {
 	Betclosedmmss   string    `json:"betClosedMMSS"`
 	Isclosemanually bool      `json:"isCloseManually"`
 	Voidreason      int       `json:"voidReason"`
-	Resultballs     []int     `json:"resultBalls"` //开奖的数字
+	Resultballs     string    `json:"resultBalls"` //开奖的数字
 }
 
 //投注的列表
 type Selections struct {
-	Id        int64   `json:"id"`
-	Counterid int64   `xorm:"index" json:"counterId"`
-	Name      string  `xorm:"varchar(50)" json:"name"` //标识词
+	Id        int64   `gorm:"AUTO_INCREMENT" json:"id"`
+	Counterid int64   `gorm:"index" json:"counterId"`
+	Name      string  `gorm:"varchar(50)" json:"name"` //标识词
 	Odds      float64 `json:"odds"`                    //赔率
 	Minbet    float64 `json:"minBet"`                  //最小押注
 	Maxbet    float64 `json:"maxBet"`                  //最大押注
 
 }
 
+/*
+{
+    "isSuccess": true,
+    "data": {
+        "totalCount": 2,
+        "totalStake": 4.0000,
+        "totalReturnAmount": 3.80000000,
+        "wagers": [{
+            "createTime": "2018-04-20T10:52:18+08:00",
+            "wagerNo": "180420391381795475",
+            "stake": 2.0000,
+            "returnAmount": 0.0,
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "30",
+                "betType": "万 | 一定位单/双",
+                "selection": "双",
+                "odds": 1.9500
+            }]
+        }, {
+            "createTime": "2018-04-20T10:52:18+08:00",
+            "wagerNo": "180420391381797131",
+            "stake": 2.0000,
+            "returnAmount": 0.0,
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "30",
+                "betType": "万 | 一定位大/小",
+                "selection": "小",
+                "odds": 1.9500
+            }]
+        }]
+    }
+}
+*/
+
+type Wagers struct {
+	WagerNo      int64        `gorm:"AUTO_INCREMENT" json:"wagerNo"`
+	CounterID    int64        `gorm:"index" json:"counterId"`
+	DrawNo       int64        `gorm:"index" json:"drawNo"`
+	Selections   []Selections `json:"selections"`
+	Stake        float64      `gorm:"PRECISION" json:"stake"`
+	EstWinning   float64      `json:"estWinning"`
+	IsSystemPick bool         `json:"isSystemPick"`
+	BetType      string       `json:"betType"`
+	Selection    string       `json:"selection"`
+	ReturnAmount float64      `json:"returnAmount"`
+	CreateTime   time.Time    `json:"createTime"`
+}
+
+//类型
+type Bets struct {
+	Bets      int64   `gorm:"AUTO_INCREMENT" json:"Bets"`
+	CounterID int64   `json:"counterId"`
+	DrawNo    string  `json:"drawNo"`
+	BetType   string  `json:"betType"`
+	Selection string  `json:"selection"`
+	Odds      float64 `json:"odds"`
+}
+
+//获取彩票列表
+func GetCounter(Counterid int64) (*Counters, error) {
+	info := &Counters{}
+	err := db.Where("id=?", Counterid).Find(info).Error
+	return info, err
+}
+
 //彩票列表
-func GetCounters(desc string) (list []*Counters, err error) {
+func GetCounters(desc string) ([]*Counters, error) {
 	//list := &[]Counters{}
-	err = DB.Asc(desc).Find(&list)
-	return list, err
+	var lists []*Counters
+	err := db.Order(desc).Find(&lists).Error
+	return lists, err
 }
 
 //投注列表
-func GetSelections(Counterid int64) (list []*Selections, err error) {
-	//list := &[]Counters{}
-	err = DB.Where("Counterid=?", Counterid).Find(&list)
-	return list, err
+func GetSelections(Counterid int64) ([]*Selections, error) {
+	var lists []*Selections
+	err := db.Where("Counterid=?", Counterid).Find(&lists).Error
+	return lists, err
 }
 
 //添加单注赔率
 func NewSelection(sel *Selections) (int64, error) {
-	if has, err := DB.Insert(sel); err == nil {
-		return has, err
+	if db.NewRecord(sel) {
+		err := db.Create(sel).Error
+		return sel.Id, err
 	} else {
-		return -1, err
+		return -1, nil
 	}
 }
 
 //查找单注是否存在
 func FindSelection(name string, counterID int64) (int64, error) {
 	sel := &Selections{}
-	if has, err := DB.Where("name=? and counterid=?", name, counterID).Get(sel); has {
-		return sel.Id, err
+	err := db.Where("name=? and counterid=?", name, counterID).Find(sel).Error
+	if err == nil {
+		return sel.Id, nil
 	} else {
 		return 0, err
 	}
@@ -77,18 +147,30 @@ func FindSelection(name string, counterID int64) (int64, error) {
 
 //编辑
 func EditSelection(id int64, sel *Selections) (int64, error) {
+
+	//db.Model(&user).Update("name", "hello")
 	//add := &Selections{Code: code, Descr: descr, Lang: lang}
-	has, err := DB.ID(id).Cols("odds", "mixBet", "maxBet").Update(&sel)
-	return has, err
+	//has, err := DB.ID(id).Cols("odds", "mixBet", "maxBet").Update(&sel)
+	return 1, nil
 }
 
 //获取期数
-func GetDraw(nowTime time.Time, Counterid int64) (*Draws, error) {
+func GetDraw(nowTime time.Time, counterId int64) (*Draws, error) {
 	info := &Draws{}
-	if has, err := DB.Where("starttime<=? and endtime>=? and counterid=?", nowTime, nowTime, Counterid).Get(info); has {
-		return info, err
-	} else {
-		return nil, err
-	}
+	err := db.Where("starttime<=? and endtime>=? and counterid=?", nowTime, nowTime, counterId).Find(info).Error
+	return info, err
+}
 
+//期数列表
+func GetDraws(nowTime, beginTime time.Time, counterId int64) ([]*Draws, error) {
+	//list := &[]Counters{}
+	var lists []*Draws
+	err := db.Where("endtime<=? and endtime >=? and counterid=?", nowTime, beginTime, counterId).Order("Drawno").Find(&lists).Error
+	return lists, err
+}
+
+func GetDrawno(drawno int64) (*Draws, error) {
+	info := &Draws{}
+	err := db.Where("Drawno=?", drawno).Find(info).Error
+	return info, err
 }

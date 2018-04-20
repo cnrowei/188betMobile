@@ -1,0 +1,16 @@
+
+<div class="headbar-sub-page">
+    <a class="modal-close-right btn-clk-zoom" href="#" ng-click="close()">
+    <span class="betfont icon-close"></span>
+    </a>
+    <span class="head-bar-title-txt" translate="txtComNotice"></span>
+</div>
+<div class="modal-body">
+    <p><span translate="msgBankingYourBalance"></span> : <b class="font-15">{{client.geod.symbol}} {{client.sessionD.balance | floorNumber:2 | currency :'' | swapCurrencySymbol}}</b></p>
+    <p translate="msgBankingSuggestDeposit"></p>
+</div>
+<div class="modal-footer text-center">
+    <div class="text-center">
+        <a class="btn bet-btn btn-black-modal" ng-href="/{{::global.lan}}/my-account/banking/deposit" translate="navBankingDeposit">Deposit</a>
+    </div>
+</div>

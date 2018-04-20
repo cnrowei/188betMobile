@@ -17,7 +17,7 @@
             buCode: "188Bet",
             ln: "conku188",
             balanceMode: "SingleWallet",
-            lpb: "{[{.lpb}]}",
+            lpb: "2018/04/19 10:50:26",
             sit: 30,
             ita: 0,
             srhb: 30,
@@ -26,9 +26,9 @@
             counterListDic:{},
             activeKeno:true,
             activeLotto:true,
-            memberLobbyUrl:"",
+            memberLobbyUrl:"/zh-cn/lotto",
             counterID:"",
-            parentDomain: "",
+            parentDomain: "https://127.0.0.1",
             isShowAlert:true,
             isHideNewBetType:false,
         };
@@ -70,7 +70,7 @@
                         </span>
                         <span class="svtime" style="display:none" ng-style="{display:''}"
                               ng-controller="timerCtrl"
-                              ng-init="init('2018-04-06T21:53:17+08:00')">
+                              ng-init="init('{[{.serverTime}]}')">
                             {{countDownTimer}}  (GMT+08:00)
                         </span>
                     </div>
@@ -215,7 +215,7 @@
     </script>
     <script src="/bundles/jquery.js"></script>
     <script src="/bundles/jqueryui.js"></script>
-    <script src="/bundles/lottoCounterApp.zh-cn.js"></script>
+    <script src="/bundles/lottoCounterApp.zh-cn.js?v=0000000"></script>
     <script src="/signalrnet/hubs.js" type="text/javascript"></script>
     <script>
         angular.module("app").requires.push("layoutApp"); //append layoutApp to app after renderbody.

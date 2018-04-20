@@ -1,0 +1,52 @@
+<nav id=top-navbar class="navbar navbar-default nav-down">
+    <div id=nav-wrapper class="container-fluid main-header">
+        <div class=navbar-header>
+            <a ng-href=/{{global.lan}} id=logo-188bet class="navbar-brand btn-clk-zoom">&nbsp;</a>
+            <div ng-repeat="prod in availableProds" class="hidden-md hidden-lg pull-left product-menu-dd btn-clk-zoom" ng-if=indexMenu(prod.name)
+                ng-click="displaylayout.header = !displaylayout.header">{{prod.index | quicki18n : \'prodNames\' | translate }}
+                <span class=betfont ng-class="displaylayout.header ? \'icon-caretdown\': \'icon-caretup\'"></span>
+            </div>
+            <div class="right-header-controls clearfix" ng-if=!hiddenUserpanel>
+                <a ng-href=/{{global.lan}}/user/login class="btn btn-lightgrey btn-clk-zoom log-in-button" ng-show="!client.sessionD.login && !isLoginPage() && client.sessionD.allowAccess">
+                    <span class="betfont icon-user"></span>
+                    <span class=log-in-txt translate=txtBtnLogin>LOG IN</span>
+                    <span class=sign-up-txt translate=txtJoinUsSignUp>SIGN UP</span>
+                </a>
+                <a ng-show=!client.sessionD.login href=javascript:// class="btn btn-clk-zoom btn-lightgrey before-logon-button" ng-click=openMenu()>
+                    <span class="betfont icon-mobilemenu"></span>
+                </a>
+                <a ng-show=client.sessionD.login href=javascript:// class="btn btn-lightgrey btn-clk-zoom logged-on-button" ng-click=openMenu()>
+                    <div ng-if="msgCounter && (msgCounter.totalCount >0)" class=notification> {{msgCounter.totalCount > 999 ? "999+" :msgCounter.totalCount }}</div>
+                    <span class="betfont icon-user-logged"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class=swipe-menu-products ng-class="displaylayout.header ? \'nav-up\': \' \'">
+        <ul id=menu-products class="nav navbar-nav menu-products list-inline">
+            <li class="nav-item nav-item-mobile lnk-{{prod.name}}" ng-repeat="prod in availableProds" ng-class="{ active : indexMenu(prod.name), maintenance : prod.isMaintenance == true}">
+                <a ng-href=/{{global.lan}}/{{prod.name}} data-index="{{prod.index | quicki18n : \'prodNames\'}}">
+                    <span class="betfont icon-{{prod.name}} btn-block visible-xs"></span>{{prod.index | quicki18n : \'prodNames\' | translate }} </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+
+
+
+
+<nav id=top-navbar class="navbar navbar-default nav-down">
+    <div id=nav-wrapper class="container-fluid main-header">
+        <div class=navbar-header>
+            <a ng-href=/{{global.lan}} id=logo-188bet class="navbar-brand btn-clk-zoom">&nbsp;</a>
+            <div ng-repeat="prod in availableProds" class="hidden-md hidden-lg pull-left product-menu-dd btn-clk-zoom"
+                ng-if=indexMenu(prod.name) ng-click="displaylayout.header = !displaylayout.header">{{prod.index | quicki18n : \'prodNames\' | translate }}
+                <span class=betfont ng-class="displaylayout.header ? \'icon-caretdown\': \'icon-caretup\'"></span>
+            </div>
+            <div class="right-header-controls clearfix" ng-if=!hiddenUserpanel> </div>
+        </div>
+    </div>
+</nav>

@@ -14,21 +14,72 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// func JsonMiddleware(c *gin.Context) {
+// 	var sessionID = sessionMgr.CheckCookieValid(c.Writer, c.Request)
+// 	if sessionID != "" {
+// 		//http.Redirect(c.Writer, c.Request, "/#!/Login", http.StatusFound)
+// 		if userInfo, ok := sessionMgr.GetSessionVal(sessionID, "UserInfo"); ok {
+
+// 			sessionUser = userInfo.(models.Users)
+
+// 			// if value, ok := userInfo.(models.Users); ok {
+// 			fmt.Println(sessionUser.Id)
+// 			// }
+// 		}
+// 	}
+// }
+
 func main() {
+
+	gin.SetMode(gin.DebugMode)
 	router := gin.Default()
 	router.Delims("{[{", "}]}")
 	router.Static("/Content", "./content")
+	router.Static("/contents", "./contents")
 	router.Static("/bundles", "./bundles")
 	router.Static("/signalrnet", "./signalrnet")
 	router.Static("/cdn1101", "./cdn1101")
+	router.Static("/cdn1103", "./cdn1103")
 	//router.LoadHTMLFiles("templates/*")
 	router.LoadHTMLGlob("templates/*")
 	//router.LoadHTMLGlob("templates/myaccount/*")
 
-	router.GET("/zh-cn/my-account/statement/transaction-history/summary", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "summary.tpl.html", gin.H{
-			"title": "摘要",
+	router.GET("/zh-cn", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "login.tpl.html", gin.H{
+			"title": "login",
 		})
+	})
+
+	router.GET("/zh-cn/", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "login.tpl.html", nil)
+	})
+
+	router.GET("/zh-cn/login", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "login.tpl.html", gin.H{
+			"title": "login",
+		})
+	})
+
+	router.GET("/zh-cn/lotto", func(c *gin.Context) {
+
+		data := LoadJson("content/Json/domains.json")
+		//c.Writer.WriteString(data)
+		c.HTML(http.StatusOK, "lotto.tpl.html", gin.H{
+			"title":   "彩票首页",
+			"domains": string(data),
+		})
+	})
+
+	//判断跳转
+	router.GET("/zh-cn/lotto/lobby", func(c *gin.Context) {
+		partnerId := c.Query("partnerId")
+		if partnerId == "10" {
+			c.Redirect(http.StatusMovedPermanently, "/zh-cn/keno/main-lobby")
+		}
+
+		if partnerId == "18" {
+			c.Redirect(http.StatusMovedPermanently, "/zh-cn/lotto/main-lobby")
+		}
 	})
 
 	router.GET("/zh-cn/my-account/statement/transaction-history/summary", func(c *gin.Context) {
@@ -67,23 +118,30 @@ func main() {
 		})
 	})
 
+	//列表
 	router.GET("/zh-cn/lotto/main-lobby", func(c *gin.Context) {
-		formate := "2006-01-02 15:04:05"
+		formate := "2006/01/02 15:04:05"
+		formate2 := "2006-01-02T15:04:05+08:00"
 		c.HTML(http.StatusOK, "main-lobby.tpl.html", gin.H{
-			"title": "列表",
-			"lpb":   time.Now().Format(formate),
+			"lpb":        time.Now().Format(formate),
+			"serverTime": time.Now().Format(formate2),
 		})
 	})
 
+	//下注页面
 	router.GET("/zh-cn/lotto/counter/:id/:counterType", func(c *gin.Context) {
-		formate := "2006-01-02 15:04:05"
+		formate := "2006/01/02 15:04:05"
+		formate2 := "2006-01-02T15:04:05+08:00"
 		c.HTML(http.StatusOK, "counter.tpl.html", gin.H{
-			"title": "列表",
-			"lpb":   time.Now().Format(formate),
+			"lpb":        time.Now().Format(formate),
+			"serverTime": time.Now().Format(formate2),
 		})
 	})
 
 	///service
+	router.POST("/service/userapi/login", handler.Login)
+	router.POST("/postlogin", handler.Postlogin)
+
 	router.GET("/service/myaccounttapi/GetSettleBet", func(c *gin.Context) {
 		var xxxjson string
 		xxxjson = readFile1("testjson/GETSETTLEBET.JSON")
@@ -104,17 +162,21 @@ func main() {
 	})
 
 	//API
+	router.GET("/api/service/GetContent", func(c *gin.Context) {
+		c.Writer.WriteString(`angular.callbacks._0({"resultType":0,"content":"\r\n\r\n\r\n<div class=\"col-lg-12  {{rowClass}}\">\r\n<div class=\"col-lg-12\" lotto-ilotto ></div>\r\n\r\n</div>\r\n<!--col-lg--->","redirectUrl":null,"message":null});`)
+	})
+
 	router.GET("/api/Sync", func(c *gin.Context) {
 
-		// formate := "2006-01-02T15:04:05+08:00"
-		// now := time.Now().Format(formate)
+		formate := "2006-01-02T15:04:05+08:00"
+		now := time.Now().Format(formate)
 
 		c.JSON(http.StatusOK, gin.H{
 			"isSuccess": true,
 			"data": gin.H{
-				"serverTime": "2018-04-07T15:59:30+08:00",
-				//”serverTime":"2018-04-07T15:59:00+08:00",
-				//"invalid":    true,
+				"serverTime": now,
+				//”serverTime":"2018-04-20T01:49:00+08:00",
+				"invalid": true,
 			},
 		})
 	})
@@ -133,21 +195,28 @@ func main() {
 			})*/
 	})
 
+	//总页码
 	router.GET("/api/lotto/Mobile", handler.Mobile)
 
-	//
-	router.GET("/api/lotto/Counter/:number", func(c *gin.Context) {
-		var xxxjson string
-		xxxjson = readFile1("testjson/360.json")
-		c.Writer.WriteString(xxxjson)
-	})
+	//Counter 彩票到期，单个服务
+	router.GET("/api/lotto/Counter/:number", handler.CounterID)
 
 	//开奖结果
-	router.GET("/api/lotto/Counter/:number/Trends", func(c *gin.Context) {
-		var xxxjson string
-		xxxjson = readFile1("testjson/Trends.json")
-		c.Writer.WriteString(xxxjson)
-	})
+	router.GET("/api/lotto/Counter/:number/Trends", handler.Trends)
+
+	// router.GET("/api/lotto/Counter/:number/Trends", func(c *gin.Context) {
+	// 	data := readFile1("testjson/Trends.json")
+	// 	c.Writer.WriteString(data)
+	// })
+
+	//确认下注
+	router.POST("/api/lotto/PlaceBet", handler.PlaceBet)
+
+	///api/Member/Chips
+	router.GET("/api/Member/Chips", handler.Chips)
+
+	//OpenBets
+	router.GET("/api/Report/:name/OpenBets", handler.OpenBets)
 
 	//https://ng-gc-188.prdangb18a1.com/api/lotto/Counter/320/GameResults?drawNo=69&date=2018-04-07&pageNum=1&pageSize=50
 	router.GET("/api/lotto/Counter/:number/GameResults", func(c *gin.Context) {
@@ -197,6 +266,11 @@ func main() {
 	})
 
 	//initData()
+	//initSelection()
+
+	// str := 20180419099
+	// content := str[8:len(str)]
+	// fmt.Println(content)
 
 	router.Run(":8188")
 }
@@ -217,10 +291,22 @@ func readFile1(path string) string {
 	defer fi.Close()
 	fd, err := ioutil.ReadAll(fi)
 	return string(fd)
+
+}
+
+func LoadJson(filename string) []byte {
+	data, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return nil
+	} else {
+		return []byte(data)
+	}
 }
 
 //初始化投注数据
-func initData() {
+func initSelection() {
+
+	fmt.Println("##################  initSelection! #####################")
 
 	fi, err := os.Open("testjson/320_1.json")
 	if err != nil {
@@ -239,9 +325,10 @@ func initData() {
 		for _, v := range dat {
 
 			has, _ := models.FindSelection(v.Name, 320)
+
 			//fmt.Println("HAS", v.Name, v.Odds, v.MinBet, v.MaxBet)
 			if has == 0 {
-				fmt.Println("HAS", v.Name, v.Odds, v.MinBet, v.MaxBet)
+				fmt.Println("HAS", has, v.Name, v.Odds, v.MinBet, v.MaxBet)
 
 				sel := &models.Selections{}
 				sel.Name = v.Name

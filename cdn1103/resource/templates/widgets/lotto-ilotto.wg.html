@@ -1,0 +1,15 @@
+
+<div class="lotto-border lotto-boxes" ng-init="onInit()" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-xs-12 lotto-box lotto-box-hover lotto-more-details" ng-repeat="lottoPartner in lottoPartners| orderBy : 'priority'">
+            
+            <a class="game-thumbs thumbs-beijing" lottolauncher="{{::lottoPartner.id}}" >
+                <img id="lotto-game-image" alt="" ng-src="{{ lottoPartner.resource | getResource : 'Preview'}}">
+            </a>
+            <div class="lotto-game-name-bar clearfix">
+                <span class="lotto-game-name-txt">{{::lottoPartner.resource | getResource : 'DisplayName'}}</span>
+
+            </div>
+        </div>
+    </div>
+</div>

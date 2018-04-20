@@ -1,0 +1,14 @@
+
+<div class="headbar-sub-page">
+    <a class="modal-close-right btn-clk-zoom" href="#" ng-click="close()"><span class="betfont icon-close"></span></a>
+    <span class="head-bar-title-txt">{{msg.title}}</span>
+</div>
+<div class="modal-body">
+    <p ng-model="msg.content" ng-bind-html="msg.content"></p>
+</div>
+<div class="modal-footer  text-center">
+    <div class="text-center">
+        <button type="submit" class="btn bet-btn btn-black-modal" ng-click="confirm()" translate="txtBtnComOk"></button>
+        <button ng-if="msg.needCancelBtn" type="submit" class="btn bet-btn btn-link-modal" ng-click="close()" translate="txtBtnComNo"></button>
+    </div>
+</div>

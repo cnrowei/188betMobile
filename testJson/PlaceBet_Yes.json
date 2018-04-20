@@ -1,0 +1,181 @@
+{
+    "isSuccess": true,
+    "data": [{
+        "counterId": 3,
+        "drawNo": 954,
+        "selections": [{
+            "id": 181,
+            "odds": 1.95,
+            "minBet": 5.0,
+            "maxBet": 30000.0
+        }],
+        "stake": 20.0,
+        "estWinning": 19.0,
+        "isSystemPick": false,
+        "wagerNo": 180420008611790949,
+        "betType": "bs",
+        "selection": "Big"
+    }]
+}
+
+//////
+{
+    "isSuccess": true,
+    "data": [{
+        "counterId": 320,
+        "drawNo": 30,
+        "selections": [{
+            "id": 6759,
+            "odds": 1.95,
+            "minBet": 2.0,
+            "maxBet": 30000.0
+        }],
+        "stake": 2.0,
+        "estWinning": 1.9,
+        "isSystemPick": false,
+        "wagerNo": 180420391381797131,
+        "betType": "1Fixed_BS_5",
+        "selection": "Small"
+    }, {
+        "counterId": 320,
+        "drawNo": 30,
+        "selections": [{
+            "id": 6723,
+            "odds": 1.95,
+            "minBet": 2.0,
+            "maxBet": 30000.0
+        }],
+        "stake": 2.0,
+        "estWinning": 1.9,
+        "isSystemPick": false,
+        "wagerNo": 180420391381795475,
+        "betType": "1Fixed_OE_5",
+        "selection": "Even"
+    }]
+}
+
+//下二定位
+{
+    "isSuccess": true,
+    "data": [{
+        "counterId": 320,
+        "drawNo": 31,
+        "selections": [{
+            "id": 2722,
+            "odds": 95.0,
+            "minBet": 2.0,
+            "maxBet": 500.0
+        }],
+        "stake": 2.0,
+        "estWinning": 188.0,
+        "isSystemPick": false,
+        "wagerNo": 180420398671793408,
+        "betType": "2Fixed_45",
+        "selection": "28XXX"
+    }]
+}
+
+{
+    "isSuccess": true,
+    "data": {
+        "totalCount": 1,
+        "totalStake": 2.0000,
+        "totalReturnAmount": 188.00000000,
+        "wagers": [{
+            "createTime": "2018-04-20T11:04:27+08:00",
+            "wagerNo": "180420398671793408",
+            "stake": 2.0000,
+            "returnAmount": 0.0,
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "31",
+                "betType": "万千 | 二定位单号",
+                "selection": "28XXX",
+                "odds": 95.0000
+            }]
+        }]
+    }
+}
+
+
+{
+    "isSuccess": true,
+    "data": [{
+        "counterId": 320,
+        "drawNo": 31,
+        "selections": [{
+            "id": 2722,
+            "odds": 95.0,
+            "minBet": 2.0,
+            "maxBet": 500.0
+        }],
+        "stake": 2.0,
+        "estWinning": 188.0,
+        "isSystemPick": false,
+        "wagerNo": 180420401041793643,
+        "betType": "2Fixed_35",
+        "selection": "2X2XX"
+    }, {
+        "counterId": 320,
+        "drawNo": 31,
+        "selections": [{
+            "id": 2722,
+            "odds": 95.0,
+            "minBet": 2.0,
+            "maxBet": 500.0
+        }],
+        "stake": 2.0,
+        "estWinning": 188.0,
+        "isSystemPick": false,
+        "wagerNo": 180420401041796312,
+        "betType": "2Fixed_45",
+        "selection": "67XXX"
+    }]
+}
+
+
+{
+    "isSuccess": true,
+    "data": {
+        "totalCount": 3,
+        "totalStake": 6.0000,
+        "totalReturnAmount": 564.00000000,
+        "wagers": [{
+            "createTime": "2018-04-20T11:08:24+08:00",
+            "wagerNo": "180420401041796312",
+            "stake": 2.0000,
+            "returnAmount": 0.0,
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "31",
+                "betType": "万千 | 二定位单号",
+                "selection": "67XXX",
+                "odds": 95.0000
+            }]
+        }, {
+            "createTime": "2018-04-20T11:08:24+08:00",
+            "wagerNo": "180420401041793643",
+            "stake": 2.0000,
+            "returnAmount": 0.0,
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "31",
+                "betType": "万百 | 二定位单号",
+                "selection": "2X2XX",
+                "odds": 95.0000
+            }]
+        }, {
+            "createTime": "2018-04-20T11:04:27+08:00",
+            "wagerNo": "180420398671793408",
+            "stake": 2.0000,
+            "returnAmount": 0.0,
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "31",
+                "betType": "万千 | 二定位单号",
+                "selection": "28XXX",
+                "odds": 95.0000
+            }]
+        }]
+    }
+}

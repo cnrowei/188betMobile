@@ -1,0 +1,192 @@
+{
+    "isSuccess": true,
+    "data": {
+        "2018-04-20 (星期五)": {
+            "keno": {
+                "gameDate": "2018-04-20T00:00:00+08:00",
+                "totalCount": 1,
+                "totalStake": 20.0000,
+                "totalReturnAmount": 19.0000
+            },
+            "lotto": {
+                "gameDate": "2018-04-20T00:00:00+08:00",
+                "totalCount": 1,
+                "totalStake": 2.0000,
+                "totalReturnAmount": -2.0000
+            }
+        },
+        "2018-04-07 (星期六)": {
+            "lotto": {
+                "gameDate": "2018-04-07T00:00:00+08:00",
+                "totalCount": 5,
+                "totalStake": 144.0000,
+                "totalReturnAmount": 891.8000
+            }
+        }
+    }
+}
+
+
+{
+    "isSuccess": true,
+    "data": {
+        "totalCount": 11,
+        "totalStake": 22.0000,
+        "totalReturnAmount": -14.20000000,
+        "wagers": [{
+            "createTime": "2018-04-20T11:11:55+08:00",
+            "wagerNo": "180420403151791757",
+            "stake": 2.0000,
+            "returnAmount": -2.00000000,
+            "wagerStatus": "输",
+            "cancelReason": "",
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "32",
+                "betType": "万千 | 二定位单号",
+                "selection": "87XXX",
+                "odds": 95.0000
+            }]
+        }, {
+            "createTime": "2018-04-20T11:11:55+08:00",
+            "wagerNo": "180420403151792899",
+            "stake": 2.0000,
+            "returnAmount": -2.00000000,
+            "wagerStatus": "输",
+            "cancelReason": "",
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "32",
+                "betType": "万千 | 二定位单号",
+                "selection": "81XXX",
+                "odds": 95.0000
+            }]
+        }, {
+            "createTime": "2018-04-20T11:11:55+08:00",
+            "wagerNo": "180420403151791514",
+            "stake": 2.0000,
+            "returnAmount": -2.00000000,
+            "wagerStatus": "输",
+            "cancelReason": "",
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "32",
+                "betType": "万千 | 二定位单号",
+                "selection": "17XXX",
+                "odds": 95.0000
+            }]
+        }, {
+            "createTime": "2018-04-20T11:11:55+08:00",
+            "wagerNo": "180420403151797322",
+            "stake": 2.0000,
+            "returnAmount": -2.00000000,
+            "wagerStatus": "输",
+            "cancelReason": "",
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "32",
+                "betType": "万千 | 二定位单号",
+                "selection": "11XXX",
+                "odds": 95.0000
+            }]
+        }, {
+            "createTime": "2018-04-20T11:08:24+08:00",
+            "wagerNo": "180420401041796312",
+            "stake": 2.0000,
+            "returnAmount": -2.00000000,
+            "wagerStatus": "输",
+            "cancelReason": "",
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "31",
+                "betType": "万千 | 二定位单号",
+                "selection": "67XXX",
+                "odds": 95.0000
+            }]
+        }, {
+            "createTime": "2018-04-20T11:08:24+08:00",
+            "wagerNo": "180420401041793643",
+            "stake": 2.0000,
+            "returnAmount": -2.00000000,
+            "wagerStatus": "输",
+            "cancelReason": "",
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "31",
+                "betType": "万百 | 二定位单号",
+                "selection": "2X2XX",
+                "odds": 95.0000
+            }]
+        }, {
+            "createTime": "2018-04-20T11:04:27+08:00",
+            "wagerNo": "180420398671793408",
+            "stake": 2.0000,
+            "returnAmount": -2.00000000,
+            "wagerStatus": "输",
+            "cancelReason": "",
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "31",
+                "betType": "万千 | 二定位单号",
+                "selection": "28XXX",
+                "odds": 95.0000
+            }]
+        }, {
+            "createTime": "2018-04-20T10:52:18+08:00",
+            "wagerNo": "180420391381795475",
+            "stake": 2.0000,
+            "returnAmount": 1.90000000,
+            "wagerStatus": "赢",
+            "cancelReason": "",
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "30",
+                "betType": "万 | 一定位单/双",
+                "selection": "双",
+                "odds": 1.9500
+            }]
+        }, {
+            "createTime": "2018-04-20T10:52:18+08:00",
+            "wagerNo": "180420391381797131",
+            "stake": 2.0000,
+            "returnAmount": -2.00000000,
+            "wagerStatus": "输",
+            "cancelReason": "",
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "30",
+                "betType": "万 | 一定位大/小",
+                "selection": "小",
+                "odds": 1.9500
+            }]
+        }, {
+            "createTime": "2018-04-20T10:33:14+08:00",
+            "wagerNo": "180420379941793836",
+            "stake": 2.0000,
+            "returnAmount": 1.90000000,
+            "wagerStatus": "赢",
+            "cancelReason": "",
+            "bets": [{
+                "counterId": 360,
+                "drawNo": "2018042004",
+                "betType": "万 | 一定位单/双",
+                "selection": "双",
+                "odds": 1.9500
+            }]
+        }, {
+            "createTime": "2018-04-20T01:30:04+08:00",
+            "wagerNo": "180420054041794694",
+            "stake": 2.0000,
+            "returnAmount": -2.00000000,
+            "wagerStatus": "输",
+            "cancelReason": "",
+            "bets": [{
+                "counterId": 320,
+                "drawNo": "19",
+                "betType": "万千 | 二定位单号",
+                "selection": "16XXX",
+                "odds": 95.0000
+            }]
+        }]
+    }
+}

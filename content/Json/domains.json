@@ -6,7 +6,7 @@
     "oldContents": "https://doc.188contents.com/contents",
     "mobile": "https://m.oneeightyeightbet.com",
     "sbkfeed": "https://sb.oneeightyeightbet.com/",
-    "piper": "https://piper.188contents.com/api/service/GetContent?brandId=1001",
+    "piper": "/api/service/GetContent?brandId=1001",
     "aps": "https://aps-service.188contents.com:8443/ServiceSpi/",
     "livechat": "https://www.oneeightyeightbet.com",
     "gApi": "https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&key=AIzaSyDOHjidFKS1h8q9jfNjXtypstAiU23EJBA&id=",

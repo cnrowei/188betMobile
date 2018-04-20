@@ -1,13 +1,7 @@
 {
     "isSuccess": true,
     "data": {
-        "announcements": [{
-            "seq": 0,
-            "createTime": "2018-04-14T03:22:55+08:00",
-            "content": "敬请注意: 2018年4月14日, 马耳他: MT968543 由于官方未提供成绩已被取消。",
-            "isImportant": true,
-            "expiryTime": "2018-04-15T23:59:00+08:00"
-        }],
+        "announcements": [],
         "openBets": {
             "totalCount": 0,
             "totalStake": 0.0,
@@ -18,7 +12,15 @@
             "id": 310,
             "name": "ShangHai",
             "official": "http://fucai.eastday.com/LotteryNew/app_SSSL.aspx",
-            "status": 4,
+            "status": 2,
+            "draw": {
+                "drawNo": 2018041903,
+                "drawStatus": 4,
+                "startTime": "2018-04-19T10:59:30+08:00",
+                "endTime": "2018-04-19T11:29:30+08:00",
+                "betClosedMMSS": "00:00",
+                "isCloseManually": false
+            },
             "selections": {
                 "OneDigit": {
                     "id": 1,
@@ -256,12 +258,12 @@
                 }
             },
             "gameResult": {
-                "counterId": 0,
-                "drawNo": 0,
-                "drawTime": "0001-01-01T00:00:00+08:00",
-                "drawStatus": 0,
+                "counterId": 310,
+                "drawNo": 2018041902,
+                "drawTime": "2018-04-19T10:59:30+08:00",
+                "drawStatus": 6,
                 "voidReason": 0,
-                "resultBalls": []
+                "resultBalls": [7, 8, 3]
             },
             "seq": 0,
             "ballCount": 3,
@@ -271,7 +273,15 @@
             "id": 350,
             "name": "ChinaSwl3D",
             "official": "http://www.zhcw.com/3d/kaijiangshuju/index.shtml?type=0",
-            "status": 4,
+            "status": 2,
+            "draw": {
+                "drawNo": 2018102,
+                "drawStatus": 4,
+                "startTime": "2018-04-19T09:10:00+08:00",
+                "endTime": "2018-04-19T21:10:00+08:00",
+                "betClosedMMSS": "00:00",
+                "isCloseManually": false
+            },
             "selections": {
                 "OneDigit": {
                     "id": 18010,
@@ -518,18 +528,18 @@
             },
             "seq": 1,
             "ballCount": 3,
-            "resultOpenIntervalSecond": 0,
-            "resultWaitingIntervalSecond": 0
+            "resultOpenIntervalSecond": 20,
+            "resultWaitingIntervalSecond": 1200
         }, {
             "id": 320,
             "name": "Chongqing",
             "official": "http://www.cqcp.net/game/ssc/",
             "status": 2,
             "draw": {
-                "drawNo": 6,
+                "drawNo": 33,
                 "drawStatus": 4,
-                "startTime": "2018-04-15T00:24:00+08:00",
-                "endTime": "2018-04-15T00:29:00+08:00",
+                "startTime": "2018-04-19T11:19:00+08:00",
+                "endTime": "2018-04-19T11:29:00+08:00",
                 "betClosedMMSS": "00:00",
                 "isCloseManually": false
             },
@@ -771,8 +781,8 @@
             },
             "gameResult": {
                 "counterId": 320,
-                "drawNo": 5,
-                "drawTime": "2018-04-15T00:24:00+08:00",
+                "drawNo": 32,
+                "drawTime": "2018-04-19T11:19:00+08:00",
                 "drawStatus": 4,
                 "voidReason": 0,
                 "resultBalls": []
@@ -1033,12 +1043,20 @@
             "seq": 3,
             "ballCount": 5,
             "resultOpenIntervalSecond": 0,
-            "resultWaitingIntervalSecond": 0
+            "resultWaitingIntervalSecond": 36000
         }, {
             "id": 340,
             "name": "TianJing",
             "official": "http://www.tjflcpw.com/report/SSC_WinMessage.aspx",
-            "status": 4,
+            "status": 2,
+            "draw": {
+                "drawNo": 20180419015,
+                "drawStatus": 4,
+                "startTime": "2018-04-19T11:17:00+08:00",
+                "endTime": "2018-04-19T11:27:00+08:00",
+                "betClosedMMSS": "00:00",
+                "isCloseManually": false
+            },
             "selections": {
                 "OneDigit": {
                     "id": 12609,
@@ -1276,10 +1294,10 @@
                 }
             },
             "gameResult": {
-                "counterId": 0,
-                "drawNo": 0,
-                "drawTime": "0001-01-01T00:00:00+08:00",
-                "drawStatus": 0,
+                "counterId": 340,
+                "drawNo": 20180419014,
+                "drawTime": "2018-04-19T11:17:00+08:00",
+                "drawStatus": 4,
                 "voidReason": 0,
                 "resultBalls": []
             },
@@ -1293,10 +1311,10 @@
             "official": "http://www.xjflcp.com/game/sscIndex",
             "status": 2,
             "draw": {
-                "drawNo": 2018041487,
+                "drawNo": 2018041909,
                 "drawStatus": 4,
-                "startTime": "2018-04-15T00:18:00+08:00",
-                "endTime": "2018-04-15T00:28:00+08:00",
+                "startTime": "2018-04-20T00:08:00+08:00",
+                "endTime": "2018-04-20T00:18:00+08:00",
                 "betClosedMMSS": "00:00",
                 "isCloseManually": false
             },
@@ -1538,11 +1556,11 @@
             },
             "gameResult": {
                 "counterId": 360,
-                "drawNo": 2018041486,
-                "drawTime": "2018-04-15T00:18:00+08:00",
-                "drawStatus": 5,
+                "drawNo": 2018041908,
+                "drawTime": "2018-04-19T11:18:00+08:00",
+                "drawStatus": 4,
                 "voidReason": 0,
-                "resultBalls": [6, 4, 5, 8, 3]
+                "resultBalls": []
             },
             "seq": 5,
             "ballCount": 5,
@@ -1551,7 +1569,21 @@
         }],
         "trendsList": [{
             "counterId": 310,
-            "trends": []
+            "trends": [{
+                "counterId": 0,
+                "drawNo": 2018041901,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [2, 3, 5]
+            }, {
+                "counterId": 0,
+                "drawNo": 2018041902,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [7, 8, 3]
+            }]
         }, {
             "counterId": 350,
             "trends": []
@@ -1563,51 +1595,366 @@
                 "drawTime": "0001-01-01T00:00:00+08:00",
                 "drawStatus": 0,
                 "voidReason": 0,
-                "resultBalls": [9, 3, 3, 8, 5]
+                "resultBalls": [5, 3, 2, 8, 7]
             }, {
                 "counterId": 0,
                 "drawNo": 2,
                 "drawTime": "0001-01-01T00:00:00+08:00",
                 "drawStatus": 0,
                 "voidReason": 0,
-                "resultBalls": [4, 3, 7, 4, 0]
+                "resultBalls": [8, 2, 5, 7, 3]
             }, {
                 "counterId": 0,
                 "drawNo": 3,
                 "drawTime": "0001-01-01T00:00:00+08:00",
                 "drawStatus": 0,
                 "voidReason": 0,
-                "resultBalls": [9, 3, 5, 8, 9]
+                "resultBalls": [2, 6, 2, 2, 8]
             }, {
                 "counterId": 0,
                 "drawNo": 4,
                 "drawTime": "0001-01-01T00:00:00+08:00",
                 "drawStatus": 0,
                 "voidReason": 0,
-                "resultBalls": [9, 8, 8, 8, 5]
+                "resultBalls": [1, 2, 5, 7, 8]
+            }, {
+                "counterId": 0,
+                "drawNo": 5,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [4, 0, 5, 1, 2]
+            }, {
+                "counterId": 0,
+                "drawNo": 6,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [0, 4, 3, 4, 1]
+            }, {
+                "counterId": 0,
+                "drawNo": 7,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [2, 0, 6, 2, 7]
+            }, {
+                "counterId": 0,
+                "drawNo": 8,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [8, 6, 5, 7, 5]
+            }, {
+                "counterId": 0,
+                "drawNo": 9,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [1, 3, 2, 2, 5]
+            }, {
+                "counterId": 0,
+                "drawNo": 10,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [5, 2, 8, 6, 2]
+            }, {
+                "counterId": 0,
+                "drawNo": 11,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [1, 6, 5, 8, 7]
+            }, {
+                "counterId": 0,
+                "drawNo": 12,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [8, 3, 8, 7, 6]
+            }, {
+                "counterId": 0,
+                "drawNo": 13,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [5, 8, 7, 4, 5]
+            }, {
+                "counterId": 0,
+                "drawNo": 14,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [1, 7, 7, 2, 4]
+            }, {
+                "counterId": 0,
+                "drawNo": 15,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [5, 0, 2, 0, 8]
+            }, {
+                "counterId": 0,
+                "drawNo": 16,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [1, 0, 6, 6, 0]
+            }, {
+                "counterId": 0,
+                "drawNo": 17,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [5, 2, 9, 2, 1]
+            }, {
+                "counterId": 0,
+                "drawNo": 18,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [4, 3, 1, 7, 0]
+            }, {
+                "counterId": 0,
+                "drawNo": 19,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [0, 2, 4, 4, 4]
+            }, {
+                "counterId": 0,
+                "drawNo": 20,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [7, 8, 7, 3, 7]
+            }, {
+                "counterId": 0,
+                "drawNo": 21,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [3, 2, 6, 6, 1]
+            }, {
+                "counterId": 0,
+                "drawNo": 22,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [9, 0, 1, 5, 6]
+            }, {
+                "counterId": 0,
+                "drawNo": 23,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [1, 8, 0, 0, 5]
+            }, {
+                "counterId": 0,
+                "drawNo": 24,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [0, 5, 9, 6, 8]
+            }, {
+                "counterId": 0,
+                "drawNo": 25,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [1, 3, 1, 6, 1]
+            }, {
+                "counterId": 0,
+                "drawNo": 26,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [1, 1, 8, 1, 0]
+            }, {
+                "counterId": 0,
+                "drawNo": 27,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [0, 9, 0, 6, 2]
+            }, {
+                "counterId": 0,
+                "drawNo": 28,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [0, 8, 5, 7, 6]
+            }, {
+                "counterId": 0,
+                "drawNo": 29,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [9, 0, 6, 9, 3]
+            }, {
+                "counterId": 0,
+                "drawNo": 30,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [0, 6, 6, 1, 8]
+            }, {
+                "counterId": 0,
+                "drawNo": 31,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [8, 5, 1, 6, 6]
             }]
         }, {
             "counterId": 330,
             "trends": []
         }, {
             "counterId": 340,
-            "trends": []
+            "trends": [{
+                "counterId": 0,
+                "drawNo": 20180419001,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [2, 9, 1, 1, 2]
+            }, {
+                "counterId": 0,
+                "drawNo": 20180419002,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [4, 6, 8, 8, 3]
+            }, {
+                "counterId": 0,
+                "drawNo": 20180419003,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [8, 4, 8, 7, 1]
+            }, {
+                "counterId": 0,
+                "drawNo": 20180419004,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [7, 3, 3, 0, 6]
+            }, {
+                "counterId": 0,
+                "drawNo": 20180419005,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [4, 3, 8, 6, 2]
+            }, {
+                "counterId": 0,
+                "drawNo": 20180419006,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [5, 7, 3, 3, 7]
+            }, {
+                "counterId": 0,
+                "drawNo": 20180419007,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [7, 3, 4, 1, 1]
+            }, {
+                "counterId": 0,
+                "drawNo": 20180419008,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [9, 2, 9, 6, 7]
+            }, {
+                "counterId": 0,
+                "drawNo": 20180419009,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [3, 3, 5, 0, 6]
+            }, {
+                "counterId": 0,
+                "drawNo": 20180419010,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [6, 3, 1, 7, 4]
+            }, {
+                "counterId": 0,
+                "drawNo": 20180419011,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [4, 2, 4, 5, 4]
+            }, {
+                "counterId": 0,
+                "drawNo": 20180419012,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [2, 0, 7, 4, 5]
+            }, {
+                "counterId": 0,
+                "drawNo": 20180419013,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [0, 0, 1, 8, 6]
+            }]
         }, {
             "counterId": 360,
             "trends": [{
                 "counterId": 0,
-                "drawNo": 2018041485,
+                "drawNo": 2018041901,
                 "drawTime": "0001-01-01T00:00:00+08:00",
                 "drawStatus": 0,
                 "voidReason": 0,
-                "resultBalls": [3, 0, 0, 0, 2]
+                "resultBalls": [1, 0, 1, 6, 0]
             }, {
                 "counterId": 0,
-                "drawNo": 2018041486,
+                "drawNo": 2018041902,
                 "drawTime": "0001-01-01T00:00:00+08:00",
                 "drawStatus": 0,
                 "voidReason": 0,
-                "resultBalls": [6, 4, 5, 8, 3]
+                "resultBalls": [7, 6, 3, 7, 6]
+            }, {
+                "counterId": 0,
+                "drawNo": 2018041903,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [4, 6, 1, 6, 0]
+            }, {
+                "counterId": 0,
+                "drawNo": 2018041904,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [9, 4, 2, 4, 5]
+            }, {
+                "counterId": 0,
+                "drawNo": 2018041905,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [8, 1, 6, 6, 3]
+            }, {
+                "counterId": 0,
+                "drawNo": 2018041906,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [0, 8, 9, 9, 1]
+            }, {
+                "counterId": 0,
+                "drawNo": 2018041907,
+                "drawTime": "0001-01-01T00:00:00+08:00",
+                "drawStatus": 0,
+                "voidReason": 0,
+                "resultBalls": [0, 5, 9, 8, 1]
             }]
         }],
         "betSlip": "[]",

@@ -1,0 +1,36 @@
+
+<div class="headbar-sub-page">
+    <a class="modal-close-right btn-clk-zoom" href="javascript://" data-dismiss="modal" ng-click="close()"><span class="betfont icon-close"></span></a>
+    <span class="head-bar-title-txt ng-binding" translate="txtBtnLogin"></span>
+</div>
+<div class="row">
+    <div class="acct-modal-border col-xs-12">
+
+        <label class="normalize-weight" translate="txtJoinUsUserId"></label>
+        <input type="text" class="form-control" ng-model="formData.username">
+        <label class="normalize-weight" translate="txtJoinUsPassword"></label>
+        <input class="form-control" type="password" ng-model="formData.password">
+        <label class="error form-error" ng-if="errorCode == '0002'" translate="msgLoginError0002">This form is required</label>
+        <br>
+        <div class="enter-captcha-box">
+            <span translate="msgJoinUsCaptchaNote">Enter the captcha code shown below</span>
+            <br>
+            <div class="captcha-img">
+                <img id="captchaImg" name="captchaImg" src="/CommonVariables/GetCaptcha" />
+                <a href="javascript://" class="refresh-captcha btn-clk-zoom" ng-click="refreshCaptcha()"><span class="betfont icon-refresh"></span></a>
+            </div>
+            <div class="captcha-form clearfix">
+                <div class="col-xs-6">
+                    <input class="form-control" type="text" id="captchaText" ng-model="formData.captcha">
+                    <label class="error form-error" ng-if="errorCode == '0006'" translate="helpSecureCaptchaError">This form is required</label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row info-box-actions text-center">
+                <button class="btn bet-btn btn-black-modal" type="submit" translate="txtBtnComSubmit" ng-click="submit()" ng-disabled="">SUBMIT</button>
+        </div>
+    </div>
+</div>
+
+
