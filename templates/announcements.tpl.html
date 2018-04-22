@@ -1,0 +1,13 @@
+<div ng-controller="announcementCtrl" ng-init="announceInit();" class="announcementsContainer">
+    <div ng-repeat="item in announcements" class="announcementsList row">
+        <div class="col s12 ">
+            <div class="col s12"><span class="date" ng-bind="item.createTime|datetimeFormat"></span></div>
+            <div class="col s12" ng-class="{'impt': item.isImportant}"><span ng-bind="item.content"></span></div>
+        </div>
+    </div>
+    <div class="noRecord row" ng-if="announcements.length==0">
+        <div class="col s12 list">
+            没有记录
+        </div>
+    </div>
+</div>

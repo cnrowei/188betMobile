@@ -1,0 +1,189 @@
+
+
+<div class="statementContainer" ng-controller="statementCtrl" id="scrollContainer" ng-init="isLazyLoading=true;init('newMobile');">
+    <div ng-if="!product">
+        <div class="statementList row cursor-pointer" ng-repeat="(key, statement) in statementDic"
+             ng-if="statement[selectedProduct]"
+             ng-click="details(selectedProduct,statement[selectedProduct].gameDate,key)">
+            <div class="col s12 list">
+                <div class="counterName">
+                    {{counterName(key)}}
+                </div>
+            </div>
+            <div class="col s12 list">
+                <div class="col s6"><span class="title">投注额</span>：<br>{{statement.TotalStake=(statement|sumListfilterNew:'totalStake':selectedProduct)|addComma:2}}</div>
+                <div class="col s6"><span class="title">赢/输</span>：<br> <span ng-class="{'red-text':statement.TotalWinLoss <0}">{{statement.TotalWinLoss=(statement|sumListfilterNew:'totalReturnAmount':selectedProduct)|addComma:2}}</span></div>
+            </div>
+            <div class="col s12">
+                <div class="col s4"><span class="title">投注计数</span>：<br>{{statement.TotalNoOfBet=(statement|sumListfilterNew:'totalCount':selectedProduct)}}</div>
+                <div class="icon-btn right"><a class="iconbtn-next"><i class="mdi mdi-chevron-right"></i></a></div>
+            </div>
+        </div>
+        <div class="noRecord row" ng-if="statementDicCount[selectedProduct] <= 0">
+            <div class="col s12 list">
+                没有记录
+            </div>
+        </div>
+        <p class="footerinfo">所有交易的日期和时间记载是以GMT +08:00 (北京时间)为根据。</p>
+        <div class="footer-empty"></div>
+    </div>
+
+    <div ng-if="product" ng-controller="statementDetailCtrl">
+        <div class="statementList openbtn row" ng-repeat-start="wager in wagerList" ng-class="{'c': 'cancelled'}[getWagerStatus(wager.wagerStatus)]">
+            <!-- openbtn and closebtn -->
+
+            <div class="col s12 list">
+                <div class="counterName">
+                    <span class="drewName">{{wager.bets[0].counterId|counterName}}</span>
+                    <span class="drewNo">{{wager.bets[0].drawNo}} </span><br>
+                    <span class="drewTime">{{wager.createTime|timeFormatgmt8}}</span>
+                </div>
+            </div>
+            <div class="col s12 list">
+                <div class="col s12"><span class="title">注单编号</span>：<br>{{wager.wagerNo}}</div>
+            </div>
+            <div class="col s12 list">
+                <div class="col s12"><span class="title">投注类型</span>：<br>{{wager.bets[0].betType}}</div>
+            </div>
+            <div class="col s12 list">
+                <div class="col s12">
+                    <span class="title">选项</span>：<br>{{wager.bets[0].selection}}
+                    <span ng-if="wager.hits&&wager.hits.length>0">
+                        <span ng-repeat="hit in wager.hits">
+                            中 <span ng-bind="hit.number"></span> @ <span class="oddcolor" ng-bind="hit.odds"></span>
+                        </span>
+                    </span>
+                    <span ng-show="(odds=(wager.bets|getMaxOdds))&&wager.bets[0].betType!='珠仔'">
+                        <span class="oddcolor" ng-bind="odds"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="col s12"><span class="title">投注额</span>：<br>{{wager.stake|addComma:2}}</div>
+            </div>
+
+            <div class="col s12">
+                <div class="col s6"><span class="title">赢/输</span>：<br> <span ng-class="{'red-text':wager.WinLoss <0}"> {{wager.returnAmount|addComma:2}}</span></div>
+                <div class="col s6">
+                    <a class="waves-effect waves-light btn" style="z-index:0" ng-class="{'w': 'win-c-1', 'l': 'lose-c-1', 'c': 'cancelled-c-1'}[getWagerStatus(wager.wagerStatus)]" ng-click="wager.showResults = !wager.showResults; results(wager)">
+                        <i class="mdi" ng-class="wager.showResults ? 'mdi-chevron-up' : 'mdi-chevron-down'"></i>{{wager.wagerStatus.toUpperCase()}}
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="miniresultsContainer" ng-if="product == 'lotto' && wager.showResults && !!wager.resultBalls">
+            <div class="row">
+                <div class="title cancelled" ng-if="wager.cancelReason">{{wager.cancelReason}}</div>
+                <div class="left list-ball" ng-if="!wager.cancelReason" ng-repeat="ball in wager.resultBalls.slice().reverse() track by $index"
+                     ng-class="{
+                                 'offset-s1': $index == 0 && wager.resultBalls.length == 5,
+                                 'offset-s3': $index == 0 && wager.resultBalls.length == 3,
+                                 'box-5th' : wager.resultBalls.length - $index == 5,
+                                 'box-4th' : wager.resultBalls.length - $index == 4,
+                                 'box-3rd' : wager.resultBalls.length - $index == 3,
+                                 'box-2nd' : wager.resultBalls.length - $index == 2,
+                                 'box-1st' : wager.resultBalls.length - $index == 1,
+                                   'td-3' :  wager.resultBalls.length == 3,
+                                   'td-5' :  wager.resultBalls.length == 5}">
+                    <div class="result-1 norb">{{ball}}</div>
+                    <div class="result-2">
+                        <span class="result-sapn">{{ball>=5 ? '大':'小'}}</span>
+                        <span class="result-sapn">{{ball%2==1 ? '单':'双'}}</span>
+                    </div>
+                </div>
+                <table class="bordered miniresults-table" ng-if="!wager.cancelReason">
+                    <tbody>
+                        <tr>
+                            <td colspan="4">
+                                <span class="result-caption">
+                                    百十个
+                                </span>
+                                <div class="list-ball-table">
+                                    <span class="result-1">{{wager.resultBalls[2]}}</span>
+                                    <span class="result-1">{{wager.resultBalls[1]}}</span>
+                                    <span class="result-1">{{wager.resultBalls[0]}}</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="BO-color">大</span>/<span class="SE-color">小</span></td>
+                            <td><span class="BO-color">单</span>/<span class="SE-color">双</span></td>
+                            <td>和值</td>
+                            <td>跨度</td>
+                        </tr>
+                        <tr>
+                            <td><span ng-class="(wager.resultDetails.ball3to1.bs == 'b') ? 'BO-color' : 'SE-color'">{{(wager.resultDetails.ball3to1.bs == 'b') ? '大' : '小'}}</span></td>
+                            <td><span ng-class="(wager.resultDetails.ball3to1.oe == 'o') ? 'BO-color' : 'SE-color'">{{(wager.resultDetails.ball3to1.oe == 'o') ? '单' : '双'}}</span></td>
+                            <td>{{wager.resultDetails.ball3to1.sum}}</td>
+                            <td>{{wager.resultDetails.ball3to1.span}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="miniresultsContainer keno" ng-if="product == 'keno' && wager.showResults && !!wager.resultBalls" ng-repeat-end>
+            <div class="row">
+                <div class="title cancelled" ng-if="wager.cancelReason">{{wager.cancelReason}}</div>
+                <table class="bordered miniresults-table" ng-if="!wager.cancelReason">
+                    <tbody>
+                        <tr>
+                            <td colspan="5">
+                                <div class="list-ball-table">
+                                    <div class="col s12 row-results">
+                                        <span class="result-1" ng-repeat="ball in wager.resultBalls track by $index" ng-if="$index < 10" ng-class="ball > 40 ? 'bb' : 'sb'" ng-bind="ball|padNum"></span>
+                                    </div>
+                                    <div class="col s12 row-results">
+                                        <span class="result-1" ng-repeat="ball in wager.resultBalls track by $index" ng-if="$index >= 10" ng-class="ball > 40 ? 'bb' : 'sb'" ng-bind="ball|padNum"></span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">总和 <br>{{wager.resultType.total}}</td>
+                            <td colspan="2">
+                                <span class="tb" ng-if="wager.resultType.bs=='t'">和值 810</span>
+                                <span class="bb" ng-if="wager.resultType.bs=='b'">大</span>
+                                <span class="sb" ng-if="wager.resultType.bs=='s'">小</span>
+                            </td>
+                            <td colspan="2">
+                                <span class="ob" ng-if="wager.resultType.oe=='o'">单</span>
+                                <span class="eb" ng-if="wager.resultType.oe=='e'">双</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="tb" ng-if="wager.resultType.ud=='t'">和</span>
+                                <span class="ub" ng-if="wager.resultType.ud=='u'">上</span>
+                                <span class="db" ng-if="wager.resultType.ud=='d'">下</span>
+                            </td>
+                            <td colspan="2">
+                                <span class="tb" ng-if="wager.resultType.oses=='t'">和</span>
+                                <span class="osb" ng-if="wager.resultType.oses=='os'">奇</span>
+                                <span class="esb" ng-if="wager.resultType.oses=='es'">偶</span>
+                            </td>
+                            <td>
+                                <span class="gb" ng-if="wager.resultType.ele=='g'">金</span>
+                                <span class="wob" ng-if="wager.resultType.ele=='wo'">木</span>
+                                <span class="wab" ng-if="wager.resultType.ele=='wa'">水</span>
+                                <span class="fb" ng-if="wager.resultType.ele=='f'">火</span>
+                                <span class="eab" ng-if="wager.resultType.ele=='ea'">土</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p class="footerinfo">所有交易的日期和时间记载是以GMT +08:00 (北京时间)为根据。</p>
+        <div class="footer-empty"></div>
+    </div>
+</div>
+<div ng-if="!product" class="fixtotal">
+    <div class="fixtotalStake left">总计投注额 (RMB) <br> {{statementDic|sumList:'TotalStake'|addComma:2}}</div>
+    <div class="fixtotalWinLoss right">总计赢/输 <br> <span ng-class="{'red-text':(statementDic|sumList:'TotalWinLoss') <0}"> {{statementDic|sumList:'TotalWinLoss'|addComma:2}}</span></div>
+    <div class="clearfix"></div>
+</div>
+<div ng-if="product" class="fixtotal">
+    <div class="fixtotalStake left">总计投注额 (RMB) <br> {{statemenTotalStake|addComma:2}}</div>
+    <div class="fixtotalWinLoss right">总计赢/输 <br> <span ng-class="{'red-text':totalWinLoss <0}"> {{statemenWinLoss|addComma:2}}</span></div>
+    <div class="clearfix"></div>
+</div>

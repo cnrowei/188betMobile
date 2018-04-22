@@ -11,11 +11,51 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-var sessionMgr *helper.SessionMgr = nil
-var sessionUser models.Users
+var SessionMgr *helper.SessionMgr = nil
+var SessionUser models.Users
 
-func init() {
-	sessionMgr = helper.NewSessionMgr("188betCookie", 3600)
+//中间件方法全局
+func SessionMiddleware(c *gin.Context) {
+	var sessionID = SessionMgr.CheckCookieValid(c.Writer, c.Request)
+	if sessionID != "" {
+		if userInfo, ok := SessionMgr.GetSessionVal(sessionID, "UserInfo"); ok {
+			SessionUser = userInfo.(models.Users)
+			// if value, ok := userInfo.(models.Users); ok {
+			fmt.Println(SessionUser.Id)
+			// }
+		}
+	} else {
+		http.Redirect(c.Writer, c.Request, "/zh-cn/login", http.StatusFound)
+	}
+}
+
+//手工获取
+func GetSessionUsername(c *gin.Context) *models.Users {
+	var sessionID = SessionMgr.CheckCookieValid(c.Writer, c.Request)
+	if sessionID != "" {
+		if userInfo, ok := SessionMgr.GetSessionVal(sessionID, "UserInfo"); ok {
+			SessionUser = userInfo.(models.Users)
+			if info, err := models.GetUserInfo(SessionUser.Username); err == nil {
+				return info
+			}
+		}
+	}
+	return nil
+}
+
+//bool
+func HasSessionUser(c *gin.Context) bool {
+	var sessionID = SessionMgr.CheckCookieValid(c.Writer, c.Request)
+	if sessionID != "" {
+		if _, ok := SessionMgr.GetSessionVal(sessionID, "UserInfo"); ok {
+
+			return true
+		} else {
+			return false
+		}
+	} else {
+		return false
+	}
 }
 
 func loadjson(path string) string {
@@ -27,22 +67,6 @@ func loadjson(path string) string {
 	fd, err := ioutil.ReadAll(fi)
 	return string(fd)
 
-}
-
-//添加中间件
-func Middleware(c *gin.Context) {
-	var sessionID = sessionMgr.CheckCookieValid(c.Writer, c.Request)
-	if sessionID != "" {
-		//http.Redirect(c.Writer, c.Request, "/#!/Login", http.StatusFound)
-		if userInfo, ok := sessionMgr.GetSessionVal(sessionID, "UserInfo"); ok {
-
-			sessionUser = userInfo.(models.Users)
-
-			// if value, ok := userInfo.(models.Users); ok {
-			fmt.Println(sessionUser.Id)
-			// }
-		}
-	}
 }
 
 //下注前确认
@@ -59,14 +83,25 @@ func OpenBets(c *gin.Context) {
 	pageSize := c.Query("pageSize")
 
 	fmt.Print(name, pageNum, pageSize)
+
+	data := loadjson("testjson/OpenBets.json")
+	c.Request.Header.Set("Content-Type", "application/json;charset=UTF-8")
+	c.Writer.WriteString(data)
 }
 
-//判断账户余额
+//读取账户余额
 func Balance(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"isSuccess": true,
-		"data":      1345.0319,
-	})
+	sessionID := SessionMgr.CheckCookieValid(c.Writer, c.Request)
+	if userInfo, ok := SessionMgr.GetSessionVal(sessionID, "UserInfo"); ok {
+		SessionUser = userInfo.(models.Users)
+
+		if info, err := models.GetUserInfo(SessionUser.Username); err == nil {
+			c.JSON(http.StatusOK, gin.H{"isSuccess": true, "data": info.Balance})
+		} else {
+			c.JSON(http.StatusOK, gin.H{"isSuccess": false, "data": 0})
+		}
+	}
+
 }
 
 func Postlogin(c *gin.Context) {
@@ -106,23 +141,23 @@ func Login(c *gin.Context) {
 					if info.Login {
 
 						//session
-						var sessionID = sessionMgr.StartSession(c.Writer, c.Request)
-						var loginUserInfo = models.Users{Id: info.Id, Username: info.Username}
+						var sessionID = SessionMgr.StartSession(c.Writer, c.Request)
+						var loginUserInfo = models.Users{Id: info.Id, Username: info.Username, Role: info.Role, Agentid: info.Agentid}
 
 						//踢除重复登录的,session
-						var onlineSessionIDList = sessionMgr.GetSessionIDList()
+						var onlineSessionIDList = SessionMgr.GetSessionIDList()
 
 						for _, onlineSessionID := range onlineSessionIDList {
-							if userInfo, ok := sessionMgr.GetSessionVal(onlineSessionID, "UserInfo"); ok {
+							if userInfo, ok := SessionMgr.GetSessionVal(onlineSessionID, "UserInfo"); ok {
 								if value, ok := userInfo.(models.Users); ok {
 									if value.Id == info.Id {
-										sessionMgr.EndSessionBy(onlineSessionID)
+										SessionMgr.EndSessionBy(onlineSessionID)
 									}
 								}
 							}
 						}
 						//设置变量值
-						sessionMgr.SetSessionVal(sessionID, "UserInfo", loginUserInfo)
+						SessionMgr.SetSessionVal(sessionID, "UserInfo", loginUserInfo)
 
 						//cookie
 						// cookie := &http.Cookie{

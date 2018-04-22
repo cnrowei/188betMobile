@@ -1,0 +1,17 @@
+
+
+<div class="setContainer row" ng-controller="profileCtrl" ng-init="init();">
+    <div class="col s6 setlist" ng-click="pick($index,true,$event)" ng-repeat="chip in chips|orderBy:'seq'">
+        <div class="tokenBox" ng-class="{active:chip.favorite}">
+            <span class="poker-number">{{chip.text}}</span>
+            <span class="icon-poker token-no"></span>
+        </div>
+        <div class="switch">
+            <label>
+                <input type="checkbox" ng-checked="chip.favorite" disabled>
+                <span class="lever"></span>
+            </label>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

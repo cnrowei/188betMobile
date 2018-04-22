@@ -5259,8 +5259,7 @@ angular.module("counterModule", ["componentsModule"])
         $scope.interval = null;
 
         $scope.init = function (serverTime, counter) {
-            console.log(serverTime)
-            console.log(counter.draw)
+
 
             if (serverTime && counter.draw && counter.draw.startTime && counter.draw.endTime) {
                 startDateTime = new Date(counter.draw.startTime);
@@ -5268,7 +5267,7 @@ angular.module("counterModule", ["componentsModule"])
 
                 var total = (endDateTime - startDateTime);
                 var left = (endDateTime - serverTime);
-                console.log(left)
+
                 $scope.percent = (left / total) * 100;
 
                 if ($scope.interval === null) {
@@ -5896,13 +5895,17 @@ angular.module("betSlipModule", ["ngAnimate", "counterModule", "reportModule", "
                                 list[i].stake =
                                     list[i].stake < list[i].selections[0].minBet ? list[i].selections[0].minBet :
                                         list[i].stake > list[i].selections[0].maxBet ? list[i].selections[0].maxBet :
-                                            list[i].stake;
+                                        list[i].stake;
+   
                             }
+
+                            
 
                             if (list[i].selection && typeof (list[i].selection) === "string") {
                                 list[i].selectionText = R.Game["SelectionType_" + list[i].selection.replace("OddsEvensTie", "Tie").replace("UpDownTie", "Tie")];
                             }
                         }
+
                         $scope.results = list;
                     }
                     $scope.refreshOpenBet();
@@ -6473,14 +6476,12 @@ app.controller("counterCtrl", ["$rootScope", "$scope", "$window", "$interval", "
             }
 
             hub.client.updateProfile = function () {
-                //console.log("updateProfile");
                 $counterService.getCounterList().success(function (result) {
                     if (result.isSuccess) {
                         var data = result.data;
                         for (var i = 0; i < data.length; i++) {
                             var counter = $counterCache.getCounter(data[i].id);
                             $counterCache.updateProfile(counter, data[i].selections);
-                            //console.log(data[i].selections);
                         }
                     }
                 });
@@ -6538,8 +6539,8 @@ app.controller("counterCtrl", ["$rootScope", "$scope", "$window", "$interval", "
             });
 
             $(window).on("beforeunload pagehide", function () {
-				console.log("LUOWEI")
-				console.log($scope.getWagerList())
+				// console.log("LUOWEI")
+				// console.log($scope.getWagerList())
 
                 $.ajax({
                     type: "Post",
@@ -7873,7 +7874,6 @@ app.controller("openbetCtrl", ["$rootScope", "$scope", "$location", "$reportServ
             $reportService.getOpenBet($scope.selectedProduct, 1, 2000).success(function (result) {
                 if (result.isSuccess) {
                     $scope.wagerList = result.data.wagers;
-                    console.log($scope.wagerList);
                 } else {
                     $scope.wagerList = [];
                     $dialog.show(R.Text.Error, result.msg);

@@ -15,9 +15,9 @@
             distributionChannel: 3,
             lang: "zh-cn",
             buCode: "188Bet",
-            ln: "conku188",
+            ln: "{[{.ln}]}",
             balanceMode: "SingleWallet",
-            lpb: "2018/04/19 10:50:26",
+            lpb: "{[{.lpb}]}",
             sit: 30,
             ita: 0,
             srhb: 30,
@@ -96,11 +96,11 @@
                 </div>
             </nav>
             <ul class="mb side-nav right-aligned" id="mobile-demo">
-                <li class="side-back" ng-controller="balanceCtrl" ng-init="init(453.2319)">
+                <li class="side-back" ng-controller="balanceCtrl" ng-init="init({[{.balance}]})">
                     <i ng-click="hideSideNav()" class="mdi mdi-chevron-right backbtn right"></i>
 
                             <div class="member-info">
-                                <span class="member">conku188</span>
+                                <span class="member">{[{.ln}]}</span>
                                 <span class="memberBalance">RMB {{balance|addComma:2}} </span>
                             </div>
                             <i ng-click="refresh()" id="refreshBalanceBtn" class="mdi mdi-refresh refreshbtn"></i>

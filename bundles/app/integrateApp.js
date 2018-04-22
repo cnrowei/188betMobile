@@ -21,6 +21,7 @@ app.controller("resultCtrl", ["$scope", "$counterService", "$dialog", function (
         })
     };
     n.getResultDetail = function (t) {
+        
         var i = {},
             u, f;
         if (t.length == 0) {

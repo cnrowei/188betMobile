@@ -1,25 +1,3 @@
-{
-    "isSuccess": true,
-    "data": {
-        "totalCount": 1,
-        "totalStake": 20.0000,
-        "totalReturnAmount": 19.00000000,
-        "wagers": [{
-            "createTime": "2018-04-20T00:14:21+08:00",
-            "wagerNo": "180420008611790949",
-            "stake": 20.0000,
-            "returnAmount": 0.0,
-            "cancelReason": "",
-            "bets": [{
-                "counterId": 3,
-                "drawNo": "954",
-                "betType": "大小",
-                "selection": "大",
-                "odds": 1.9500
-            }]
-        }]
-    }
-}
 
 
 {

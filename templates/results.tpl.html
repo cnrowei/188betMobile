@@ -1,0 +1,142 @@
+
+<div class="filter" ng-controller="resultCtrl" id="scrollContainer" ng-init="isLazyLoading=true;initMobile()">
+    <div class="row">
+        <div class="input-field col s12">
+            <select id="counterList" ng-model="selectedCounter" ng-change="getGameResults()" material-select watch>
+                <option ng-repeat="counter in counterList track by $index" value="{{counter.value}}">{{counter.value|counterName}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s3" ng-click="dayRange(0)"><a id="todayResult" >今天</a></li>
+                <li class="tab col s3" ng-click="dayRange(-1)"><a id="yesterdayResult">昨天</a></li>
+            </ul>
+        </div>
+        <div class="col s12">
+            <div class="noRecord row" ng-if="!isGettingResult&&resultList.length==0">
+                <div class="col s12 list">
+                    没有记录
+                </div>
+            </div>
+            <div class="{{detail=getResultDetail(result.resultBalls)}}" ng-if="!isGettingResult&&selectedProduct=='keno'" ng-repeat="result in resultList track by $index">
+                <div class="resultsList row" ng-class="{'cancelleDraw':result.voidReason=='1010'}">
+                    <div class="col s12 list">
+                        <div class="counterName">
+                            <span class="drewNo">{{result.drawNo}}</span><span class="drewTime">{{result.drawTime|datetimeFormatgmt8:hideSecond=true}}</span>
+                        </div>
+                    </div>
+                    <div class="col s12 cancelReason" ng-if="result.voidReason=='1010'">彩期取消</div>
+                    <div class="col s12" ng-if="result.voidReason!='1010'">
+                        <div class="miniresultsContainer keno">
+                            <div class="row">
+                                <table class="bordered miniresults-table">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="5">
+                                                <div class="list-ball-table">
+                                                    <div class="col s12 row-results">
+                                                        <span class="result-1" ng-repeat="ball in result.resultBalls track by $index" ng-if="$index<10"
+                                                              ng-class="ball>40?'bb':'sb'"
+                                                              ng-bind="ball|padNum"></span>
+                                                    </div>
+                                                    <div class="col s12 row-results">
+                                                        <span class="result-1" ng-repeat="ball in result.resultBalls track by $index" ng-if="$index>9"
+                                                              ng-class="ball>40?'bb':'sb'"
+                                                              ng-bind="ball|padNum"></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="2">总额<br>{{total}}</td>
+                                            <td ng-if="bs=='t'" colspan="2" class="tb">和值 810</td>
+                                            <td ng-if="bs=='b'" colspan="2" class="bb">大</td>
+                                            <td ng-if="bs=='s'" colspan="2" class="sb">小</td>
+                                            <td ng-if="oe=='o'" colspan="2" class="ob">单</td>
+                                            <td ng-if="oe=='e'" colspan="2" class="eb">双</td>
+                                        </tr>
+                                        <tr>
+                                            <td ng-if="ud=='t'" class="tb">和</td>
+                                            <td ng-if="ud=='u'" class="ub">上</td>
+                                            <td ng-if="ud=='d'" class="db">下</td>
+
+                                            <td colspan="2" ng-if="oses=='t'" class="tb">和</td>
+                                            <td colspan="2" ng-if="oses=='os'" class="osb">奇</td>
+                                            <td colspan="2" ng-if="oses=='es'" class="esb">偶</td>
+
+                                            <td ng-if="ele=='g'" class="gb">金</td>
+                                            <td ng-if="ele=='wo'" class="wob">木</td>
+                                            <td ng-if="ele=='wa'" class="wab">水</td>
+                                            <td ng-if="ele=='f'" class="fb">火</td>
+                                            <td ng-if="ele=='ea'" class="eab">土</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="resultsContainer" ng-if="!isGettingResult&&selectedProduct=='lotto'" ng-repeat="result in resultList track by $index">
+                <div class="resultsList row" ng-class="{'cancelleDraw':result.voidReason=='1010'}">
+                    <div class="col s12 list">
+                        <div class="counterName">
+                            <span class="drewNo">{{result.drawNo}} </span><span class="drewTime">{{result.drawTime|datetimeFormatgmt8:hideSecond=true}}</span>
+                        </div>
+                    </div>
+                    <div class="col s12 cancelReason" ng-if="result.voidReason=='1010'">彩期取消</div>
+                    <div class="col s12" ng-if="result.voidReason!='1010'">
+                        <div class="miniresultsContainer">
+                            <div class="row">
+                                <div class="left list-ball" ng-if="result['ball_'+key]!=null" ng-repeat="key in [5,4,3,2,1]" ng-class="getResultBallClass(result.resultBalls,key)">
+                                    <div class="result-1 norb">{{result['ball_'+key]}}</div>
+                                    <div class="result-2">
+                                        <span class="result-sapn" ng-bind="result['ball_'+key]>4?'大':'小'"></span>
+                                        <span class="result-sapn" ng-bind="result['ball_'+key]%2?'单':'双'"></span>
+                                    </div>
+                                </div>
+                                <table class="bordered miniresults-table">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="4">
+                                                <span class="result-caption">百十个</span>
+                                                <div class="list-ball-table">
+                                                    <span class="result-1" ng-repeat="num in result.last3 track by $index">{{num}}</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="BO-color">大</span>/<span class="SE-color">小</span>
+                                            </td>
+                                            <td>
+                                                <span class="BO-color">单</span>/<span class="SE-color">双</span>
+                                            </td>
+                                            <td>和值</td>
+                                            <td>跨度</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span ng-if="result.sum%10>4" class="BO-color">大</span>
+                                                <span ng-if="result.sum%10<5" class="SE-color">小</span>
+                                            </td>
+                                            <td>
+                                                <span ng-if="result.sum%2==1" class="BO-color">单</span>
+                                                <span ng-if="result.sum%2==0" class="SE-color">双</span>
+                                            </td>
+
+                                            <td>{{result.sum}}</td>
+                                            <td>{{result.span}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

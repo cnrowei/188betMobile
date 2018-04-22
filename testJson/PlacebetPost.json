@@ -1,88 +1,184 @@
 [{
-    "counterId": 3,
-    "drawNo": 954,
+    "text": {},
+    "bet": {
+        "betType": "num",
+        "selection": 1
+    },
+    "ballNum": 5,
+    "mobileBetText": {
+        "betType": "万 | 一定位",
+        "selection": "1XXXX"
+    },
+    "betType": "1Fixed_5",
+    "selection": "1XXXX",
+    "counterId": 320,
+    "counterName": "Chongqing",
+    "drawNo": 20180421021,
     "selections": [{
-        "id": 181,
+        "id": 75,
+        "odds": 9.5,
+        "minBet": 2,
+        "maxBet": 5000
+    }],
+    "stake": 22,
+    "isShowChipBox": false,
+    "uivalid": true,
+    "estWinning": 187,
+    "showValid": true
+}, {
+    "text": {},
+    "bet": {
+        "betType": "num",
+        "selection": 7
+    },
+    "ballNum": 5,
+    "mobileBetText": {
+        "betType": "万 | 一定位",
+        "selection": "7XXXX"
+    },
+    "betType": "1Fixed_5",
+    "selection": "7XXXX",
+    "counterId": 320,
+    "counterName": "Chongqing",
+    "drawNo": 20180421021,
+    "selections": [{
+        "id": 75,
+        "odds": 9.5,
+        "minBet": 2,
+        "maxBet": 5000
+    }],
+    "stake": 22,
+    "isShowChipBox": false,
+    "uivalid": true,
+    "estWinning": 187,
+    "showValid": true
+}, {
+    "text": {},
+    "bet": {
+        "betType": "num",
+        "selection": 8
+    },
+    "ballNum": 5,
+    "mobileBetText": {
+        "betType": "万 | 一定位",
+        "selection": "8XXXX"
+    },
+    "betType": "1Fixed_5",
+    "selection": "8XXXX",
+    "counterId": 320,
+    "counterName": "Chongqing",
+    "drawNo": 20180421021,
+    "selections": [{
+        "id": 75,
+        "odds": 9.5,
+        "minBet": 2,
+        "maxBet": 5000
+    }],
+    "stake": 22,
+    "isShowChipBox": false,
+    "uivalid": true,
+    "estWinning": 187,
+    "showValid": true
+}, {
+    "text": {},
+    "bet": {
+        "betType": "bs",
+        "selection": "Small"
+    },
+    "ballNum": 5,
+    "mobileBetText": {
+        "betType": "万 | 一定位大/小",
+        "selection": "小"
+    },
+    "betType": "1Fixed_BS_5",
+    "counterId": 320,
+    "counterName": "Chongqing",
+    "drawNo": 20180421021,
+    "selection": "Small",
+    "selections": [{
+        "id": 79,
         "odds": 1.95,
-        "minBet": 5,
+        "minBet": 2,
         "maxBet": 30000
     }],
-    "betType": "bs",
-    "selection": "Big",
-    "mobileBetText": {
-        "betType": "大/小",
-        "selection": "大"
-    },
-    "text": {},
-    "stake": "20",
-    "isShowChipBox": true,
+    "stake": 22,
+    "isShowChipBox": false,
     "uivalid": true,
-    "estWinning": 19,
-    "detectSoftKeyPad": {},
+    "estWinning": 20.9,
     "showValid": true
 }]
+
+
+/////
 
 
 [{
-    "text": {},
-    "bet": {
-        "betType": "num",
-        "selection": "16"
+        "text": {},
+        "bet": {
+            "betType": "num",
+            "selection": 1
+        },
+        "ballNum": 5,
+        "mobileBetText": {
+            "betType": "万 | 一定位",
+            "selection": "1XXXX"
+        },
+        "betType": "1Fixed_5",
+        "selection": "1XXXX",
+        "counterId": 320,
+        "counterName": "Chongqing",
+        "drawNo": 20180421023,
+        "selections": [{
+            "id": 75,
+            "odds": 9.5,
+            "minBet": 2,
+            "maxBet": 5000
+        }],
+        "stake": "22",
+        "isShowChipBox": false,
+        "uivalid": true,
+        "estWinning": 187,
+        "detectSoftKeyPad": {},
+        "hideChipBox": null,
+        "showValid": true
     },
-    "ballNum": "54",
-    "mobileBetText": {
-        "betType": "万 千 | 二定位",
-        "selection": "16XXX"
-    },
-    "betType": "2Fixed_45",
-    "selection": "16XXX",
-    "counterId": 320,
-    "counterName": "Chongqing",
-    "drawNo": 20180420018,
-    "selections": [{
-        "id": 34,
-        "odds": 95,
-        "minBet": 2,
-        "maxBet": 500
-    }],
-    "stake": "10",
-    "isShowChipBox": true,
-    "uivalid": true,
-    "estWinning": 940,
-    "detectSoftKeyPad": {},
-    "showValid": true
-}]
 
-[{
-    "text": {},
-    "bet": {
-        "betType": "num",
-        "selection": "16"
-    },
-    "ballNum": "54",
-    "mobileBetText": {
-        "betType": "万 千 | 二定位",
-        "selection": "16XXX"
-    },
-    "betType": "2Fixed_45",
-    "selection": "16XXX",
-    "counterId": 320,
-    "counterName": "Chongqing",
-    "drawNo": 19,
-    "selections": [{
-        "id": 2722,
-        "odds": 95,
-        "minBet": 2,
-        "maxBet": 500
-    }],
-    "stake": "2",
-    "isShowChipBox": true,
-    "uivalid": true,
-    "estWinning": 188,
-    "detectSoftKeyPad": {},
-    "hideChipBox": null,
-    "showValid": true
-}]
+
+    {
+        "text": {},
+        "bet": {
+            "betType": "num",
+            "selection": 7
+        },
+        "ballNum": 5,
+        "mobileBetText": {
+            "betType": "万 | 一定位",
+            "selection": "7XXXX"
+        },
+        "betType": "1Fixed_5",
+        "selection": "7XXXX",
+        "counterId": 320,
+        "counterName": "Chongqing",
+        "drawNo": 20180421023,
+        "selections": [{
+            "id": 75,
+            "odds": 9.5,
+            "minBet": 2,
+            "maxBet": 5000
+        }],
+        "stake": "22",
+        "isShowChipBox": false,
+        "uivalid": true,
+        "estWinning": 187,
+        "detectSoftKeyPad": {},
+        "hideChipBox": null,
+        "showValid": true
+    }
+]
+
+
+
+
 
 
 [{
@@ -98,18 +194,79 @@
     },
     "betType": "1Fixed_5",
     "selection": "1XXXX",
-    "counterId": 320,
-    "counterName": "Chongqing",
-    "drawNo": 20180420022,
+    "counterId": 360,
+    "counterName": "XinJiang",
+    "drawNo": 20180420082,
     "selections": [{
-        "id": 33,
+        "id": 117,
         "odds": 9.5,
         "minBet": 2,
         "maxBet": 5000
     }],
-    "stake": "2",
+    "stake": 1,
     "isShowChipBox": false,
     "uivalid": true,
-    "estWinning": 17,
+    "estWinning": 8.5,
     "showValid": true
+}]
+
+
+[{
+    "text": {},
+    "bet": {
+        "betType": "num",
+        "selection": 0
+    },
+    "ballNum": 5,
+    "mobileBetText": {
+        "betType": "万 | 一定位",
+        "selection": "0XXXX"
+    },
+    "betType": "1Fixed_5",
+    "selection": "0XXXX",
+    "counterId": 360,
+    "counterName": "XinJiang",
+    "drawNo": 20180420083,
+    "selections": [{
+        "id": 117,
+        "odds": 9.5,
+        "minBet": 2,
+        "maxBet": 5000
+    }],
+    "stake": 11,
+    "isShowChipBox": false,
+    "uivalid": true,
+    "estWinning": 93.5,
+    "showValid": true,
+    "wagerNo": 0,
+    "error": "投注额不能低于最低限额。"
+}, {
+    "text": {},
+    "bet": {
+        "betType": "num",
+        "selection": 1
+    },
+    "ballNum": 5,
+    "mobileBetText": {
+        "betType": "万 | 一定位",
+        "selection": "1XXXX"
+    },
+    "betType": "1Fixed_5",
+    "selection": "1XXXX",
+    "counterId": 360,
+    "counterName": "XinJiang",
+    "drawNo": 20180420083,
+    "selections": [{
+        "id": 117,
+        "odds": 9.5,
+        "minBet": 2,
+        "maxBet": 5000
+    }],
+    "stake": 11,
+    "isShowChipBox": false,
+    "uivalid": true,
+    "estWinning": 93.5,
+    "showValid": true,
+    "wagerNo": 0,
+    "error": "投注额不能低于最低限额。"
 }]

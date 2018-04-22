@@ -2,10 +2,12 @@ package handler
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"strconv"
 	"time"
 
+	"../helper"
 	"../models"
 	"github.com/gin-gonic/gin"
 )
@@ -24,10 +26,12 @@ type Bets struct {
 	Stake            interface{}  `json:"stake"`
 	IsShowChipBox    bool         `json:"isShowChipBox"`
 	Uivalid          bool         `json:"uivalid"`
-	EstWinning       int          `json:"estWinning"`
+	IsSystemPick     bool         `json:"isSystemPick"`
+	EstWinning       float64      `json:"estWinning"`
 	DetectSoftKeyPad struct{}     `json:"detectSoftKeyPad"`
 	HideChipBox      interface{}  `json:"hideChipBox"`
 	ShowValid        bool         `form:"showValid" json:"showValid"`
+	ReturnAmount     float64      `json:"hideChipBox"`
 }
 
 type Bettype struct {
@@ -44,7 +48,7 @@ type Selections struct {
 
 //下注
 func PlaceBet(c *gin.Context) {
-	var bet []Bets
+	var bet []*Bets
 	// if err := c.ShouldBindJSON(&bet); err == nil {
 	// 	fmt.Println(&bet)
 	// } else {
@@ -52,7 +56,133 @@ func PlaceBet(c *gin.Context) {
 	// }
 
 	if err := c.BindJSON(&bet); err == nil {
-		fmt.Println(&bet)
+
+		var err error
+
+		iw, err := helper.NewIdWorker(1)
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		//
+		b := bytes.Buffer{}
+		b.WriteString(`{"isSuccess": true,`)
+		b.WriteString(`"data":[ `)
+
+		//下注循环
+		for i, v := range bet {
+
+			//是否添加记录
+			flag := true
+
+			//下注额类型确认
+			stake, ok := v.Stake.(float64)
+			if !ok {
+				stake, err = strconv.ParseFloat(v.Stake.(string), 64)
+				if err == nil {
+					flag = false
+					//投注额必须大于0。
+					fmt.Println("BS_StakeMustGreaterThanZero")
+				}
+			}
+
+			if stake < v.Selections[0].MinBet {
+				flag = false
+				//投注额不能低于最低限额。
+				fmt.Println("BS_BetLessThanProfileMinBet")
+			}
+
+			//减去会员账号的信用余额
+
+			wg := &models.Wagers{}
+			wg.Counterid = v.CounterID
+			wg.Drawno = v.DrawNo
+
+			wg.Stake = stake
+			wg.Estwinning = v.EstWinning
+			wg.Issystempick = v.IsShowChipBox
+			wg.Bettype = v.BetType
+
+			jsonbet, err := json.Marshal(v.Bet)
+			if err != nil {
+				flag = false
+				fmt.Println("Json bet to struct Error!", err.Error())
+			}
+			wg.Bets = string(jsonbet)
+			wg.Selection = v.Selection
+			wg.Returnamount = v.ReturnAmount
+			wg.Createtime = time.Now()
+
+			//SnowFlake算法分布式ID
+			wagerNo, err := iw.NextId()
+			if err != nil {
+				flag = false
+				fmt.Println(err)
+			}
+			wg.Wagerno = wagerNo
+
+			b.WriteString(`{`)
+
+			b.WriteString(`"counterId": ` + strconv.FormatInt(v.CounterID, 10) + `,`)
+			b.WriteString(`"drawNo": ` + strconv.FormatInt(v.DrawNo, 10) + `,`)
+			b.WriteString(`"selections": [`)
+			for e, s := range v.Selections {
+				b.WriteString(`{`)
+				b.WriteString(`"id": ` + strconv.Itoa(s.ID) + `,`)
+				b.WriteString(`"odds":` + Float64toStr(s.Odds) + `,`)
+				b.WriteString(`"minBet": ` + Float64toStr(s.MinBet) + `,`)
+				b.WriteString(`"maxBet": ` + Float64toStr(s.MaxBet) + ``)
+				if e >= len(v.Selections)-1 {
+					b.WriteString(`}`)
+				} else {
+					b.WriteString(`},`)
+				}
+			}
+			b.WriteString(`],`)
+
+			if stake, ok := v.Stake.(float64); ok {
+				b.WriteString(`"stake": ` + Float64toStr(stake) + `,`)
+			} else {
+				b.WriteString(`"stake": ` + v.Stake.(string) + `,`)
+			}
+
+			b.WriteString(`"estWinning": ` + Float64toStr(v.EstWinning) + `,`)
+			b.WriteString(`"isSystemPick": ` + strconv.FormatBool(v.IsSystemPick) + `,`)
+			b.WriteString(`"wagerNo": ` + strconv.FormatInt(wagerNo, 10) + `,`)
+			b.WriteString(`"betType": "` + v.BetType + `",`)
+
+			//余额不够提示
+			//b.WriteString(`"error": "BS_InsufficientMemberBalance",`)
+			//b.WriteString(`"error": "BS_BetLessThanProfileMinBet",`)
+
+			if wagerNo == 0 {
+				//BS_ExceedAccumulatePayout: "此投注选项暂时无法受注。请稍后再试。",
+				b.WriteString(`"error": "BS_ExceedAccumulatePayout",`)
+			}
+
+			b.WriteString(`"selection":"` + v.Selection + `"`)
+
+			if i >= len(bet)-1 {
+				b.WriteString(`}`)
+			} else {
+				b.WriteString(`},`)
+			}
+
+			//添加数据
+			if flag {
+				wagerNo, err = models.NewWager(wg)
+				if err != nil {
+					//此投注选项暂时无法受注。请稍后再试。
+					fmt.Println("BS_ExceedAccumulatePayout")
+				}
+			}
+		}
+
+		b.WriteString(`]}`)
+
+		c.Request.Header.Set("Content-Type", "application/json;charset=UTF-8")
+		c.Writer.WriteString(b.String())
+		//
 	} else {
 		fmt.Println(err.Error())
 	}
@@ -127,8 +257,8 @@ func CounterID(c *gin.Context) {
 
 		if info, err := models.GetDrawno(drawno); err == nil {
 			b.WriteString(`"counterId": ` + strconv.FormatInt(v.Id, 10) + `,`)
-			b.WriteString(`"drawNo": ` + strconv.FormatInt(v.Id, 10) + `,`)
-			b.WriteString(`"drawTime":  "` + info.Starttime.Format(formate) + `",`)
+			b.WriteString(`"drawNo": ` + strconv.FormatInt(info.Drawno, 10) + `,`)
+			b.WriteString(`"drawTime":  "` + info.Endtime.Format(formate) + `",`)
 			b.WriteString(`"drawStatus": ` + strconv.Itoa(info.Drawstatus) + `,`)
 			b.WriteString(`"voidReason": ` + strconv.Itoa(info.Voidreason) + `,`)
 			b.WriteString(`"resultBalls": ` + info.Resultballs + ``)
@@ -231,7 +361,7 @@ func Mobile(c *gin.Context) {
 
 		if info, err := models.GetDrawno(drawno); err == nil {
 			b.WriteString(`"counterId": ` + strconv.FormatInt(v.Id, 10) + `,`)
-			b.WriteString(`"drawNo": ` + strconv.FormatInt(v.Id, 10) + `,`)
+			b.WriteString(`"drawNo": ` + strconv.FormatInt(info.Drawno, 10) + `,`)
 			b.WriteString(`"drawTime":  "` + info.Starttime.Format(formate) + `",`)
 			b.WriteString(`"drawStatus": ` + strconv.Itoa(info.Drawstatus) + `,`)
 			b.WriteString(`"voidReason": ` + strconv.Itoa(info.Voidreason) + `,`)
@@ -306,12 +436,14 @@ func Mobile(c *gin.Context) {
 	//betslip
 	b.WriteString(`"betSlip": "[{\"counterId\":320,\"drawNo\":61,\"bet\":{\"betType\":\"num\",\"selection\":\"66\"},\"ballNum\":\"53\"}]",`)
 
+	uinfo := GetSessionUsername(c)
+
 	//member begin
 	b.WriteString(`"member": {`)
-	b.WriteString(`"MemberId": 268042,`)
-	b.WriteString(`"MemberName": "conku188",`)
-	b.WriteString(`"CurrencyCode": "RMB",`)
-	b.WriteString(`"Balance": "1341.2319"`)
+	b.WriteString(`"MemberId": ` + strconv.FormatInt(uinfo.Id, 10) + `,`)
+	b.WriteString(`"MemberName": "` + uinfo.Username + `",`)
+	b.WriteString(`"CurrencyCode": "` + uinfo.Currency + `",`)
+	b.WriteString(`"Balance": "` + Float64toStr(uinfo.Balance) + `"`)
 	b.WriteString(`}`)
 	//member end
 
@@ -374,11 +506,11 @@ func Trends(c *gin.Context) {
 }
 
 func Float64toStr(v float64) string {
-	string := strconv.FormatFloat(v, 'E', -1, 64)
+	string := strconv.FormatFloat(v, 'f', -3, 64)
 	return string
 }
 
 func Float32toStr(v float64) string {
-	string := strconv.FormatFloat(v, 'E', -1, 32)
+	string := strconv.FormatFloat(v, 'f', -1, 32)
 	return string
 }

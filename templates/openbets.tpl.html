@@ -1,0 +1,40 @@
+
+
+<div class="openBetsContainer" id="scrollContainer" ng-controller="openbetCtrl" ng-init="isLazyLoading=true;init()">
+    <div class="noRecord row" ng-if="!isLoading&&wagerList.length==0">
+        <div class="col s12 list">
+            没有记录
+        </div>
+    </div>
+    <div class="openBetsList row" ng-repeat="wager in wagerList">
+        <div class="col s12 list">
+            <div class="counterName">
+                <span class="drewName">{{wager.bets[0].counterId|counterName}}</span>
+                <span class="drewNo">{{wager.bets[0].drawNo}}</span>
+                <br /><span ng-bind="wager.createTime| datetimeFormat"></span>
+            </div>
+        </div>
+        <div class="col s12 list">
+            <div class="col s12"><span class="title">注单编号</span>：<br>{{wager.wagerNo}}</div>
+        </div>
+        <div class="col s12 list">
+            <div class="col s12"><span class="title">投注类型</span>：<br>{{wager.bets[0].betType}}</div>
+        </div>
+        <div class="col s12 list">
+            <div class="col s12"><span class="title">选项</span>：<br>{{wager.bets[0].selection}}<span ng-if="wager.bets[0].betType!='珠仔'"> @<span class="oddcolor">{{wager.bets|getMaxOdds}}</span></span></div>
+        </div>
+        <div class="col s12">
+            <div class="col s12"><span class="title">投注额</span>：<br>{{wager.stake|addComma:2}}</div>
+        </div>
+        <div class="col s12">
+            <div class="col s12"><span class="title">可赢额</span>：<br>{{wager.stake|winning:wager.bets|addComma:2}}</div>
+        </div>
+    </div>
+    <p class="footerinfo">所有交易的日期和时间记载是以GMT +08:00 (北京时间)为根据。</p>
+    <div class="footer-empty"></div>
+</div>
+<div class="fixtotal">
+    <div class="fixtotalStake left">总计 (RMB)<br> {{openbetTotalStake|addComma:2}}</div>
+    <div class="fixtotalWinLoss right">可赢额 <br>  {{openbetEstWinning|addComma:2}}</div>
+    <div class="clearfix"></div>
+</div>
