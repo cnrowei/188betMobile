@@ -46,6 +46,10 @@ type Selections struct {
 	MaxBet float64 `json:"maxBet"`
 }
 
+func Openbets(c *gin.Context) {
+
+}
+
 //下注
 func PlaceBet(c *gin.Context) {
 	var bet []*Bets
@@ -58,6 +62,7 @@ func PlaceBet(c *gin.Context) {
 	if err := c.BindJSON(&bet); err == nil {
 
 		var err error
+		var allstake float64
 
 		iw, err := helper.NewIdWorker(1)
 		if err != nil {
@@ -68,31 +73,50 @@ func PlaceBet(c *gin.Context) {
 		b := bytes.Buffer{}
 		b.WriteString(`{"isSuccess": true,`)
 		b.WriteString(`"data":[ `)
-
+		b.WriteString(`{`)
 		//下注循环
 		for i, v := range bet {
 
 			//是否添加记录
 			flag := true
 
+			//所有下注额度
+			allstake = 0
+
 			//下注额类型确认
 			stake, ok := v.Stake.(float64)
 			if !ok {
 				stake, err = strconv.ParseFloat(v.Stake.(string), 64)
-				if err == nil {
-					flag = false
+				if err != nil {
 					//投注额必须大于0。
-					fmt.Println("BS_StakeMustGreaterThanZero")
+					flag = false
+					b.WriteString(`"error": "BS_StakeMustGreaterThanZero",`)
 				}
 			}
 
 			if stake < v.Selections[0].MinBet {
-				flag = false
 				//投注额不能低于最低限额。
-				fmt.Println("BS_BetLessThanProfileMinBet")
+				flag = false
+				b.WriteString(`"error": "BS_BetLessThanProfileMinBet",`)
 			}
 
+			//单注总额度
+			allstake = allstake + stake
+
 			//减去会员账号的信用余额
+			uinfo := GetSessionUsername(c)
+			if uinfo.Balance < stake {
+				//投注额超出您的帐户余额。
+				flag = false
+				b.WriteString(`"error": "BS_InsufficientMemberBalance",`)
+			} else {
+				balance := uinfo.Balance - stake
+				if err := models.UpUserBalance(uinfo, balance); err != nil {
+					//投注额超出您的帐户余额。
+					flag = false
+					b.WriteString(`"error": "BS_InsufficientMemberBalance",`)
+				}
+			}
 
 			wg := &models.Wagers{}
 			wg.Counterid = v.CounterID
@@ -120,8 +144,6 @@ func PlaceBet(c *gin.Context) {
 				fmt.Println(err)
 			}
 			wg.Wagerno = wagerNo
-
-			b.WriteString(`{`)
 
 			b.WriteString(`"counterId": ` + strconv.FormatInt(v.CounterID, 10) + `,`)
 			b.WriteString(`"drawNo": ` + strconv.FormatInt(v.DrawNo, 10) + `,`)

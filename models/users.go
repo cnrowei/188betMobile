@@ -44,3 +44,9 @@ func GetUserInfo(username string) (*Users, error) {
 		return nil, err
 	}
 }
+
+//更新用户余额
+func UpUserBalance(user *Users, balance float64) error {
+	err := db.Model(&user).Updates(Users{Balance: balance}).Error
+	return err
+}

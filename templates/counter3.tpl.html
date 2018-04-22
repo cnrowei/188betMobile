@@ -13,9 +13,9 @@
             distributionChannel: 3,
             lang: "zh-cn",
             buCode: "188Bet",
-            ln: "conku188",
+            ln: "{[{.ln}]}",
             balanceMode: "SingleWallet",
-            lpb: "{[{.serverTime}]}",
+            lpb: "{[{.lpb}]}",
             sit: 30,
             ita: 0,
             srhb: 30,
@@ -24,7 +24,7 @@
             counterListDic:{},
             activeKeno:true,
             activeLotto:true,
-            memberLobbyUrl:"login",
+            memberLobbyUrl:"/zh-cn/lotto",
             counterID:"{[{.id}]}",
             parentDomain: "https://www.nber.one",
             isShowAlert:false,
@@ -80,7 +80,7 @@
                     <div class="right">
                         <a href="#" data-activates="mobile-demo" class="mw button-collapse" data-sidenav="right"><i class="mdi mdi-menu"></i></a>
                         <ul class="right hide-on-med-and-down">
-                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/Report/OpenBets#/'+product)"><a>下注状况</a></li>
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/OpenBets#/'+product)"><a>下注状况</a></li>
                                     <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/statement#/'+product)"><a>帐户历史</a></li>
 
                             <li style="cursor:pointer" ng-click="gotoResult('/zh-cn/report/results#/'+product)"><a>开奖结果</a></li>
@@ -94,11 +94,11 @@
                 </div>
             </nav>
             <ul class="mb side-nav right-aligned" id="mobile-demo">
-                <li class="side-back" ng-controller="balanceCtrl" ng-init="init(1263.2319)">
+                <li class="side-back" ng-controller="balanceCtrl" ng-init="init({[{.balance}]})">
                     <i ng-click="hideSideNav()" class="mdi mdi-chevron-right backbtn right"></i>
 
                             <div class="member-info">
-                                <span class="member">conku188</span>
+                                <span class="member">{[{.ln}]}</span>
                                 <span class="memberBalance">RMB {{balance|addComma:2}} </span>
                             </div>
                             <i ng-click="refresh()" id="refreshBalanceBtn" class="mdi mdi-refresh refreshbtn"></i>
@@ -106,8 +106,8 @@
 
 
                 </li>
-                        <li class="openBets" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/Report/OpenBets#/'+product, '下注状况')"><a><i class="mdi mdi-square-inc-cash"></i>下注状况</a></li>
-                        <li class="statement" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/Report/Statement#/'+product, '帐户历史')"><a><i class="mdi mdi-history"></i>帐户历史</a></li>
+                        <li class="openBets" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/OpenBets#/'+product, '下注状况')"><a><i class="mdi mdi-square-inc-cash"></i>下注状况</a></li>
+                        <li class="statement" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/Statement#/'+product, '帐户历史')"><a><i class="mdi mdi-history"></i>帐户历史</a></li>
 
                 <li class="results" style="cursor:pointer" ng-click="gotoResult('/zh-cn/report/results#/'+product, '开奖结果')"><a><i class="mdi mdi-file-chart"></i>开奖结果</a></li>
                 <li class="announcements" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/announcements#/'+product, '公告栏')"><a><i class="mdi mdi-bell"><i class="mdi mdi-checkbox-blank-circle badge" ng-show="isShowAlert"></i></i>公告栏</a></li>
@@ -136,7 +136,7 @@
             
 
 
-<div ng-controller="counterCtrl" ng-init="init(320,3,'',false); isMobile=true;setGoBackTar" ng-model="counter">
+<div ng-controller="counterCtrl" ng-init="init({[{.id}]},3,'',false); isMobile=true;setGoBackTar" ng-model="counter">
     <div ng-if="counter" class="lobby lotto">
         <nav class="top-nav-info lobbylist cu{{counterType}}" ng-if="!showBetSlip" ng-click="toggleCounterList()" ng-class="{toggleCounter:!isShowCounterList}">
     <div class="nav-wrapper top-nav-info-container">
@@ -422,12 +422,14 @@
                             <span class="td-4" ng-click="addWager({betType:'oe',selection:'Odd'})" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Odd'})}">单<br>{{counter.selections['Ball_'+ballNum+'_Odd'].odds}}</span>
                             <span class="td-4" ng-click="addWager({betType:'oe',selection:'Even'})" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Even'})}">双<br>{{counter.selections['Ball_'+ballNum+'_Even'].odds}}</span>
                         </div>
+                        
                         <div class="digitkeyboard row">
                                 <div class="optionsTitle">龙虎</div>
                                 <span class="td-3" ng-click="addWager({betType:'bs',selection:'Dragon'})" ng-class="{active:isAlreadyInBetSlip({betType:'bs',selection:'Dragon'})}">龙<br>{{counter.selections['Ball_'+ballNum+'_Dragon'].odds}}</span>
                                 <span class="td-3" ng-click="addWager({betType:'bs',selection:'Tiger'})" ng-class="{active:isAlreadyInBetSlip({betType:'bs',selection:'Tiger'})}">虎<br>{{counter.selections['Ball_'+ballNum+'_Tiger'].odds}}</span>
                                 <span class="td-3" ng-click="addWager({betType:'oe',selection:'Equally'})" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Equally'})}">和<br>{{counter.selections['Ball_'+ballNum+'_Equally'].odds}}</span>
-                            </div>
+                       </div>
+
                     </div>
                 </div>
                 <div class="footer-empty"></div>
@@ -690,7 +692,7 @@
                         <i class="mdi" ng-class="isShowFooter ? 'mdi-chevron-down' : 'mdi-chevron-up'"></i>
                     </a>
                 </div>
-                <div class="modal-content" style="height:290px;" ng-init="init({counterId:320,rowsCount:6,colCount:22, unbound:true})">
+                <div class="modal-content" style="height:290px;" ng-init="init({counterId:{[{.id}]},rowsCount:6,colCount:22, unbound:true})">
                     <ul tabs ng-show="trendView!='statistics'">
                         <li class="tab col s3"><a ng-class="{active:trendType=='bs'}" ng-click="toggleTrendType('bs')">大小</a></li>
                         <li class="tab col s3"><a ng-class="{active:trendType=='oe'}" ng-click="toggleTrendType('oe')">单双</a></li>

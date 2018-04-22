@@ -43,6 +43,11 @@ func main() {
 		})
 	})
 
+	router.GET("/service/msghubapi/getAnnouncement", func(c *gin.Context) {
+		data := readFile1("data/getAnnouncement.json")
+		c.Writer.WriteString(data)
+	})
+
 	router.POST("/service/userapi/login", handler.Login)
 
 	router.POST("/postlogin", handler.Postlogin)
@@ -146,9 +151,11 @@ func main() {
 	router.GET("/zh-cn/lotto/counter/:id/:counterType", func(c *gin.Context) {
 		formate := "2006/01/02 15:04:05"
 		formate2 := "2006-01-02T15:04:05+08:00"
+
 		uinfo := handler.GetSessionUsername(c)
 
-		c.HTML(http.StatusOK, "main-lobby.tpl.html", gin.H{
+		c.HTML(http.StatusOK, "counter.tpl.html", gin.H{
+			"id":         c.Param("id"),
 			"lpb":        time.Now().Format(formate),
 			"serverTime": time.Now().Format(formate2),
 			"ln":         uinfo.Username,
@@ -157,9 +164,10 @@ func main() {
 	})
 
 	//下注状态
-	router.GET("/zh-cn/report/OpenBets", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "0penbets.tpl.html", nil)
+	router.GET("/zh-cn/report/openbets", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "openbets.tpl.html", nil)
 	})
+	//router.GET("/zh-cn/report/openbets", handler.openbets)
 
 	//账户历史
 	router.GET("/zh-cn/report/statement", func(c *gin.Context) {
@@ -196,29 +204,14 @@ func main() {
 		})
 	})
 
-	router.GET("/service/msghubapi/getAnnouncement", func(c *gin.Context) {
-		var xxxjson string
-		xxxjson = readFile1("testjson/getAnnouncement.json")
-		c.Writer.WriteString(xxxjson)
-	})
-
 	//API
 	router.GET("/api/service/GetContent", func(c *gin.Context) {
 		c.Writer.WriteString(`angular.callbacks._0({"resultType":0,"content":"\r\n\r\n\r\n<div class=\"col-lg-12  {{rowClass}}\">\r\n<div class=\"col-lg-12\" lotto-ilotto ></div>\r\n\r\n</div>\r\n<!--col-lg--->","redirectUrl":null,"message":null});`)
 	})
 
 	router.GET("/api/Rule/Lotto/Single", func(c *gin.Context) {
-		var xxxjson string
-		xxxjson = readFile1("testjson/Single.json")
-		c.Writer.WriteString(xxxjson)
-		/*
-			c.JSON(http.StatusOK, gin.H{
-				"isSuccess": true,
-				"data": gin.H{
-					"serverTime": "2018-04-06T22:56:17+08:00",
-					"invalid":    true,
-				},
-			})*/
+		data := readFile1("data/Single.json")
+		c.Writer.WriteString(data)
 	})
 
 	//总页码
@@ -249,7 +242,7 @@ func main() {
 
 	//OpenBets
 	///api/Report/lotto/OpenBets?pageNum=1&pageSize=10
-	router.GET("/api/Report/:name/OpenBets", handler.OpenBets)
+	router.GET("/api/report/:name/openbets", handler.OpenBets)
 
 	//https://ng-gc-188.prdangb18a1.com/api/lotto/Counter/320/GameResults?drawNo=69&date=2018-04-07&pageNum=1&pageSize=50
 	router.GET("/api/lotto/Counter/:number/GameResults", func(c *gin.Context) {

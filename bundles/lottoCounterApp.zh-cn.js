@@ -5100,20 +5100,20 @@ angular.module("reportModule", ["componentsModule"])
 
     .service("$reportService", ["$http", function ($http) {
         this.getOpenBet = function (product, pageNum, pageSize) {
-            var url = "/api/Report/" + product + "/OpenBets?";
+            var url = "/api/report/" + product + "/openbets?";
             url += "pageNum=" + (pageNum || 1) + "&pageSize=" + (pageSize || 10);
             return $http.get(url);
         }
 
         this.getStatement = function (dateFrom, dateTo) {
-            var url = "/api/Report/Statement?";
+            var url = "/api/report/Statement?";
             if (dateFrom) url += "dateFrom=" + dateFrom + "&";
             if (dateTo) url += "dateTo=" + dateTo;
             return $http.get(url);
         }
 
         this.getStatementDetails = function (product, date, pageNum, pageSize) {
-            var url = "/api/Report/" + product + "/Statement?";
+            var url = "/api/report/" + product + "/statement?";
             if (date) url += "date=" + date + "&";
             url += "pageNum=" + (pageNum || 1) + "&";
             url += "pageSize=" + (pageSize || 50);
@@ -5121,7 +5121,7 @@ angular.module("reportModule", ["componentsModule"])
         }
 
         this.getStatementDetailsByCriteria = function (product, criteria) {
-            return $http.post("/api/Report/" + product + "/Statement/Details", criteria);
+            return $http.post("/api/report/" + product + "/statement/Details", criteria);
         }
     }])
 

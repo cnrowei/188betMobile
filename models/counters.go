@@ -80,16 +80,17 @@ type Selections struct {
 //下注
 type Wagers struct {
 	Wagerno      int64     `gorm:"index" json:"wagerNo"`
-	Counterid    int64     `gorm:"index" json:"counterId"`
-	Drawno       int64     `gorm:"index" json:"drawNo"`
-	Stake        float64   `gorm:"type:numeric(18,4)" json:"stake"`      //投注的金额
-	Estwinning   float64   `gorm:"type:numeric(18,1)" json:"estWinning"` //可盈利
-	Issystempick bool      `json:"isSystemPick"`
-	Bettype      string    `gorm:"type:varchar(50)" json:"betType"`   //投注类型 num
-	Selection    string    `gorm:"type:varchar(50)" json:"selection"` //投注类型 num
-	Bets         string    `gorm:"type:json" json:"Bets"`             //投注信息
-	Returnamount float64   `gorm:"type:numeric(10,1)" json:"returnAmount"`
-	Createtime   time.Time `json:"createTime"`
+	Counterid    int64     `gorm:"index" json:"counterId"`                 //类型
+	Drawno       int64     `gorm:"index" json:"drawNo"`                    //期数
+	Selections   string    `gorm:"type:json" json:"selections"`            //单注的信息
+	Stake        float64   `gorm:"type:numeric(18,4)" json:"stake"`        //投注的金额
+	Estwinning   float64   `gorm:"type:numeric(18,1)" json:"estWinning"`   //可盈利
+	Issystempick bool      `json:"isSystemPick"`                           //系统选取
+	Bettype      string    `gorm:"type:varchar(50)" json:"betType"`        //投注类型 num
+	Selection    string    `gorm:"type:varchar(50)" json:"selection"`      //投注类型 num
+	Bets         string    `gorm:"type:json" json:"Bets"`                  //投注信息
+	Returnamount float64   `gorm:"type:numeric(10,1)" json:"returnAmount"` //返还金额
+	Createtime   time.Time `json:"createTime"`                             //下单时间
 }
 
 //类型

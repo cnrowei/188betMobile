@@ -28,7 +28,7 @@
             activeLotto:true,
             memberLobbyUrl:"/zh-cn/lotto",
             counterID:"{{{.id}}}",
-            parentDomain: "https://127.0.0.1",
+            parentDomain: "http://127.0.0.1",
             isShowAlert:true,
             isHideNewBetType:false,
         };
@@ -82,7 +82,7 @@
                     <div class="right">
                         <a href="#" data-activates="mobile-demo" class="mw button-collapse" data-sidenav="right"><i class="mdi mdi-menu"></i></a>
                         <ul class="right hide-on-med-and-down">
-                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/Report/OpenBets#/'+product)"><a>下注状况</a></li>
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/openbets#/'+product)"><a>下注状况</a></li>
                                     <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/statement#/'+product)"><a>帐户历史</a></li>
 
                             <li style="cursor:pointer" ng-click="gotoResult('/zh-cn/report/results#/'+product)"><a>开奖结果</a></li>
@@ -108,8 +108,8 @@
 
 
                 </li>
-                        <li class="openBets" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/Report/OpenBets#/'+product, '下注状况')"><a><i class="mdi mdi-square-inc-cash"></i>下注状况</a></li>
-                        <li class="statement" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/Report/Statement#/'+product, '帐户历史')"><a><i class="mdi mdi-history"></i>帐户历史</a></li>
+                        <li class="openBets" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/openbets#/'+product, '下注状况')"><a><i class="mdi mdi-square-inc-cash"></i>下注状况</a></li>
+                        <li class="statement" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/statement#/'+product, '帐户历史')"><a><i class="mdi mdi-history"></i>帐户历史</a></li>
 
                 <li class="results" style="cursor:pointer" ng-click="gotoResult('/zh-cn/report/results#/'+product, '开奖结果')"><a><i class="mdi mdi-file-chart"></i>开奖结果</a></li>
                 <li class="announcements" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/announcements#/'+product, '公告栏')"><a><i class="mdi mdi-bell"><i class="mdi mdi-checkbox-blank-circle badge" ng-show="isShowAlert"></i></i>公告栏</a></li>
@@ -423,6 +423,14 @@
                             <span class="td-4" ng-click="addWager({betType:'oe',selection:'Odd'})" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Odd'})}">单<br>{{counter.selections['Ball_'+ballNum+'_Odd'].odds}}</span>
                             <span class="td-4" ng-click="addWager({betType:'oe',selection:'Even'})" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Even'})}">双<br>{{counter.selections['Ball_'+ballNum+'_Even'].odds}}</span>
                         </div>
+
+                        <div class="digitkeyboard row">
+                            <div class="optionsTitle">龙虎</div>
+                            <span class="td-3" ng-click="addWager({betType:'bs',selection:'Dragon'})" ng-class="{active:isAlreadyInBetSlip({betType:'bs',selection:'Dragon'})}">龙<br>{{counter.selections['Ball_'+ballNum+'_Dragon'].odds}}</span>
+                            <span class="td-3" ng-click="addWager({betType:'bs',selection:'Tiger'})" ng-class="{active:isAlreadyInBetSlip({betType:'bs',selection:'Tiger'})}">虎<br>{{counter.selections['Ball_'+ballNum+'_Tiger'].odds}}</span>
+                            <span class="td-3" ng-click="addWager({betType:'oe',selection:'Equally'})" ng-class="{active:isAlreadyInBetSlip({betType:'oe',selection:'Equally'})}">和<br>{{counter.selections['Ball_'+ballNum+'_Equally'].odds}}</span>
+                   </div>
+
                     </div>
                 </div>
                 <div class="footer-empty"></div>
