@@ -79,7 +79,8 @@ type Selections struct {
 
 //下注
 type Wagers struct {
-	Wagerno      int64     `gorm:"index" json:"wagerNo"`
+	Id           int64     `gorm:"index" json:"wagerNo"`                   //编号
+	Uid          int64     `gorm:"index" json:"Uid"`                       //类型
 	Counterid    int64     `gorm:"index" json:"counterId"`                 //类型
 	Drawno       int64     `gorm:"index" json:"drawNo"`                    //期数
 	Selections   string    `gorm:"type:json" json:"selections"`            //单注的信息
@@ -87,9 +88,10 @@ type Wagers struct {
 	Estwinning   float64   `gorm:"type:numeric(18,1)" json:"estWinning"`   //可盈利
 	Issystempick bool      `json:"isSystemPick"`                           //系统选取
 	Bettype      string    `gorm:"type:varchar(50)" json:"betType"`        //投注类型 num
+	Bettext      string    `gorm:"type:varchar(50)" json:"Bettext"`        //投注中文
 	Selection    string    `gorm:"type:varchar(50)" json:"selection"`      //投注类型 num
-	Bets         string    `gorm:"type:json" json:"Bets"`                  //投注信息
 	Returnamount float64   `gorm:"type:numeric(10,1)" json:"returnAmount"` //返还金额
+	Status       int       `json:"status"`                                 //0输,-1未结算,1为赢 输赢状态
 	Createtime   time.Time `json:"createTime"`                             //下单时间
 }
 
@@ -104,10 +106,34 @@ type Bets struct {
 	Odds      float64 `gorm:"type:numeric(18,4)" json:"odds"`
 }
 
+//未结算的
+func GetWagers(uid int64, status int) ([]*Wagers, error) {
+	//list := &[]Counters{}
+	var lists []*Wagers
+	err := db.Where("uid<=? and status=?", uid, status).Order("createtime desc").Find(&lists).Error
+	return lists, err
+}
+
+//管理员看下注
+func GetWagers2(uid int64, status int) ([]*Wagers, error) {
+	//list := &[]Counters{}
+	var lists []*Wagers
+	err := db.Order("createtime desc").Find(&lists).Error
+	return lists, err
+}
+
+//下注列表
+func GetWagersStatement(uid int64, todate, fromdate time.Time) ([]*Wagers, error) {
+	//list := &[]Counters{}
+	var lists []*Wagers
+	err := db.Where("uid=? and Createtime>? and Createtime<? and status!=?", uid, todate, fromdate, -1).Order("createtime desc").Find(&lists).Error
+	return lists, err
+}
+
 //添加单注赔率
 func NewWager(wag *Wagers) (int64, error) {
 	if err := db.Create(&wag).Error; err == nil {
-		return wag.Wagerno, err
+		return wag.Id, err
 	} else {
 		return 0, nil
 	}
@@ -176,7 +202,22 @@ func GetDraw(nowTime time.Time, counterId int64) (*Draws, error) {
 func GetDraws(nowTime, beginTime time.Time, counterId int64) ([]*Draws, error) {
 	//list := &[]Counters{}
 	var lists []*Draws
-	err := db.Where("endtime<=? and endtime >=? and counterid=?", nowTime, beginTime, counterId).Order("Drawno").Find(&lists).Error
+	err := db.Where("endtime<=? and endtime >=? and counterid=?", nowTime, beginTime, counterId).Order("drawno desc").Find(&lists).Error
+	return lists, err
+}
+
+//期数列表
+func GetDrawsResults(beginTime, nowTime time.Time, counterId int64) ([]*Draws, error) {
+	//list := &[]Counters{}
+	var lists []*Draws
+	err := db.Where("Drawtime >=? and Drawtime <=? and counterid=?", beginTime, nowTime, counterId).Order("drawno desc").Find(&lists).Error
+	return lists, err
+}
+
+//期数列表
+func GetDrawsResultsDrawno(counterId, drawno int64) ([]*Draws, error) {
+	var lists []*Draws
+	err := db.Where("counterid =? and drawno=?", counterId, drawno).Order("drawno desc").Find(&lists).Error
 	return lists, err
 }
 

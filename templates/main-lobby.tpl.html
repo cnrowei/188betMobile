@@ -82,8 +82,8 @@
                     <div class="right">
                         <a href="#" data-activates="mobile-demo" class="mw button-collapse" data-sidenav="right"><i class="mdi mdi-menu"></i></a>
                         <ul class="right hide-on-med-and-down">
-                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/openbets#/'+product)"><a>下注状况</a></li>
-                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/statement#/'+product)"><a>帐户历史</a></li>
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/OpenBets#/'+product)"><a>下注状况</a></li>
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/Statement#/'+product)"><a>帐户历史</a></li>
 
                             <li style="cursor:pointer" ng-click="gotoResult('/zh-cn/report/results#/'+product)"><a>开奖结果</a></li>
                                     <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/announcements#/'+product)"><a>公告栏</a></li>
@@ -115,9 +115,8 @@
                 <li class="announcements" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/announcements#/'+product, '公告栏')"><a><i class="mdi mdi-bell"><i class="mdi mdi-checkbox-blank-circle badge" ng-show="isShowAlert"></i></i>公告栏</a></li>
                 <li class="rules" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/rules#/'+product,'规则说明')"><a><i class="mdi mdi-information-variant"></i>规则说明</a></li>
                         <li class="setting" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/home/settings#/'+product,'设定')"><a><i class="mdi mdi-account-settings-variant"></i>设定</a></li>
-                        <li class="deposit" style="cursor:pointer" ng-click="clickMainLobbyInFooter('https://m.oneeightyeightbet.com/zh-cn/my-account/banking/deposit')"><a><i class="mdi mdi-wallet"></i>存款</a></li>
-                        <li class="backtoLobby" style="cursor:pointer" ng-click="clickMainLobbyInFooter('https://m.oneeightyeightbet.com/zh-cn/lotto')"><a><i class="mdi mdi-castle"></i>返回大厅</a></li>
-                        <li class="logout" style="cursor:pointer" ng-click="logout('https://m.oneeightyeightbet.com/zh-cn/my-account/banking/deposit')"><a><i class="mdi mdi-backburger"></i>登出</a></li>
+                        <li class="backtoLobby" style="cursor:pointer" ng-click="clickMainLobbyInFooter('/zh-cn/lotto')"><a><i class="mdi mdi-castle"></i>返回大厅</a></li>
+                        <li class="logout" style="cursor:pointer" ng-click="logout('/zh-cn/')"><a><i class="mdi mdi-backburger"></i>登出</a></li>
 
             </ul>
             <div ng-controller="dialogCtrl" ng-show="isShowDialog">

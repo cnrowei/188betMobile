@@ -224,3 +224,30 @@
         }]
     }
 }
+
+
+{
+    "isSuccess": true,
+    "data": [{
+            "counterId": 320,
+            "drawNo": 20180422120,
+            "selections": [{
+                "id": 75,
+                "odds": 9.5,
+                "minBet": 2,
+                "maxBet": 5000
+            }],
+            "stake": 100,
+            "estWinning": 850,
+            "isSystemPick": false,
+            "wagerNo": 1786351746080572416,
+            "betType": "1Fixed_5",
+            "selection": "1XXXX"
+        }, "counterId": 320, "drawNo": 20180422120, "selections": [{
+            "id": 75,
+            "odds": 9.5,
+            "minBet": 2,
+            "maxBet": 5000
+        }], "stake": 100, "estWinning": 850, "isSystemPick": false, "wagerNo": 1786351746114126848, "betType": "1Fixed_5", "selection": "0XXXX"
+    }]
+}

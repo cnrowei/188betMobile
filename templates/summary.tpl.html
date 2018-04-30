@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=1024">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="fragment" content="!">
-    <title></title>
-    {[{template "header"}]}
+    <title>{[{.title}]}</title>
+    {[{template "header" .}]}
 </head>
 
 <body class="{{global.lan}} has-header" ng-cloak check-service-directive>

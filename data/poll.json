@@ -1,0 +1,28 @@
+[{
+        "partnerName": "Keno",
+        "partnerId": 10,
+        "betTime": 1524154461000.0,
+        "betId": "180420008611790949",
+        "betType": "BigSmall",
+        "stake": 20.0,
+        "return": 19.0,
+        "status": 1,
+        "extend": {
+            "location": "Australia",
+            "drawNo": "954",
+            "ballNum": null,
+            "gameResult": "8,3,8,6,4",
+            "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=61&date=2018-04-23",
+            "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423576721328964&date=2018-04-23"
+        },
+        "selections": [{
+            {
+                "selName": "Odd",
+                "odds": "1.95",
+                "betTime": null,
+                "status": null,
+                "extend": {},
+                "parts": {},
+                "betAdjustments": null
+            }
+        }]

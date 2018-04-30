@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"log"
 	"strconv"
 	"time"
 
@@ -13,25 +14,25 @@ import (
 )
 
 type Bets struct {
-	Text             struct{}     `json:"text"`
-	Bet              Bettype      `json:"bet"`
-	BallNum          interface{}  `json:"ballNum"`
-	MobileBetText    Bettype      `json:"mobileBetText"`
-	BetType          string       `json:"betType"`
-	Selection        string       `json:"selection"`
-	CounterID        int64        `json:"counterId"`
-	CounterName      string       `json:"counterName"`
-	DrawNo           int64        `json:"drawNo"`
-	Selections       []Selections `json:"selections"`
-	Stake            interface{}  `json:"stake"`
-	IsShowChipBox    bool         `json:"isShowChipBox"`
-	Uivalid          bool         `json:"uivalid"`
-	IsSystemPick     bool         `json:"isSystemPick"`
-	EstWinning       float64      `json:"estWinning"`
-	DetectSoftKeyPad struct{}     `json:"detectSoftKeyPad"`
-	HideChipBox      interface{}  `json:"hideChipBox"`
-	ShowValid        bool         `form:"showValid" json:"showValid"`
-	ReturnAmount     float64      `json:"hideChipBox"`
+	Text             struct{}        `json:"text"`
+	Bet              Bettype         `json:"bet"`
+	BallNum          interface{}     `json:"ballNum"`
+	MobileBetText    Bettype         `json:"mobileBetText"`
+	BetType          string          `json:"betType"`
+	Selection        interface{}     `json:"selection"`
+	CounterID        int64           `json:"counterId"`
+	CounterName      string          `json:"counterName"`
+	DrawNo           int64           `json:"drawNo"`
+	Selections       []BetSelections `json:"selections"`
+	Stake            interface{}     `json:"stake"`
+	IsShowChipBox    bool            `json:"isShowChipBox"`
+	Uivalid          bool            `json:"uivalid"`
+	IsSystemPick     bool            `json:"isSystemPick"`
+	EstWinning       float64         `json:"estWinning"`
+	DetectSoftKeyPad struct{}        `json:"detectSoftKeyPad"`
+	HideChipBox      interface{}     `json:"hideChipBox"`
+	ShowValid        bool            `form:"showValid" json:"showValid"`
+	ReturnAmount     float64         `json:"hideChipBox"`
 }
 
 type Bettype struct {
@@ -39,15 +40,11 @@ type Bettype struct {
 	Selection interface{} `json:"selection"`
 }
 
-type Selections struct {
+type BetSelections struct {
 	ID     int     `json:"id"`
 	Odds   float64 `json:"odds"`
 	MinBet float64 `json:"minBet"`
 	MaxBet float64 `json:"maxBet"`
-}
-
-func Openbets(c *gin.Context) {
-
 }
 
 //下注
@@ -63,6 +60,7 @@ func PlaceBet(c *gin.Context) {
 
 		var err error
 		var allstake float64
+		var userid int64
 
 		iw, err := helper.NewIdWorker(1)
 		if err != nil {
@@ -71,12 +69,19 @@ func PlaceBet(c *gin.Context) {
 
 		//
 		b := bytes.Buffer{}
-		b.WriteString(`{"isSuccess": true,`)
+		uinfo := GetSessionUsername(c)
+		if uinfo != nil {
+			b.WriteString(`{"isSuccess": true,`)
+			userid = uinfo.Id
+		} else {
+			b.WriteString(`{"isSuccess": false,`)
+		}
+
 		b.WriteString(`"data":[ `)
-		b.WriteString(`{`)
+
 		//下注循环
 		for i, v := range bet {
-
+			b.WriteString(`{`)
 			//是否添加记录
 			flag := true
 
@@ -92,6 +97,15 @@ func PlaceBet(c *gin.Context) {
 					flag = false
 					b.WriteString(`"error": "BS_StakeMustGreaterThanZero",`)
 				}
+			}
+			//下注的类型
+			selection, ok := v.Selection.(string)
+			if !ok {
+				selection = Float64toStr(v.Selection.(float64))
+			}
+
+			if v.BetType == "" {
+				v.BetType = v.Bet.BetType
 			}
 
 			if stake < v.Selections[0].MinBet {
@@ -119,6 +133,7 @@ func PlaceBet(c *gin.Context) {
 			}
 
 			wg := &models.Wagers{}
+			wg.Uid = userid
 			wg.Counterid = v.CounterID
 			wg.Drawno = v.DrawNo
 
@@ -127,15 +142,27 @@ func PlaceBet(c *gin.Context) {
 			wg.Issystempick = v.IsShowChipBox
 			wg.Bettype = v.BetType
 
-			jsonbet, err := json.Marshal(v.Bet)
+			wg.Bettext = v.MobileBetText.BetType
+
+			// jsonbet, err := json.Marshal(v.Bet)
+			// if err != nil {
+			// 	flag = false
+			// 	fmt.Println("Json bet to struct Error!", err.Error())
+			// }
+			// wg.Bets = string(jsonbet)
+			wg.Selection = selection
+			wg.Returnamount = v.ReturnAmount
+			wg.Status = -1
+			wg.Createtime = time.Now()
+
+			jsonselection, err := json.Marshal(v.Selections)
 			if err != nil {
 				flag = false
-				fmt.Println("Json bet to struct Error!", err.Error())
+				b.WriteString(`"error": "BS_ExceedAccumulatePayout",`)
+				fmt.Println("Json bet to struct Error:", err.Error())
 			}
-			wg.Bets = string(jsonbet)
-			wg.Selection = v.Selection
-			wg.Returnamount = v.ReturnAmount
-			wg.Createtime = time.Now()
+
+			wg.Selections = string(jsonselection)
 
 			//SnowFlake算法分布式ID
 			wagerNo, err := iw.NextId()
@@ -143,7 +170,17 @@ func PlaceBet(c *gin.Context) {
 				flag = false
 				fmt.Println(err)
 			}
-			wg.Wagerno = wagerNo
+			wg.Id = wagerNo
+
+			//添加数据
+			if flag {
+				wagerNo, err = models.NewWager(wg)
+				if err != nil {
+					//此投注选项暂时无法受注。请稍后再试。
+					b.WriteString(`"error": "BS_ExceedAccumulatePayout",`)
+					fmt.Println("add wager err:", err.Error())
+				}
+			}
 
 			b.WriteString(`"counterId": ` + strconv.FormatInt(v.CounterID, 10) + `,`)
 			b.WriteString(`"drawNo": ` + strconv.FormatInt(v.DrawNo, 10) + `,`)
@@ -182,7 +219,7 @@ func PlaceBet(c *gin.Context) {
 				b.WriteString(`"error": "BS_ExceedAccumulatePayout",`)
 			}
 
-			b.WriteString(`"selection":"` + v.Selection + `"`)
+			b.WriteString(`"selection":"` + selection + `"`)
 
 			if i >= len(bet)-1 {
 				b.WriteString(`}`)
@@ -190,14 +227,6 @@ func PlaceBet(c *gin.Context) {
 				b.WriteString(`},`)
 			}
 
-			//添加数据
-			if flag {
-				wagerNo, err = models.NewWager(wg)
-				if err != nil {
-					//此投注选项暂时无法受注。请稍后再试。
-					fmt.Println("BS_ExceedAccumulatePayout")
-				}
-			}
 		}
 
 		b.WriteString(`]}`)
@@ -208,6 +237,80 @@ func PlaceBet(c *gin.Context) {
 	} else {
 		fmt.Println(err.Error())
 	}
+}
+
+//开奖结果
+func GameResults(c *gin.Context) {
+
+	number := c.Param("number")
+	drawNo := c.Query("drawNo")
+
+	date := c.Query("date")
+	formate := "2006-01-02 15:04:05"
+	//pageNum := c.Query("pageNum")
+	//pageSize := c.Query("pageSize")
+
+	toTime, _ := time.ParseInLocation(formate, date+" 00:00:00", time.Local)
+	formate1 := "2006-01-02T15:04:05+08:00"
+
+	if number == "" {
+		return
+	}
+
+	counterid, err := strconv.ParseInt(number, 10, 64)
+	if err != nil {
+		log.Println("counterid to int64 error", err.Error())
+	}
+
+	fmt.Println("“drawNo”", drawNo, counterid)
+
+	var lists []*models.Draws
+
+	if drawNo != "" {
+		drawno, err := strconv.ParseInt(drawNo, 10, 64)
+		if err != nil {
+			log.Println("drawno to int64 error", err.Error())
+		}
+		lists, _ = models.GetDrawsResultsDrawno(counterid, drawno)
+	} else {
+		//GetDraws
+		lists, _ = models.GetDrawsResults(toTime, time.Now(), counterid)
+	}
+
+	b := bytes.Buffer{}
+	uinfo := GetSessionUsername(c)
+	if uinfo != nil {
+		b.WriteString(`{"isSuccess": true,`)
+		//userid = uinfo.Id
+	} else {
+		b.WriteString(`{"isSuccess": false,`)
+	}
+
+	b.WriteString(`"data":{`)
+	b.WriteString(`"totalCount": 1,`)
+	b.WriteString(` "gameResults": [`)
+
+	for i, v := range lists {
+		b.WriteString(`{`)
+		b.WriteString(`"counterId": ` + strconv.FormatInt(v.Counterid, 10) + `,`)
+		b.WriteString(`"drawNo": ` + strconv.FormatInt(v.Drawno, 10) + `,`)
+		b.WriteString(`"drawTime": "` + v.Drawtime.Format(formate1) + `",`)
+		b.WriteString(`"drawStatus": ` + strconv.Itoa(v.Drawstatus) + `,`)
+		b.WriteString(`"voidReason": ` + strconv.Itoa(v.Voidreason) + `,`)
+		b.WriteString(`"resultBalls": [` + v.Resultballs + `]`)
+
+		if i >= len(lists)-1 {
+			b.WriteString(`}`)
+		} else {
+			b.WriteString(`},`)
+		}
+	}
+	b.WriteString(`]`)
+
+	b.WriteString(`}}`)
+
+	c.Request.Header.Set("Content-Type", "application/json;charset=UTF-8")
+	c.Writer.WriteString(b.String())
 }
 
 //单个数据抓取
@@ -283,7 +386,7 @@ func CounterID(c *gin.Context) {
 			b.WriteString(`"drawTime":  "` + info.Endtime.Format(formate) + `",`)
 			b.WriteString(`"drawStatus": ` + strconv.Itoa(info.Drawstatus) + `,`)
 			b.WriteString(`"voidReason": ` + strconv.Itoa(info.Voidreason) + `,`)
-			b.WriteString(`"resultBalls": ` + info.Resultballs + ``)
+			b.WriteString(`"resultBalls": [` + info.Resultballs + `]`)
 		}
 		b.WriteString(`},`)
 		//end gameResult
@@ -387,7 +490,7 @@ func Mobile(c *gin.Context) {
 			b.WriteString(`"drawTime":  "` + info.Starttime.Format(formate) + `",`)
 			b.WriteString(`"drawStatus": ` + strconv.Itoa(info.Drawstatus) + `,`)
 			b.WriteString(`"voidReason": ` + strconv.Itoa(info.Voidreason) + `,`)
-			b.WriteString(`"resultBalls": ` + info.Resultballs + ``)
+			b.WriteString(`"resultBalls": [` + info.Resultballs + `]`)
 		}
 		b.WriteString(`},`)
 		//end gameResult
@@ -433,7 +536,7 @@ func Mobile(c *gin.Context) {
 				b.WriteString(`"drawTime":  "` + v.Drawtime.Format(formate) + `",`)
 				b.WriteString(`"drawStatus": ` + strconv.Itoa(v.Drawstatus) + `,`)
 				b.WriteString(`"voidReason": ` + strconv.Itoa(v.Voidreason) + `,`)
-				b.WriteString(`"resultBalls": ` + v.Resultballs + ``)
+				b.WriteString(`"resultBalls": [` + v.Resultballs + `]`)
 
 				if i >= len(dlists)-1 {
 					b.WriteString(`}`)
@@ -460,13 +563,15 @@ func Mobile(c *gin.Context) {
 
 	uinfo := GetSessionUsername(c)
 
-	//member begin
-	b.WriteString(`"member": {`)
-	b.WriteString(`"MemberId": ` + strconv.FormatInt(uinfo.Id, 10) + `,`)
-	b.WriteString(`"MemberName": "` + uinfo.Username + `",`)
-	b.WriteString(`"CurrencyCode": "` + uinfo.Currency + `",`)
-	b.WriteString(`"Balance": "` + Float64toStr(uinfo.Balance) + `"`)
-	b.WriteString(`}`)
+	if uinfo != nil {
+		//member begin
+		b.WriteString(`"member": {`)
+		b.WriteString(`"MemberId": ` + strconv.FormatInt(uinfo.Id, 10) + `,`)
+		b.WriteString(`"MemberName": "` + uinfo.Username + `",`)
+		b.WriteString(`"CurrencyCode": "` + uinfo.Currency + `",`)
+		b.WriteString(`"Balance": "` + Float64toStr(uinfo.Balance) + `"`)
+		b.WriteString(`}`)
+	}
 	//member end
 
 	b.WriteString(`}`)
@@ -509,7 +614,7 @@ func Trends(c *gin.Context) {
 			b.WriteString(`"drawTime":  "` + v.Drawtime.Format(formate) + `",`)
 			b.WriteString(`"drawStatus": 0,`)
 			b.WriteString(`"voidReason": ` + strconv.Itoa(v.Voidreason) + `,`)
-			b.WriteString(`"resultBalls": ` + v.Resultballs + ``)
+			b.WriteString(`"resultBalls": [` + v.Resultballs + `]`)
 
 			if i >= len(lists)-1 {
 				b.WriteString(`}`)

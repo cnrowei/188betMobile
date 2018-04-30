@@ -1,0 +1,1041 @@
+[{
+    "partnerName": "Keno",
+    "partnerId": 10,
+    "betTime": 1524154461000.0,
+    "betId": "180420008611790949",
+    "betType": "BigSmall",
+    "stake": 20.0,
+    "return": 19.0,
+    "status": 1,
+    "extend": {
+        "location": "Australia",
+        "drawNo": "954",
+        "ballNum": null,
+        "gameResult": "5,9,11,14,17,22,33,35,37,41,42,43,52,64,67,68,74,76,77,78",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=1&counterCode=Australia&drawNo=954&date=2018-04-20",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=1&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180420008611790949&date=2018-04-20"
+    },
+    "selections": [{
+        "selName": "Big",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524470472000.0,
+    "betId": "180423576721328964",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "61",
+        "ballNum": null,
+        "gameResult": "8,3,8,6,4",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=61&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423576721328964&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "Odd",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524462532000.0,
+    "betId": "180423497321322521",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "47",
+        "ballNum": null,
+        "gameResult": "9,9,3,6,8",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=47&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423497321322521&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "N2",
+        "odds": "8.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524462444000.0,
+    "betId": "180423496441325858",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "47",
+        "ballNum": "1,4,9",
+        "gameResult": "9,9,3,6,8",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=47&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423496441325858&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "N149",
+        "odds": "140.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524461925000.0,
+    "betId": "180423491251322185",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "46",
+        "ballNum": null,
+        "gameResult": "0,0,7,5,1",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=46&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423491251322185&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "NX746X",
+        "odds": "920.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524461100000.0,
+    "betId": "180423483001329639",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "45",
+        "ballNum": null,
+        "gameResult": "5,0,3,7,5",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=45&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423483001329639&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "Small",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524461026000.0,
+    "betId": "180423482261325873",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "45",
+        "ballNum": null,
+        "gameResult": "5,0,3,7,5",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=45&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423482261325873&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "N64XXX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524459589000.0,
+    "betId": "180423467881322597",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "43",
+        "ballNum": null,
+        "gameResult": "6,6,7,9,2",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=43&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423467881322597&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "Odd",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524459589000.0,
+    "betId": "180423467881321713",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "43",
+        "ballNum": null,
+        "gameResult": "6,6,7,9,2",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=43&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423467881321713&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "Small",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524459273000.0,
+    "betId": "180423464731328576",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "42",
+        "ballNum": null,
+        "gameResult": "9,7,8,4,7",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=42&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423464731328576&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "Even",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524459112000.0,
+    "betId": "180423463121320410",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "42",
+        "ballNum": null,
+        "gameResult": "9,7,8,4,7",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=42&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423463121320410&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "N8XXXX",
+        "odds": "9.5",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524454067000.0,
+    "betId": "180423412671321956",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "33",
+        "ballNum": null,
+        "gameResult": "5,5,1,8,5",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=33&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423412671321956&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "Odd",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524454067000.0,
+    "betId": "180423412671329986",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "33",
+        "ballNum": null,
+        "gameResult": "5,5,1,8,5",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=33&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423412671329986&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "Big",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524413171000.0,
+    "betId": "180423003711322357",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "XinJiang",
+        "drawNo": "2018042285",
+        "ballNum": null,
+        "gameResult": "1,5,7,8,2",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=XinJiang&drawNo=2018042285&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423003711322357&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "Big",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524413171000.0,
+    "betId": "180423003711324201",
+    "betType": "",
+    "stake": 2.0,
+    "return": 1.90,
+    "status": 1,
+    "extend": {
+        "location": "XinJiang",
+        "drawNo": "2018042285",
+        "ballNum": null,
+        "gameResult": "1,5,7,8,2",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=XinJiang&drawNo=2018042285&date=2018-04-23",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180423003711324201&date=2018-04-23"
+    },
+    "selections": [{
+        "selName": "Odd",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524369641000.0,
+    "betId": "180422432411327937",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "37",
+        "ballNum": null,
+        "gameResult": "9,6,1,9,5",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=37&date=2018-04-22",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180422432411327937&date=2018-04-22"
+    },
+    "selections": [{
+        "selName": "N37XXX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524369373000.0,
+    "betId": "180422429731321922",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "36",
+        "ballNum": null,
+        "gameResult": "6,2,9,4,5",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=36&date=2018-04-22",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180422429731321922&date=2018-04-22"
+    },
+    "selections": [{
+        "selName": "N3XXXX",
+        "odds": "9.5",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524368930000.0,
+    "betId": "180422425301329210",
+    "betType": "",
+    "stake": 2.0,
+    "return": 1.90,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "35",
+        "ballNum": null,
+        "gameResult": "2,7,5,1,1",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=35&date=2018-04-22",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180422425301329210&date=2018-04-22"
+    },
+    "selections": [{
+        "selName": "Small",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524367012000.0,
+    "betId": "180422406091323417",
+    "betType": "",
+    "stake": 2.0,
+    "return": 1.90,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "32",
+        "ballNum": null,
+        "gameResult": "4,0,3,9,2",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=32&date=2018-04-22",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180422406091323417&date=2018-04-22"
+    },
+    "selections": [{
+        "selName": "Small",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524367009000.0,
+    "betId": "180422406091325930",
+    "betType": "",
+    "stake": 2.0,
+    "return": 1.90,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "32",
+        "ballNum": null,
+        "gameResult": "4,0,3,9,2",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=32&date=2018-04-22",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180422406091325930&date=2018-04-22"
+    },
+    "selections": [{
+        "selName": "Small",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524323411000.0,
+    "betId": "180421834111329727",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "111",
+        "ballNum": null,
+        "gameResult": "7,2,1,4,4",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=111&date=2018-04-21",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180421834111329727&date=2018-04-21"
+    },
+    "selections": [{
+        "selName": "N11XXX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524323411000.0,
+    "betId": "180421834111321855",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "111",
+        "ballNum": null,
+        "gameResult": "7,2,1,4,4",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=111&date=2018-04-21",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180421834111321855&date=2018-04-21"
+    },
+    "selections": [{
+        "selName": "N12XXX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524323411000.0,
+    "betId": "180421834111320973",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "111",
+        "ballNum": null,
+        "gameResult": "7,2,1,4,4",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=111&date=2018-04-21",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180421834111320973&date=2018-04-21"
+    },
+    "selections": [{
+        "selName": "N17XXX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524318096000.0,
+    "betId": "180421780961326186",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "95",
+        "ballNum": null,
+        "gameResult": "7,6,7,3,0",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=95&date=2018-04-21",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180421780961326186&date=2018-04-21"
+    },
+    "selections": [{
+        "selName": "N1XXXX",
+        "odds": "9.5",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524193915000.0,
+    "betId": "180420403151792899",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "32",
+        "ballNum": null,
+        "gameResult": "7,7,6,3,5",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=32&date=2018-04-20",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180420403151792899&date=2018-04-20"
+    },
+    "selections": [{
+        "selName": "N81XXX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524193915000.0,
+    "betId": "180420403151791757",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "32",
+        "ballNum": null,
+        "gameResult": "7,7,6,3,5",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=32&date=2018-04-20",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180420403151791757&date=2018-04-20"
+    },
+    "selections": [{
+        "selName": "N87XXX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524193915000.0,
+    "betId": "180420403151791514",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "32",
+        "ballNum": null,
+        "gameResult": "7,7,6,3,5",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=32&date=2018-04-20",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180420403151791514&date=2018-04-20"
+    },
+    "selections": [{
+        "selName": "N17XXX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524193915000.0,
+    "betId": "180420403151797322",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "32",
+        "ballNum": null,
+        "gameResult": "7,7,6,3,5",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=32&date=2018-04-20",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180420403151797322&date=2018-04-20"
+    },
+    "selections": [{
+        "selName": "N11XXX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524193704000.0,
+    "betId": "180420401041796312",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "31",
+        "ballNum": null,
+        "gameResult": "8,4,2,2,0",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=31&date=2018-04-20",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180420401041796312&date=2018-04-20"
+    },
+    "selections": [{
+        "selName": "N67XXX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524193704000.0,
+    "betId": "180420401041793643",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "31",
+        "ballNum": null,
+        "gameResult": "8,4,2,2,0",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=31&date=2018-04-20",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180420401041793643&date=2018-04-20"
+    },
+    "selections": [{
+        "selName": "N2X2XX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524193467000.0,
+    "betId": "180420398671793408",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "31",
+        "ballNum": null,
+        "gameResult": "8,4,2,2,0",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=31&date=2018-04-20",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180420398671793408&date=2018-04-20"
+    },
+    "selections": [{
+        "selName": "N28XXX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524192738000.0,
+    "betId": "180420391381797131",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "30",
+        "ballNum": null,
+        "gameResult": "6,0,7,3,3",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=30&date=2018-04-20",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180420391381797131&date=2018-04-20"
+    },
+    "selections": [{
+        "selName": "Small",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524192738000.0,
+    "betId": "180420391381795475",
+    "betType": "",
+    "stake": 2.0,
+    "return": 1.90,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "30",
+        "ballNum": null,
+        "gameResult": "6,0,7,3,3",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=30&date=2018-04-20",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180420391381795475&date=2018-04-20"
+    },
+    "selections": [{
+        "selName": "Even",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524191594000.0,
+    "betId": "180420379941793836",
+    "betType": "",
+    "stake": 2.0,
+    "return": 1.90,
+    "status": 1,
+    "extend": {
+        "location": "XinJiang",
+        "drawNo": "2018042004",
+        "ballNum": null,
+        "gameResult": "8,3,7,2,6",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=XinJiang&drawNo=2018042004&date=2018-04-20",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180420379941793836&date=2018-04-20"
+    },
+    "selections": [{
+        "selName": "Even",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1524159004000.0,
+    "betId": "180420054041794694",
+    "betType": "",
+    "stake": 2.0,
+    "return": -2.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "19",
+        "ballNum": null,
+        "gameResult": "9,5,3,3,9",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=19&date=2018-04-20",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180420054041794694&date=2018-04-20"
+    },
+    "selections": [{
+        "selName": "N16XXX",
+        "odds": "95.0",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1523093282000.0,
+    "betId": "180407628821317815",
+    "betType": "",
+    "stake": 2.0,
+    "return": 1.90,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "69",
+        "ballNum": null,
+        "gameResult": "3,1,6,7,3",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=69&date=2018-04-07",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180407628821317815&date=2018-04-07"
+    },
+    "selections": [{
+        "selName": "Even",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1523093254000.0,
+    "betId": "180407628541316631",
+    "betType": "",
+    "stake": 2.0,
+    "return": 1.90,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "69",
+        "ballNum": null,
+        "gameResult": "3,1,6,7,3",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=69&date=2018-04-07",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180407628541316631&date=2018-04-07"
+    },
+    "selections": [{
+        "selName": "Even",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1523085717000.0,
+    "betId": "180407553171319076",
+    "betType": "",
+    "stake": 20.0,
+    "return": 19.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "57",
+        "ballNum": null,
+        "gameResult": "9,5,0,0,3",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=57&date=2018-04-07",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180407553171319076&date=2018-04-07"
+    },
+    "selections": [{
+        "selName": "Odd",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1523085643000.0,
+    "betId": "180407552431312767",
+    "betType": "",
+    "stake": 20.0,
+    "return": 19.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "57",
+        "ballNum": null,
+        "gameResult": "9,5,0,0,3",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=57&date=2018-04-07",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180407552431312767&date=2018-04-07"
+    },
+    "selections": [{
+        "selName": "Big",
+        "odds": "1.95",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}, {
+    "partnerName": "Lotto",
+    "partnerId": 18,
+    "betTime": 1523032083000.0,
+    "betId": "180407016831318269",
+    "betType": "",
+    "stake": 100.0,
+    "return": 850.0,
+    "status": 1,
+    "extend": {
+        "location": "Chongqing",
+        "drawNo": "6",
+        "ballNum": null,
+        "gameResult": "0,9,0,0,0",
+        "drawUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/result?product=2&counterCode=Chongqing&drawNo=6&date=2018-04-07",
+        "wagerUrl": "https://ng-gc-188.prdangb18a1.com/zh-cn/integrate/WagerDetails?product=2&membercode=conku188&token=AZZ_SIXff6lPfdtIH66yeA..&wagerno=180407016831318269&date=2018-04-07"
+    },
+    "selections": [{
+        "selName": "N0XXXX",
+        "odds": "9.5",
+        "betTime": null,
+        "status": null,
+        "extend": {},
+        "parts": {},
+        "betAdjustments": null
+    }]
+}]

@@ -1,5 +1,5 @@
 {
-    "isSuccess": true, 
+    "isSuccess": true,
     "data": {
         "totalCount": 1,
         "gameResults": [{
@@ -12,4 +12,42 @@
         }]
     }
 
+}
+
+
+
+{
+    "isSuccess": true,
+    "data": {
+        "totalCount": 1,
+        "gameResults": [{
+            "counterId": 320,
+            "drawNo": 20180426041,
+            "drawTime": "2018-04-26T15:39:00+08:00",
+            "drawStatus": 0,
+            "voidReason": 0,
+            "resultBalls": [7, 4, 5, 7, 1],
+        }, {
+            "counterId": 320,
+            "drawNo": 20180426050,
+            "drawTime": "2018-04-26T15:39:00+08:00",
+            "drawStatus": 0,
+            "voidReason": 0,
+            "resultBalls": [1, 6, 6, 5, 4],
+        }, {
+            "counterId": 320,
+            "drawNo": 20180426058,
+            "drawTime": "2018-04-26T15:39:00+08:00",
+            "drawStatus": 0,
+            "voidReason": 0,
+            "resultBalls": [7, 4, 6, 0, 5],
+        }, {
+            "counterId": 320,
+            "drawNo": 20180426063,
+            "drawTime": "2018-04-26T15:39:00+08:00",
+            "drawStatus": 0,
+            "voidReason": 0,
+            "resultBalls": [0, 3, 0, 6, 6],
+        }]
+    }
 }

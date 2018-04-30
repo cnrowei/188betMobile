@@ -3102,20 +3102,20 @@ angular.module("reportModule", ["componentsModule"])
 
     .service("$reportService", ["$http", function ($http) {
         this.getOpenBet = function (product, pageNum, pageSize) {
-            var url = "/api/report/" + product + "/openbets?";
+            var url = "/api/report/" + product + "/OpenBets?";
             url += "pageNum=" + (pageNum || 1) + "&pageSize=" + (pageSize || 10);
             return $http.get(url);
         }
 
         this.getStatement = function (dateFrom, dateTo) {
-            var url = "/api/report/statement?";
+            var url = "/api/report/Statement?";
             if (dateFrom) url += "dateFrom=" + dateFrom + "&";
             if (dateTo) url += "dateTo=" + dateTo;
             return $http.get(url);
         }
 
         this.getStatementDetails = function (product, date, pageNum, pageSize) {
-            var url = "/api/report/" + product + "/statement?";
+            var url = "/api/report/" + product + "/Statement?";
             if (date) url += "date=" + date + "&";
             url += "pageNum=" + (pageNum || 1) + "&";
             url += "pageSize=" + (pageSize || 50);
@@ -3123,7 +3123,7 @@ angular.module("reportModule", ["componentsModule"])
         }
 
         this.getStatementDetailsByCriteria = function (product, criteria) {
-            return $http.post("/api/report/" + product + "/statement/details", criteria);
+            return $http.post("/api/report/" + product + "/Statement/details", criteria);
         }
     }])
 
@@ -3326,6 +3326,7 @@ angular.module("counterModule", ["componentsModule"])
             if (date) url += "date=" + date + "&";
             url += "pageNum=" + (pageNum || 1) + "&";
             url += "pageSize=" + (pageSize || 50);
+            console.log(url)
             return $http.get(url);
         }
 

@@ -5100,7 +5100,7 @@ angular.module("reportModule", ["componentsModule"])
 
     .service("$reportService", ["$http", function ($http) {
         this.getOpenBet = function (product, pageNum, pageSize) {
-            var url = "/api/report/" + product + "/openbets?";
+            var url = "/api/report/" + product + "/OpenBets?";
             url += "pageNum=" + (pageNum || 1) + "&pageSize=" + (pageSize || 10);
             return $http.get(url);
         }
@@ -5113,7 +5113,7 @@ angular.module("reportModule", ["componentsModule"])
         }
 
         this.getStatementDetails = function (product, date, pageNum, pageSize) {
-            var url = "/api/report/" + product + "/statement?";
+            var url = "/api/report/" + product + "/Statement?";
             if (date) url += "date=" + date + "&";
             url += "pageNum=" + (pageNum || 1) + "&";
             url += "pageSize=" + (pageSize || 50);
@@ -5121,7 +5121,7 @@ angular.module("reportModule", ["componentsModule"])
         }
 
         this.getStatementDetailsByCriteria = function (product, criteria) {
-            return $http.post("/api/report/" + product + "/statement/Details", criteria);
+            return $http.post("/api/report/" + product + "/Statement/Details", criteria);
         }
     }])
 
@@ -6304,6 +6304,7 @@ var layoutApp = angular.module("layoutApp", ["ui.materialize", "memberModule", "
                     if (counterID) {
                         url += "?counterid=" + counterID + "&date=" + $filter("dateFormatgmt8")(new Date());
                     }
+                    console.log(url)
                     location.href = url;
                 } else {
                     $popup.show(title, url);
@@ -8553,7 +8554,10 @@ app.controller("statementCtrl", ["$rootScope", "$scope", "$window", "$location",
                         };
                         wager.resultDetails.ball3to1.sum = lotto123.sum;
                         wager.resultDetails.ball3to1.span = lotto123.span;
-                        wager.resultDetails.ball3to1.bs = (lotto123.sum >= 15) ? "b" : "s";
+
+                        //console.log((lotto123.sum%10))
+
+                        wager.resultDetails.ball3to1.bs = ((lotto123.sum%10) >= 5) ? "b" : "s";
                         wager.resultDetails.ball3to1.oe = (lotto123.sum % 2 == 1) ? "o" : "e";
                     }
 

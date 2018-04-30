@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"./handler"
@@ -15,6 +17,7 @@ func main() {
 	handler.SessionMgr = helper.NewSessionMgr("188betCookie", 3600)
 
 	gin.SetMode(gin.DebugMode)
+
 	router := gin.Default()
 	router.Delims("{[{", "}]}")
 	router.Static("/Content", "./content")
@@ -49,9 +52,7 @@ func main() {
 	})
 
 	router.POST("/service/userapi/login", handler.Login)
-
 	router.POST("/postlogin", handler.Postlogin)
-
 	router.POST("/service/healthapi/needrefresh", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"kickoff":     false,
@@ -71,18 +72,29 @@ func main() {
 			c.JSON(http.StatusOK, gin.H{"isSuccess": true, "data": gin.H{"serverTime": now, "invalid": true}})
 		}
 	})
+
 	///api/Member/Chips
 	router.GET("/api/Member/Chips", handler.Chips)
+	///api/Member/Chips
+	router.PUT("/api/Member/Chips", handler.PutChips)
 
-	//需要登录的页面
-	router.Use(handler.SessionMiddleware)
+	///余额
+	router.GET("/api/Member/Balance", handler.Balance)
+	//彩票列表
+	router.GET("/api/lotto/Mobile", handler.Mobile)
+	//Counter 彩票到期，单个服务
+	router.GET("/api/lotto/Counter/:number", handler.CounterID)
+	//开奖结果
+	router.GET("/api/lotto/Counter/:number/Trends", handler.Trends)
 
-	//彩票首页
-	router.GET("/zh-cn/lotto", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "lotto.tpl.html", gin.H{
-			"title": "lotto",
-		})
-	})
+	//确认下注
+	router.POST("/api/:name/PlaceBet", handler.PlaceBet)
+	router.POST("/api/:name/BetSlip", func(c *gin.Context) {})
+
+	router.GET("/api/report/Statement", handler.Statement())
+	router.GET("/api/report/lotto/Statement", handler.Statement())
+	///api/Report/lotto/OpenBets?pageNum=1&pageSize=10
+	router.GET("/api/report/lotto/OpenBets", handler.OpenBets())
 
 	//判断跳转
 	router.GET("/zh-cn/lotto/lobby", func(c *gin.Context) {
@@ -94,107 +106,6 @@ func main() {
 		if partnerId == "18" {
 			c.Redirect(http.StatusMovedPermanently, "/zh-cn/lotto/main-lobby")
 		}
-	})
-
-	router.GET("/zh-cn/my-account/statement/transaction-history/summary", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "summary.tpl.html", gin.H{
-			"title": "摘要",
-		})
-	})
-
-	router.GET("/zh-cn/my-account/statement/betting-history/lotto/settled-bets", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "settled-bets.tpl.html", gin.H{
-			"title": "彩票已结算投注",
-		})
-	})
-
-	router.GET("/zh-cn/my-account/statement/betting-history/lotto/unsettled-bets", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "settled-bets.tpl.html", gin.H{
-			"title": "彩票未结算投注",
-		})
-	})
-
-	router.GET("/zh-cn/my-account/statement/member-manage/agent", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "member-agent.tpl.html", gin.H{
-			"title": "彩票未结算投注",
-		})
-	})
-
-	router.GET("/zh-cn/my-account/statement/member-manage/member", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "member-agent.tpl.html", gin.H{
-			"title": "用户管理",
-		})
-	})
-
-	router.GET("/zh-cn/integrate/result", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "result.tpl.html", gin.H{
-			"title": "用户管理",
-		})
-	})
-
-	//列表
-	router.GET("/zh-cn/lotto/main-lobby", func(c *gin.Context) {
-		formate := "2006/01/02 15:04:05"
-		formate2 := "2006-01-02T15:04:05+08:00"
-
-		uinfo := handler.GetSessionUsername(c)
-
-		c.HTML(http.StatusOK, "main-lobby.tpl.html", gin.H{
-			"lpb":        time.Now().Format(formate),
-			"serverTime": time.Now().Format(formate2),
-			"ln":         uinfo.Username,
-			"balance":    uinfo.Balance,
-		})
-	})
-
-	//下注页面
-	router.GET("/zh-cn/lotto/counter/:id/:counterType", func(c *gin.Context) {
-		formate := "2006/01/02 15:04:05"
-		formate2 := "2006-01-02T15:04:05+08:00"
-
-		uinfo := handler.GetSessionUsername(c)
-
-		c.HTML(http.StatusOK, "counter.tpl.html", gin.H{
-			"id":         c.Param("id"),
-			"lpb":        time.Now().Format(formate),
-			"serverTime": time.Now().Format(formate2),
-			"ln":         uinfo.Username,
-			"balance":    uinfo.Balance,
-		})
-	})
-
-	//下注状态
-	router.GET("/zh-cn/report/openbets", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "openbets.tpl.html", nil)
-	})
-	//router.GET("/zh-cn/report/openbets", handler.openbets)
-
-	//账户历史
-	router.GET("/zh-cn/report/statement", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "statement.tpl.html", nil)
-	})
-
-	//开奖结果
-	router.GET("/zh-cn/report/results", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "results.tpl.html", nil)
-	})
-
-	//公告栏
-	router.GET("/zh-cn/announcements", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "announcements.tpl.html", nil)
-	})
-
-	//设定
-	router.GET("/zh-cn/home/settings", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "settings.tpl.html", nil)
-	})
-
-	///service
-
-	router.GET("/service/myaccounttapi/GetSettleBet", func(c *gin.Context) {
-		var xxxjson string
-		xxxjson = readFile1("testjson/GETSETTLEBET.JSON")
-		c.Writer.WriteString(xxxjson)
 	})
 
 	router.GET("/service/MsgHubApi/GetMsgCounter", func(c *gin.Context) {
@@ -214,80 +125,149 @@ func main() {
 		c.Writer.WriteString(data)
 	})
 
-	//总页码
-	router.GET("/api/lotto/Mobile", handler.Mobile)
-	// router.GET("/api/lotto/Mobile", func(c *gin.Context) {
-	// 	c.Writer.WriteString(readFile1("testjson/Mobile2.json"))
-	// })
+	router.GET("/signalr/negotiate", func(c *gin.Context) {})
 
-	//Counter 彩票到期，单个服务
-	router.GET("/api/lotto/Counter/:number", handler.CounterID)
+	router.POST("/signalr/poll", func(c *gin.Context) {})
 
-	//Counter 彩票到期，单个服务
-	//router.GET("/api/lotto/Counter", handler.CounterID)
-
-	//开奖结果
-	router.GET("/api/lotto/Counter/:number/Trends", handler.Trends)
-
-	// router.GET("/api/lotto/Counter/:number/Trends", func(c *gin.Context) {
-	// 	data := readFile1("testjson/Trends.json")
-	// 	c.Writer.WriteString(data)
-	// })
-
-	//确认下注
-	router.POST("/api/lotto/PlaceBet", handler.PlaceBet)
-
-	///余额
-	router.GET("/api/Member/Balance", handler.Balance)
-
-	//OpenBets
-	///api/Report/lotto/OpenBets?pageNum=1&pageSize=10
-	router.GET("/api/report/:name/openbets", handler.OpenBets)
-
-	//https://ng-gc-188.prdangb18a1.com/api/lotto/Counter/320/GameResults?drawNo=69&date=2018-04-07&pageNum=1&pageSize=50
-	router.GET("/api/lotto/Counter/:number/GameResults", func(c *gin.Context) {
-		var xxxjson string
-		xxxjson = readFile1("testjson/GameResults.json")
-		c.Writer.WriteString(xxxjson)
+	router.GET("/api/Rule/lotto", func(c *gin.Context) {
+		data := readFile1("data/lotto.json")
+		c.Request.Header.Set("Content-Type", "application/json;charset=UTF-8")
+		c.Writer.WriteString(data)
 	})
 
-	router.GET("/signalr/negotiate", func(c *gin.Context) {
-		//b := bytes.Buffer{}
-		//b.WriteString("[")
-		// var xxxjson string
-		// xxxjson = readFile1("testjson/Mobile.json")
-		// c.Writer.WriteString(xxxjson)
+	router.GET("/api/Announcements", func(c *gin.Context) {
+		data := readFile1("data/Announcements.json")
+		c.Request.Header.Set("Content-Type", "application/json;charset=UTF-8")
+		c.Writer.WriteString(data)
+	})
+	///api/lotto/Counter/320/GameResults?drawNo=69&date=2018-04-07&pageNum=1&pageSize=50
+	router.GET("/api/lotto/Counter/:number/GameResults", handler.GameResults)
+	router.POST("/service/myaccounttapi/GetSummaryHistory", handler.GetSummaryHistory)
+	router.GET("/service/myaccounttapi/GetSettleBet", handler.GetSettleBet)
+	router.GET("/service/myaccounttapi/GetUnSettleBet", handler.GetSettleBet)
+
+	router.GET("/zh-cn/integrate/result", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "result.tpl.html", gin.H{
+			"title": "用户管理",
+		})
 	})
 
-	router.POST("/signalr/poll", func(c *gin.Context) {
-		// var xxxjson string
-		// xxxjson = readFile1("testjson/poll.json")
-		// c.Writer.WriteString(xxxjson)
-	})
+	//需要登录的页面
+	router.Use(handler.SessionMiddleware())
+	{
+		//WEB
+		router.GET("/zh-cn/my-account/statement/transaction-history/summary", GinHTML("summary.tpl.html"))
 
-	router.POST("/api/Lotto/BetSlip", func(c *gin.Context) {
+		router.GET("/zh-cn/my-account/statement/betting-history/:name/:bet", GinHTML("settled-bets.tpl.html"))
+		//router.GET("/zh-cn/my-account/statement/betting-history/:name/unsettled-bets", GinHTML("settled-bets.tpl.html"))
+		router.GET("/zh-cn/my-account/statement/member-manage/agent", GinHTML("member-agent.tpl.html"))
+		router.GET("/zh-cn/my-account/statement/member-manage/member", GinHTML("member-agent.tpl.html"))
 
-		//c.GetPostFormArray
-		//var xxxjson string
-		//xxxjson = readFile1("testjson/Mobile.json")
-		//c.Writer.WriteString(xxxjson)
-		/*
-			c.JSON(http.StatusOK, gin.H{
-				"isSuccess": true,
-				"data": gin.H{
-					"serverTime": "2018-04-06T22:56:17+08:00",
-					"invalid":    true,
-				},
-			})*/
-	})
+		//彩票首页
+		router.GET("/zh-cn/lotto", func(c *gin.Context) {
+			c.HTML(http.StatusOK, "lotto.tpl.html", gin.H{
+				"title": "lotto",
+			})
+		})
 
-	///service/healthapi/needrefresh
+		//列表
+		router.GET("/zh-cn/lotto/main-lobby", func(c *gin.Context) {
+			formate := "2006/01/02 15:04:05"
+			formate2 := "2006-01-02T15:04:05+08:00"
 
-	// str := 20180419099
-	// content := str[8:len(str)]
-	// fmt.Println(content)
+			uinfo := handler.GetSessionUsername(c)
+			if uinfo != nil {
+				c.HTML(http.StatusOK, "main-lobby.tpl.html", gin.H{
+					"lpb":        time.Now().Format(formate),
+					"serverTime": time.Now().Format(formate2),
+					"ln":         uinfo.Username,
+					"balance":    uinfo.Balance,
+				})
+			}
+		})
+
+		//下注页面
+		router.GET("/zh-cn/lotto/counter/:id/:counterType", func(c *gin.Context) {
+			formate := "2006/01/02 15:04:05"
+			formate2 := "2006-01-02T15:04:05+08:00"
+
+			uinfo := handler.GetSessionUsername(c)
+			if uinfo != nil {
+				c.HTML(http.StatusOK, "counter.tpl.html", gin.H{
+					"id":         c.Param("id"),
+					"lpb":        time.Now().Format(formate),
+					"serverTime": time.Now().Format(formate2),
+					"ln":         uinfo.Username,
+					"balance":    uinfo.Balance,
+				})
+			}
+		})
+
+		//下注状态
+		router.GET("/zh-cn/report/OpenBets", func(c *gin.Context) {
+			c.HTML(http.StatusOK, "openbets.tpl.html", nil)
+		})
+
+		//账户历史
+		router.GET("/zh-cn/report/Statement", func(c *gin.Context) {
+			c.HTML(http.StatusOK, "statement.tpl.html", nil)
+		})
+
+		//开奖结果
+		router.GET("/zh-cn/report/results", func(c *gin.Context) {
+			c.HTML(http.StatusOK, "results.tpl.html", nil)
+		})
+
+		//公告栏
+		router.GET("/zh-cn/announcements", func(c *gin.Context) {
+			c.HTML(http.StatusOK, "announcements.tpl.html", nil)
+		})
+
+		//设定
+		router.GET("/zh-cn/home/settings", func(c *gin.Context) {
+			c.HTML(http.StatusOK, "settings.tpl.html", nil)
+		})
+
+		//规则
+		router.GET("/zh-cn/rules", func(c *gin.Context) {
+			c.HTML(http.StatusOK, "rules.tpl.html", nil)
+		})
+
+	}
 
 	router.Run(":8188")
+}
+
+//中间件方法全局
+func GinHTML(htmlname string) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.HTML(http.StatusOK, htmlname, gin.H{
+			"title":          "摘要",
+			"prods":          rep(string(LoadJson("content/Json/prods.json"))),
+			"generals":       rep(string(LoadJson("content/Json/generals.json"))),
+			"domains":        rep(string(LoadJson("content/Json/domains.json"))),
+			"regs":           rep(string(LoadJson("content/Json/regs.json"))),
+			"cooperativeSet": rep(string(LoadJson("content/Json/cooperativeSet.json"))),
+			"emails":         rep(string(LoadJson("content/Json/emails.json"))),
+			"modules":        rep(string(LoadJson("content/Json/modules.json"))),
+			"lowBalance":     rep(string(LoadJson("content/Json/lowBalance.json"))),
+		})
+	}
+}
+
+func rep(str string) string {
+	str = strings.Replace(str, " ", "", -1)
+	str = strings.Replace(str, "\n", "", -1)
+	str = strings.Replace(str, "\x22", `"`, -1)
+	return str
+}
+
+func str(v interface{}) string {
+	return fmt.Sprintf("%c", v)
+}
+
+func typeof(v interface{}) string {
+	return fmt.Sprintf("%T", v)
 }
 
 func readFile1(path string) string {

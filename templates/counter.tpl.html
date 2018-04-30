@@ -27,7 +27,7 @@
             activeKeno:true,
             activeLotto:true,
             memberLobbyUrl:"/zh-cn/lotto",
-            counterID:"{{{.id}}}",
+            counterID:"{[{.id}]}",
             parentDomain: "http://127.0.0.1",
             isShowAlert:true,
             isHideNewBetType:false,
@@ -82,8 +82,8 @@
                     <div class="right">
                         <a href="#" data-activates="mobile-demo" class="mw button-collapse" data-sidenav="right"><i class="mdi mdi-menu"></i></a>
                         <ul class="right hide-on-med-and-down">
-                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/openbets#/'+product)"><a>下注状况</a></li>
-                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/statement#/'+product)"><a>帐户历史</a></li>
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/OpenBets#/'+product)"><a>下注状况</a></li>
+                                    <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/Statement#/'+product)"><a>帐户历史</a></li>
 
                             <li style="cursor:pointer" ng-click="gotoResult('/zh-cn/report/results#/'+product)"><a>开奖结果</a></li>
                                     <li style="cursor:pointer" ng-click="gotoUrl('/zh-cn/announcements#/'+product)"><a>公告栏</a></li>
@@ -108,16 +108,15 @@
 
 
                 </li>
-                        <li class="openBets" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/openbets#/'+product, '下注状况')"><a><i class="mdi mdi-square-inc-cash"></i>下注状况</a></li>
-                        <li class="statement" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/statement#/'+product, '帐户历史')"><a><i class="mdi mdi-history"></i>帐户历史</a></li>
+                        <li class="openBets" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/OpenBets#/'+product, '下注状况')"><a><i class="mdi mdi-square-inc-cash"></i>下注状况</a></li>
+                        <li class="statement" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/report/Statement#/'+product, '帐户历史')"><a><i class="mdi mdi-history"></i>帐户历史</a></li>
 
                 <li class="results" style="cursor:pointer" ng-click="gotoResult('/zh-cn/report/results#/'+product, '开奖结果')"><a><i class="mdi mdi-file-chart"></i>开奖结果</a></li>
                 <li class="announcements" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/announcements#/'+product, '公告栏')"><a><i class="mdi mdi-bell"><i class="mdi mdi-checkbox-blank-circle badge" ng-show="isShowAlert"></i></i>公告栏</a></li>
                 <li class="rules" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/rules#/'+product,'规则说明')"><a><i class="mdi mdi-information-variant"></i>规则说明</a></li>
                         <li class="setting" style="cursor:pointer" ng-click="gotoUrl('/zh-cn/home/settings#/'+product,'设定')"><a><i class="mdi mdi-account-settings-variant"></i>设定</a></li>
-                        <li class="deposit" style="cursor:pointer" ng-click="clickMainLobbyInFooter('https://m.mylucky.net/zh-cn/my-account/banking/deposit')"><a><i class="mdi mdi-wallet"></i>存款</a></li>
-                        <li class="backtoLobby" style="cursor:pointer" ng-click="clickMainLobbyInFooter('https://m.mylucky.net/zh-cn/lotto')"><a><i class="mdi mdi-castle"></i>返回大厅</a></li>
-                        <li class="logout" style="cursor:pointer" ng-click="logout('https://m.mylucky.net/zh-cn/my-account/banking/deposit')"><a><i class="mdi mdi-backburger"></i>登出</a></li>
+                        <li class="backtoLobby" style="cursor:pointer" ng-click="clickMainLobbyInFooter('/zh-cn/lotto')"><a><i class="mdi mdi-castle"></i>返回大厅</a></li>
+                        <li class="logout" style="cursor:pointer" ng-click="logout('$')"><a><i class="mdi mdi-backburger"></i>登出</a></li>
 
             </ul>
             <div ng-controller="dialogCtrl" ng-show="isShowDialog">
