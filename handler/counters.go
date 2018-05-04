@@ -70,9 +70,12 @@ func PlaceBet(c *gin.Context) {
 		//
 		b := bytes.Buffer{}
 		uinfo := GetSessionUsername(c)
+
+		fmt.Println("SessionUser:", SessionUser.Username)
+
 		if uinfo != nil {
 			b.WriteString(`{"isSuccess": true,`)
-			userid = uinfo.Id
+			userid = SessionUser.Id
 		} else {
 			b.WriteString(`{"isSuccess": false,`)
 		}

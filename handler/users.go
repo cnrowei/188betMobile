@@ -60,7 +60,6 @@ func HasSessionUser(c *gin.Context) bool {
 	var sessionID = SessionMgr.CheckCookieValid(c.Writer, c.Request)
 	if sessionID != "" {
 		if _, ok := SessionMgr.GetSessionVal(sessionID, "UserInfo"); ok {
-
 			return true
 		} else {
 			return false
@@ -186,12 +185,18 @@ func OpenBets() gin.HandlerFunc {
 	}
 }
 
+type Statements struct {
+	GameDate          time.Time `json:"gameDate"`
+	TotalCount        int       `json:"totalCount"`
+	TotalStake        float64   `json:"totalStake"`
+	TotalReturnAmount float64   `json:"totalReturnAmount"`
+}
+
 //历史报表
 func Statement() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		to := c.Query("dateTo")
 		from := c.Query("dateFrom")
-
 		date := c.Query("date")
 
 		formate := "2006-01-02 15:04:05"
@@ -207,7 +212,7 @@ func Statement() gin.HandlerFunc {
 		}
 
 		b.WriteString(`"data":{ `)
-		d, _ := time.ParseDuration("+24h")
+		//d, _ := time.ParseDuration("+24h")
 		s, _ := time.ParseDuration("+86399s")
 		var lists []*models.Wagers
 		var sel []BetSelections
@@ -215,24 +220,19 @@ func Statement() gin.HandlerFunc {
 
 		//历史列表主要
 		if to != "" && from != "" {
-			log.Println(to)
-			log.Println(from)
 
 			toTime, _ := time.ParseInLocation(formate, to+" 00:00:00", time.Local)
 			fromTime, _ := time.ParseInLocation(formate, from+" 00:00:00", time.Local)
 			var toendtime time.Time
 
-			log.Println(toTime)
-			log.Println(fromTime)
-
 			//时间类型比较,是否在fromTime之前
 			for toTime.Before(fromTime) {
 
-				log.Println(toTime)
-				log.Println(fromTime)
-
-				toTime = toTime.Add(d)
+				toTime = toTime.AddDate(0, 0, 1)
 				toendtime = toTime.Add(s)
+
+				fmt.Println("toTime:", toTime)
+				fmt.Println("fromTime:", fromTime)
 
 				lists, err = models.GetWagersStatement(uinfo.Id, toTime, toendtime)
 
@@ -255,17 +255,29 @@ func Statement() gin.HandlerFunc {
 					}
 
 					totalCount = len(lists)
-
+					var sta []Statements
 					if totalCount > 0 {
-						b.WriteString(`"` + toTime.Format(formate1) + ` (` + Weekdaycn(toTime.Weekday().String()) + `)": {`)
+
+						s := Statements{
+							GameDate:          toTime,
+							TotalCount:        totalCount,
+							TotalStake:        totalStake,
+							TotalReturnAmount: totalReturnAmount,
+						}
+						sta = append(sta, s)
+					}
+
+					for i, v := range sta {
+
+						b.WriteString(`"` + v.GameDate.Format(formate1) + ` (` + Weekdaycn(v.GameDate.Weekday().String()) + `)": {`)
 						b.WriteString(`"lotto": {`)
 						b.WriteString(`"gameDate": "` + toTime.Format(formate) + `",`)
-						b.WriteString(` "totalCount": ` + strconv.Itoa(totalCount) + `,`)
-						b.WriteString(`"totalStake": ` + Float64toStr(totalStake) + `,`)
-						b.WriteString(`"totalReturnAmount": ` + Float64toStr(totalReturnAmount) + ``)
+						b.WriteString(`"totalCount": ` + strconv.Itoa(v.TotalCount) + `,`)
+						b.WriteString(`"totalStake": ` + Float64toStr(v.TotalStake) + `,`)
+						b.WriteString(`"totalReturnAmount": ` + Float64toStr(v.TotalReturnAmount) + ``)
 						b.WriteString("}")
 
-						if toTime.Equal(fromTime) {
+						if i >= len(sta)-1 {
 							b.WriteString("}")
 						} else {
 							b.WriteString("},")

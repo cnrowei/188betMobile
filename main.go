@@ -157,7 +157,6 @@ func main() {
 	{
 		//WEB
 		router.GET("/zh-cn/my-account/statement/transaction-history/summary", GinHTML("summary.tpl.html"))
-
 		router.GET("/zh-cn/my-account/statement/betting-history/:name/:bet", GinHTML("settled-bets.tpl.html"))
 		//router.GET("/zh-cn/my-account/statement/betting-history/:name/unsettled-bets", GinHTML("settled-bets.tpl.html"))
 		router.GET("/zh-cn/my-account/statement/member-manage/agent", GinHTML("member-agent.tpl.html"))

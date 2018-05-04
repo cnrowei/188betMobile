@@ -1,4 +1,116 @@
 {
-    "isSuccess": true,
-    "data": "<h3>\r\n    时时彩 Lotto\r\n</h3>\r\n<p>\r\n    时时彩是3位数或5位数投注的中国数字游戏，由中国福彩3D、重庆、江西、上海、天津和新疆官方彩票所提供的3个或5个数字球的正式结果。\r\n</p>\r\n<p>\r\n    时时彩结果以官方彩票网站特定时间及各自的开奖结果，由右至左的确切顺序组合的3个或5个数字为依据。\r\n</p>\r\n<p>\r\n    若彩票官网没有在24小时内提供官方开奖结果，所有下注于该期的注单将被取消并返回本金。\r\n</p>\r\n<p>\r\n    在彩票结果公布于24小时后官方若有任何修改，将不予认可。\r\n</p>\r\n<h3>\r\n    如何投注\r\n</h3>\r\n<p>\r\n    一旦您进入游戏，您将可以看到屏幕上不同国家的时时彩盘口和下注倒数有效时间。\r\n</p>\r\n<p>\r\n    在下注倒数有效时间内(注:不同地区的时时彩会依据官方开奖时间，会有不同下注时限)，根据地区选择您需要投注的选项。点击选项后将会增加一个投注单，您可以输入需要投注的金额或继续点击其它选项。\r\n</p>\r\n<p>\r\n    下一步，您需要输入下注金额后点击“下注”按钮确认您的投注。同时您也可以点击“X”按钮取消您的投注。任何投注如果不确认系统将不会接受。\r\n</p>\r\n<p>\r\n    您可以点击“下注状况”或“+”进入查看投注注单信息。一旦注单派彩，您的投注结果可以在“账户历史”中查询。\r\n</p>\r\n<p>\r\n    如果发生受注期取消的情况，所有投注在这一期的注单将被视为无效和取消。\r\n</p>\r\n<br />\r\n<p>\r\n    时时彩可以下注以下投注类型和官方彩票种类：\r\n</p>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>\r\n                序号\r\n            </th>\r\n            <th>\r\n                投注类型\r\n            </th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>1</td>\r\n            <td>\r\n                一定位大/小\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>2</td>\r\n            <td>\r\n                一定位单/双\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>3</td>\r\n            <td>\r\n                一定位\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>4</td>\r\n            <td>\r\n                二定位\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>5</td>\r\n            <td>\r\n                三定位\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>6</td>\r\n            <td>\r\n                二定位和值尾数 大/小\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>7</td>\r\n            <td>\r\n                二定位和值尾数 单/双\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>8</td>\r\n            <td>\r\n                三定位和值尾数 大/小\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>9</td>\r\n            <td>\r\n                三定位和值尾数 单/双\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>10</td>\r\n            <td>\r\n                百十个和值\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>11</td>\r\n            <td>\r\n                百十个跨度\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>12</td>\r\n            <td>\r\n                百十个 一字\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>13</td>\r\n            <td>\r\n                百十个 二字\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>14</td>\r\n            <td>\r\n                百十个 二字（双重）\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>15</td>\r\n            <td>\r\n                百十个 三字（组六）\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>16</td>\r\n            <td>\r\n                百十个 三字（组三）\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td>17</td>\r\n            <td>\r\n                百十个 三字（豹子）\r\n            </td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<br />\r\n<br />\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>\r\n                官方彩票种类\r\n            </th>\r\n            <th>\r\n                彩球数\r\n            </th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>\r\n                中国福彩3D\r\n            </td>\r\n            <td>3</td>\r\n        </tr>\r\n        <tr>\r\n            <td>\r\n                重庆\r\n            </td>\r\n            <td>5</td>\r\n        </tr>\r\n        <tr>\r\n            <td>\r\n                江西\r\n            </td>\r\n            <td>5</td>\r\n        </tr>\r\n        <tr>\r\n            <td>\r\n                上海\r\n            </td>\r\n            <td>3</td>\r\n        </tr>\r\n        <tr>\r\n            <td>\r\n                天津\r\n            </td>\r\n            <td>5</td>\r\n        </tr>\r\n        <tr>\r\n            <td>\r\n                新疆\r\n            </td>\r\n            <td>5</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<br />\r\n<br />\r\n<p>\r\n    每种投注类型详细说明：\r\n</p>\r\n<h3>\r\n    1.\t一定位大/小\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>大</th>\r\n            <th>小</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>1.95</td>\r\n            <td>1.95</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注指定开奖号码为“大”或者“小”\r\n    <br />\r\n    <span>\r\n        小:\r\n    </span>\r\n    0, 1, 2, 3, 4\r\n    <br />\r\n    <span>\r\n        大:\r\n    </span>\r\n    5, 6, 7, 8, 9\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例：\r\n    </span>\r\n    <br />\r\n    玩家投注100元于百“小”，其结果是279，其中的百是“2”，这是“小”的号码，因此，投注获胜。\r\n    <br />\r\n    奖金：100×1.95= 195\r\n</p>\r\n<h3>\r\n    2.  一定位单/双\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>单</th>\r\n            <th>双</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>1.95</td>\r\n            <td>1.95</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注指定开奖号码为单或者双\r\n    <br />\r\n    <span>\r\n        单:\r\n    </span>\r\n    1, 3, 5, 7, 9\r\n    <br />\r\n    <span>\r\n        双:\r\n    </span>\r\n    0, 2, 4, 6, 8\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例：\r\n    </span>\r\n    <br />\r\n    玩家投注100元于个“双”，其结果是368，其中的个是“8”，这是“双”的号码，因此，投注获胜。\r\n    <br />\r\n    奖金：100×1.95= 195\r\n</p>\r\n<h3>\r\n    3. 一定位\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>0 ~ 9</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>9.5</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注从0到9中一个特定数字出现在指定开奖号码位置（比如个，十，百等等）\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例\r\n    </span>\r\n    <br />\r\n    玩家下注100元于十特定数字为“6”。结果是15863，其中十是“6”，因此，投注获胜。\r\n    <br />\r\n    奖金：100×9.5= 950\r\n</p>\r\n<h3>\r\n    4.\t二定位:\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>00 ~ 99</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>95</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注从0到9中二个特定数字任意出现在指定的开奖号码位置上（比如个，十，百，千，万）\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例\r\n    </span>\r\n    <br />\r\n    玩家下注100元于万和十特定数字为“1”和“6”。结果是15863，其中万和十是“1”和“6”，因此，投注获胜。\r\n    <br />\r\n    奖金：100 x 95 = 9,500\r\n</p>\r\n<h3>\r\n    5.\t三定位:\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>000 ~ 999</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>920</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注从0到9中三个特定数字任意出现在最后3球（百，十，个）或中间3球（千，百，十）或前3球（万，千，百）。\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例\r\n    </span>\r\n    <br />\r\n    玩家下注100于万千和百为数字“1”，“5”和“8”。结果是15863，其中万，千和百为固定数字“1”，“5”和“8”，因此，投注获胜。\r\n    <br />\r\n    奖金： 100 x 920 = 92,000。\r\n</p>\r\n<h3>\r\n    6.\t二定位和值尾数 大/小:\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>大</th>\r\n            <th>小</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>1.95</td>\r\n            <td>1.95</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注万，千，百，十和个中随机两个号码的和值最后一位大/小\r\n    <br />\r\n    <span>\r\n        小:\r\n    </span>\r\n    0, 1, 2, 3, 4\r\n    <br />\r\n    <span>\r\n        大:\r\n    </span>\r\n    5, 6, 7, 8, 9\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例\r\n    </span>\r\n    <br />\r\n    玩家投注100元在万和百和值为“大”  。结果是15863，其中万和百的和值为1 + 8 = 9，最后一位为“9”，为“大”的号码，因此，投注获胜。\r\n    <br />\r\n    奖金： 100 x 1.95 = 195\r\n</p>\r\n<h3>\r\n    7.\t二定位和值尾数 单/双:\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>单</th>\r\n            <th>双</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>1.95</td>\r\n            <td>1.95</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注万，千，百，十和个中随机两个号码的和值最后一位单/双\r\n    <br />\r\n    <span>\r\n        单:\r\n    </span>\r\n    1, 3, 5, 7, 9\r\n    <br />\r\n    <span>\r\n        双:\r\n    </span>\r\n    0, 2, 4, 6, 8\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例\r\n    </span>\r\n    <br />\r\n    玩家投注100元在万和百和值为“单”  。结果是15863，其中万和百的和为1 + 8 = 9，最后一位为“9”，这是一个“单”数，因此，投注获胜。\r\n    <br />\r\n    奖金： 100 x 1.95 = 195\r\n</p>\r\n<h3>\r\n    8.\t三定位和值尾数 大/小:\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>大</th>\r\n            <th>小</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>1.95</td>\r\n            <td>1.95</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注在最后3球和值（百，十和个）或中间3球和值（千，百，十）或前3球和值（万，千，百）最后一位大/小。\r\n    <br />\r\n    <span>\r\n        小:\r\n    </span>\r\n    0, 1, 2, 3, 4\r\n    <br />\r\n    <span>\r\n        大:\r\n    </span>\r\n    5, 6, 7, 8, 9\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例\r\n    </span>\r\n    <br />\r\n    玩家下注100于万千和百和值为“小”。结果是15863，其中万，千和百之和值为1 + 5 + 8 = 14，最后一个数字为“4”，这是“小” 的号码，因此，投注获胜。\r\n    <br />\r\n    奖金： 100 x 1.95 = 195\r\n</p>\r\n<h3>\r\n    9.\t三定位和值尾数 单/双:\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>单</th>\r\n            <th>双</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>1.95</td>\r\n            <td>1.95</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注在最后3球和值（百，十和个）或中间3球和值（千，百，十）或前3球和值（万，千，百）最后一位单/双。\r\n    <br />\r\n    <span>\r\n        单:\r\n    </span>\r\n    1, 3, 5, 7, 9\r\n    <br />\r\n    <span>\r\n        双:\r\n    </span>\r\n    0, 2, 4, 6, 8\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例\r\n    </span>\r\n    <br />\r\n    玩家下注100于万千和百和值为“双”。结果是15863，其中万，千和百之和值为1 + 5 + 8 = 14，最后一个数字为“4”，这是“双” 的号码，因此，投注获胜。\r\n    <br />\r\n    奖金： 100 x 1.95 = 195\r\n</p>\r\n<h3>\r\n    10. 百十个和值\r\n</h3>\r\n<table>\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>(0~6), (21~27)</th>\r\n            <th>(7, 20)</th>\r\n            <th>(8, 19)</th>\r\n            <th>(9, 18)</th>\r\n            <th>(10, 17)</th>\r\n            <th>(11,16)</th>\r\n            <th>(12, 15)</th>\r\n            <th>(13, 14)</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td data-title=\"Multiplier\">赔率</td>\r\n            <td data-title=\"(0~6), (21~27)\">9</td>\r\n            <td data-title=\"(7, 20)\">20</td>\r\n            <td data-title=\"(8, 19)\">16</td>\r\n            <td data-title=\"(9, 18)\">14</td>\r\n            <td data-title=\"(10, 17)\">12</td>\r\n            <td data-title=\"(11,16)\">11</td>\r\n            <td data-title=\"(12, 15)\">10</td>\r\n            <td data-title=\"(13, 14)\">10</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注“百”“十”“个”和值是一个特定数字或者已经给定的范围\r\n</p>\r\n<p>\r\n    <span class=\"eg bordered\">\r\n        举例：\r\n    </span>\r\n    <br />\r\n    玩家投注100元于“百”“十”“个”和值范围为“21-27”，结果是19869，其中“百”“十”“个”的和值为8+6+9 =23，“23”是在“21-27”的范围内，因此，投注获胜。\r\n    <br />\r\n    奖金：100×9= 900\r\n</p>\r\n<h3>\r\n    11. 百十个跨度\r\n</h3>\r\n<table class=\" bordered tb-new\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>(0)</th>\r\n            <th>(1, 9)</th>\r\n            <th>(2, 8)</th>\r\n            <th>(3, 7)</th>\r\n            <th>(4, 6)</th>\r\n            <th>(5)</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td data-title=\"Multiplier\">赔率</td>\r\n            <td data-title=\"(0)\">71</td>\r\n            <td data-title=\"(1, 9)\">14</td>\r\n            <td data-title=\"(2, 8)\">8</td>\r\n            <td data-title=\"(3, 7)\">6</td>\r\n            <td data-title=\"(4, 6)\">5.5</td>\r\n            <td data-title=\"(5)\">5</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注在“百”“十”“个”的跨度为特定的值。跨度是指“百”“十”“个”三个数字中的最大数减最小数的值\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例：\r\n    </span>\r\n    <br />\r\n    玩家投注100元于“百”“十”“个”跨度值为“5”，其结果是20166，其中“百”“十”“个”的跨度值是6 -1= 5，因此，投注获胜。\r\n    <br />\r\n    奖金：100×5= 500\r\n</p>\r\n<h3>\r\n    12. 百十个 一字\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>0~9</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>3</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注从0到9的一个特定数字任意出现在“百”“十”“个”中\r\n    <br />\r\n    若选定数字在“百”“十”“个”中重复出现视为中奖一次\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例：\r\n    </span>\r\n    <br />\r\n    玩家投注100元于“百”“十”“个”定位数字为8，其结果是15867，数字“8”出现在“百”位，因此，投注获胜。\r\n    <br />\r\n    奖金：100×3= 300\r\n</p>\r\n<h3>\r\n    13. 百十个 二字\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>二字</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>14</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注从0到9的两个特定数字不分顺序任意出现在 “百”“十”“个”中\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例：\r\n    </span>\r\n    <br />\r\n    玩家投注100元于“百”“十”“个”特定数字为1和8，其结果是15187，数字“1”和“8”出现在“百”位和“十”位，因此，投注获胜。\r\n    <br />\r\n    奖金：100×14= 1,400\r\n</p>\r\n<h3>\r\n    14.  百十个 二字（双重）\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>二字（双重）</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>28</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注从0到9的一个特定数字不分顺序任意出现在 “百”“十”“个”中两次\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例：\r\n    </span>\r\n    <br />\r\n    玩家投注100元于“百”“十”“个”特定数字为1和1，其结果是35181，数字“1”和“1”出现在“百”位和“个”位，因此，投注获胜。\r\n    <br />\r\n    奖金：100×28= 2,800\r\n</p>\r\n<h3>\r\n    15. 百十个 三字（组六）\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>三字（组六）</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>140</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注从0到9的三个特定数字不分顺序任意出现在 “百”“十”“个”中\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例：\r\n    </span>\r\n    <br />\r\n    玩家投注100元于三个特定数字为1、3、5，其结果是37513，数字“1”、“3”和“5”出现在“十”位、“个”位和“百”位，因此，投注获胜。\r\n    <br />\r\n    奖金：100×140= 14,000\r\n</p>\r\n<p>\r\n    如果结果为37<span class=\"eg\">531</span>, 37<span class=\"eg\">135</span>, 37<span class=\"eg\">153</span>, 37<span class=\"eg\">315</span>或37<span class=\"eg\">351</span>，投注仍然获胜。\r\n</p>\r\n<h3>\r\n    16. 百十个 三字（组三）\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>三字（组三）</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>280</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注从0到9的一个特定非重复数字和一个特定重复数字不分顺序任意出现在 “百”“十”“个”中\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例：\r\n    </span>\r\n    <br />\r\n    玩家投注100元于三个特定数字为1、1、4，其结果是42114，数字“1”、“”1和“4”出现在“百”位、“十”位和“个”位，因此，投注获胜。\r\n    <br />\r\n    奖金：100×280= 28,000\r\n</p>\r\n<p>\r\n    如果结果是42<span class=\"eg\">141</span>或42<span class=\"eg\">411</span>，投注仍然获胜。\r\n</p>\r\n<h3>\r\n    17. 百十个 三字（豹子）\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>选项</th>\r\n            <th>三字（豹子）</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>赔率</td>\r\n            <td>750</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<p>\r\n    投注从0到9的一个特定数字重复3次出现在“百”“十”“个”中\r\n</p>\r\n<p>\r\n    <span class=\"eg\">\r\n        举例：\r\n    </span>\r\n    <br />\r\n    玩家投注100元于三个特定数字为1、1、1，其结果是37111，数字“1”、“1”和“1”出现在“百”位、“十”位和“个”位，因此，投注获胜。\r\n    <br />\r\n    奖金：100×750= 75,000\r\n</p>\r\n<h3>\r\n    返回给玩家\r\n</h3>\r\n<table class=\" bordered\">\r\n    <thead>\r\n        <tr>\r\n            <th>序号</th>\r\n            <th>投注类型/选项</th>\r\n            <th>返回给玩家</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td>1</td>\r\n            <td>一定位大/小</td>\r\n            <td>97.50%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>2</td>\r\n            <td>一定位单/双</td>\r\n            <td>97.50%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>3</td>\r\n            <td>一定位</td>\r\n            <td>95.00%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>4</td>\r\n            <td>二定位</td>\r\n            <td>95.00%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>5</td>\r\n            <td>三定位</td>\r\n            <td>98.00%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>6</td>\r\n            <td>二定位和值尾数 大/小</td>\r\n            <td>97.50%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>7</td>\r\n            <td>二定位和值尾数 单/双</td>\r\n            <td>97.50%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>8</td>\r\n            <td>三定位和值尾数 大/小</td>\r\n            <td>97.50%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>9</td>\r\n            <td>三定位和值尾数 单/双</td>\r\n            <td>97.50%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>10</td>\r\n            <td>百十个和值 (0~6, 21~27)</td>\r\n            <td>75.60%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>11</td>\r\n            <td>百十个和值 (7, 20)</td>\r\n            <td>72.00%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>12</td>\r\n            <td>百十个和值 (8, 19)</td>\r\n            <td>72.00%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>13</td>\r\n            <td>百十个和值 (9, 18)</td>\r\n            <td>77.00%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>14</td>\r\n            <td>百十个和值 (10, 17)</td>\r\n            <td>75.60%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>15</td>\r\n            <td>百十个和值 (11, 16)</td>\r\n            <td>75.90%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>16</td>\r\n            <td>百十个和值 (12, 15)</td>\r\n            <td>73.00%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>17</td>\r\n            <td>百十个和值 (13, 14)</td>\r\n            <td>75.00%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>18</td>\r\n            <td>百十个跨度 (0)</td>\r\n            <td>71.00%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>19</td>\r\n            <td>百十个跨度 (1, 9)</td>\r\n            <td>75.60%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>20</td>\r\n            <td>百十个跨度 (2, 8)</td>\r\n            <td>76.80%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>21</td>\r\n            <td>百十个跨度 (3, 7)</td>\r\n            <td>75.60%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>22</td>\r\n            <td>百十个跨度 (4, 6)</td>\r\n            <td>79.20%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>23</td>\r\n            <td>百十个跨度 (5)</td>\r\n            <td>75.00%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>24</td>\r\n            <td>百十个 一字</td>\r\n            <td>81.30%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>25</td>\r\n            <td>百十个 二字</td>\r\n            <td>75.60%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>26</td>\r\n            <td>百十个 二字（双重）</td>\r\n            <td>78.40%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>27</td>\r\n            <td>百十个 三字（组六）</td>\r\n            <td>84.00%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>28</td>\r\n            <td>百十个 三字（组三）</td>\r\n            <td>84.00%</td>\r\n        </tr>\r\n        <tr>\r\n            <td>29</td>\r\n            <td>百十个 三字（豹子）</td>\r\n            <td>75.00%</td>\r\n        </tr>\r\n    </tbody>\r\n</table>"
+    "SummaryList": [{
+        "PaymentFee": 0.0,
+        "PromotionBonus": 0.0,
+        "PlatformFee": 0.0,
+        "TotalAll": {
+            "TotalStake": 0,
+            "TotalRev": 0
+        },
+        "ProductList": [{
+            "Product": "成都",
+            "TotalStake": 0,
+            "TotalRev": 0
+        }, {
+            "Product": "新疆",
+            "TotalStake": 0,
+            "TotalRev": 0
+        }],
+        "SettlementType": " 四月 2018",
+        "AffCode": "51741",
+        "AffStatus": "通过合作申请",
+        "AffType": "Affiliate",
+        "AffCountry": "CN",
+        "AffCurrency": "RMB",
+        "MemId": "8",
+        "MemCode": "conku188",
+        "MemCountry": "CN",
+        "Level": 1
+    }, {
+        "PaymentFee": 0.0,
+        "PromotionBonus": 0.0,
+        "PlatformFee": 0.0,
+        "TotalAll": {
+            "TotalStake": 0,
+            "TotalRev": 0
+        },
+        "ProductList": [{
+            "Product": "成都",
+            "TotalStake": 0,
+            "TotalRev": 0
+        }, {
+            "Product": "新疆",
+            "TotalStake": 0,
+            "TotalRev": 0
+        }],
+        "SettlementType": " 四月 2018",
+        "AffCode": "51741",
+        "AffStatus": "通过合作申请",
+        "AffType": "Affiliate",
+        "AffCountry": "CN",
+        "AffCurrency": "RMB",
+        "MemId": "7",
+        "MemCode": "conku",
+        "MemCountry": "CN",
+        "Level": 1
+    }, {
+        "PaymentFee": 0.0,
+        "PromotionBonus": 0.0,
+        "PlatformFee": 0.0,
+        "TotalAll": {
+            "TotalStake": 0,
+            "TotalRev": 0
+        },
+        "ProductList": [{
+            "Product": "成都",
+            "TotalStake": 0,
+            "TotalRev": 0
+        }, {
+            "Product": "新疆",
+            "TotalStake": 0,
+            "TotalRev": 0
+        }],
+        "SettlementType": " 四月 2018",
+        "AffCode": "51741",
+        "AffStatus": "通过合作申请",
+        "AffType": "Affiliate",
+        "AffCountry": "CN",
+        "AffCurrency": "RMB",
+        "MemId": "1",
+        "MemCode": "admin",
+        "MemCountry": "CN",
+        "Level": 1
+    }, ],
+    "Summary": {
+        "PaymentFee": 0.0,
+        "PromotionBonus": 0.0,
+        "PlatformFee": 0.0,
+        "TotalAll": {
+            "TotalStake": 0.0,
+            "TotalRev": 0.0
+        },
+        "ProductList": [{
+            "Product": "彩票",
+            "TotalStake": 143.9999988336,
+            "TotalRev": -88888.79999277642
+        }, {
+            "Product": "彩票2",
+            "TotalStake": 143.9999988336,
+            "TotalRev": -88888.79999277642
+        }],
+        "SettlementType": "",
+        "AffCode": null,
+        "AffStatus": null,
+        "AffType": null,
+        "AffCountry": null,
+        "AffCurrency": null,
+        "MemId": null,
+        "MemCode": null,
+        "MemCountry": null,
+        "Level": 0
+    },
+    "Message": null,
+    "Status": 0,
+    "SettlementType": null,
+    "Params": null
 }
