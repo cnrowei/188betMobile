@@ -40,7 +40,8 @@ import (
 	"strings"
 	"time"
 	"unicode/utf16"
-	"yougam/plugins/blackfriday"
+
+	"github.com/russross/blackfriday"
 )
 
 // get file modified time

@@ -216,6 +216,7 @@ func Statement() gin.HandlerFunc {
 		s, _ := time.ParseDuration("+86399s")
 		var lists []*models.Wagers
 		var sel []BetSelections
+		var sta []Statements
 		var err error
 
 		//历史列表主要
@@ -255,7 +256,7 @@ func Statement() gin.HandlerFunc {
 					}
 
 					totalCount = len(lists)
-					var sta []Statements
+
 					if totalCount > 0 {
 
 						s := Statements{
@@ -267,22 +268,29 @@ func Statement() gin.HandlerFunc {
 						sta = append(sta, s)
 					}
 
-					for i, v := range sta {
+				}
+			}
 
-						b.WriteString(`"` + v.GameDate.Format(formate1) + ` (` + Weekdaycn(v.GameDate.Weekday().String()) + `)": {`)
-						b.WriteString(`"lotto": {`)
-						b.WriteString(`"gameDate": "` + toTime.Format(formate) + `",`)
-						b.WriteString(`"totalCount": ` + strconv.Itoa(v.TotalCount) + `,`)
-						b.WriteString(`"totalStake": ` + Float64toStr(v.TotalStake) + `,`)
-						b.WriteString(`"totalReturnAmount": ` + Float64toStr(v.TotalReturnAmount) + ``)
-						b.WriteString("}")
+			fmt.Println("len(sta):", len(sta))
 
-						if i >= len(sta)-1 {
-							b.WriteString("}")
-						} else {
-							b.WriteString("},")
-						}
-					}
+			for i := (len(sta) - 1); i >= 0; i-- {
+
+				//for i, v := range sta {
+
+				b.WriteString(`"` + sta[i].GameDate.Format(formate1) + ` (` + Weekdaycn(sta[i].GameDate.Weekday().String()) + `)": {`)
+				b.WriteString(`"lotto": {`)
+				b.WriteString(`"gameDate": "` + sta[i].GameDate.Format(formate) + `",`)
+				b.WriteString(`"totalCount": ` + strconv.Itoa(sta[i].TotalCount) + `,`)
+				b.WriteString(`"totalStake": ` + Float64toStr(sta[i].TotalStake) + `,`)
+				b.WriteString(`"totalReturnAmount": ` + Float64toStr(sta[i].TotalReturnAmount) + ``)
+				b.WriteString("}")
+
+				fmt.Println("测试I", i)
+
+				if i == 0 {
+					b.WriteString("}")
+				} else {
+					b.WriteString("},")
 				}
 			}
 		}
